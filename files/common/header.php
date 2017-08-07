@@ -43,7 +43,15 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
-    <!-- END HEAD -->
+
+        <!-- jquery -->
+        <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <!-- template7 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/template7/1.2.3/template7.js"></script>
+
+        <!-- js general configuration -->
+        <script src="../custom/js/config.js"></script>
+        <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
         <div class="page-wrapper">
