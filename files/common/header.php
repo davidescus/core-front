@@ -33,6 +33,10 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
+
+        <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="../assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
         <link href="../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
