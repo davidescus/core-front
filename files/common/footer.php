@@ -51,7 +51,6 @@
 <script src="../assets/global/plugins/ie8.fix.min.js"></script> 
 <![endif]-->
         <!-- BEGIN CORE PLUGINS -->
-        <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -67,6 +66,16 @@
         <script src="../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
         <script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
+
+        <!--  association.js    -->
+        <script src="assets/js/app/association.js"></script>
+        <!--  distribution.js    -->
+        <script src="assets/js/app/distribution.js"></script>
+        <!--  archive-big.js    -->
+        <script src="assets/js/app/archive-big.js"></script>
+        <!--  main js    -->
+        <script src="assets/js/app/main.js"></script>
+
         <script>
             $(document).ready(function()
             {
