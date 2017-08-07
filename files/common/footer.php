@@ -70,6 +70,8 @@
         <script src="../assets/layouts/global/scripts/quick-nav.min.js" type="text/javascript"></script>
         <!-- END THEME LAYOUT SCRIPTS -->
 
+        <!--  site.js    -->
+        <script src="../custom/js/site.js"></script>
         <!--  association.js    -->
         <script src="../custom/js/association.js"></script>
         <!--  distribution.js    -->
