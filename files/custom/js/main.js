@@ -3,7 +3,7 @@ $(document).ready(function() {
     // app start flow
     setActivePage();
 
-    $('#left-menu li').on('click', function() {
+    $('.page-sidebar-menu .nav-item').on('click', function() {
         // set active page in config
         config.activePage = $(this).attr('target');
         setActivePage();
@@ -16,12 +16,12 @@ $(document).ready(function() {
     function setActivePage() {
 
         // add class active for left mennu
-        $('#left-menu li').removeClass('active');
-        $('#left-menu li[target="' + config.activePage + '"]').addClass('active');
+        $('.page-sidebar-menu .nav-item').removeClass('active');
+        $('.page-sidebar-menu .nav-item[target="' + config.activePage + '"]').addClass('active');
 
         // show content of desired page
-        $('.page-container').addClass('hidden');
-        $('.page-container.' + config.activePage).removeClass('hidden');
+        $('.page-content-wrapper').addClass('hidden');
+        $('.page-content-wrapper.' + config.activePage).removeClass('hidden');
 
         // trigger setControlFlow() method
         setControlFlow();
@@ -35,6 +35,7 @@ $(document).ready(function() {
 
         if (config.activePage == 'association') {
 
+            return;
             // autocomlete provider and league
             getTableAvailableFiltersValues('run');
             getTableAvailableFiltersValues('ruv');
@@ -55,10 +56,12 @@ $(document).ready(function() {
         }
 
         if (config.activePage == 'distribution') {
+            return;
             getDistributedEvents();
         }
 
         if (config.activePage == 'archive-big') {
+            return;
             // this is only for moment to get show all events inside archive_big table
             getAllEventsForArchivesBig();
         }

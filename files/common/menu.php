@@ -41,21 +41,21 @@
                                 </form>
                                 <!-- END RESPONSIVE QUICK SEARCH FORM -->
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item active" target="site">
                                 <a class="nav-link">
                                     <i class="icon-home"></i>
                                     <span class="title">Sites</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" target="association">
                                 <a class="nav-link">
                                     <i class="icon-home"></i>
                                     <span class="title">Associations</span>
                                     <span class="selected"></span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item" target="distribution">
                                 <a class="nav-link">
                                     <i class="icon-home"></i>
                                     <span class="title">Distributions</span>
