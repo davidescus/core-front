@@ -68,13 +68,13 @@
         <!-- END THEME LAYOUT SCRIPTS -->
 
         <!--  association.js    -->
-        <script src="assets/js/app/association.js"></script>
+        <script src="../custom/js/association.js"></script>
         <!--  distribution.js    -->
-        <script src="assets/js/app/distribution.js"></script>
+        <script src="../custom/js/distribution.js"></script>
         <!--  archive-big.js    -->
-        <script src="assets/js/app/archive-big.js"></script>
+        <script src="../custom/js/archive-big.js"></script>
         <!--  main js    -->
-        <script src="assets/js/app/main.js"></script>
+        <script src="../custom/js/main.js"></script>
 
         <script>
             $(document).ready(function()
