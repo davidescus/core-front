@@ -54,7 +54,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://cdnjs.cloudflare.com/ajax/libs/template7/1.2.3/template7.js"></script>
 
         <!-- js general configuration -->
-        <script src="../custom/js/config.js"></script>
+        <script src="../assets/custom/js/config.js"></script>
         <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">

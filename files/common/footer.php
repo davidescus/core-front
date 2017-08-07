@@ -78,15 +78,15 @@
         <!-- END THEME LAYOUT SCRIPTS -->
 
         <!--  site.js    -->
-        <script src="../custom/js/site.js"></script>
+        <script src="../assets/custom/js/site.js"></script>
         <!--  association.js    -->
-        <script src="../custom/js/association.js"></script>
+        <script src="../assets/custom/js/association.js"></script>
         <!--  distribution.js    -->
-        <script src="../custom/js/distribution.js"></script>
+        <script src="../assets/custom/js/distribution.js"></script>
         <!--  archive-big.js    -->
-        <script src="../custom/js/archive-big.js"></script>
+        <script src="../assets/custom/js/archive-big.js"></script>
         <!--  main js    -->
-        <script src="../custom/js/main.js"></script>
+        <script src="../assets/custom/js/main.js"></script>
 
         <script>
             $(document).ready(function()
