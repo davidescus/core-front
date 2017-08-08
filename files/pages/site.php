@@ -29,6 +29,8 @@
         </script>
 
         <div class="row">
+
+            <!-- site general configuration -->
             <div class="col-md-8">
                 <!-- BEGIN Portlet PORTLET-->
                 <div class="portlet light bordered">
@@ -39,69 +41,74 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h4>General</h4>
-                                <div class="form-group">
-                                    <label>Website name</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
 
-                                <div class="form-group">
-                                    <label>Website URL</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Default Select</label>
-                                    <select class="form-control">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                    </select>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Thank you page parameter</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
+                        <!-- div and script for populate site general configuration -->
+                        <div class="row site-general"></div>
+                        <script class="template-site-general" type="text/template7">
+                        <div class="col-md-6">
+                            <h4>General</h4>
+                            <div class="form-group">
+                                <label>Website name</label>
+                                <input type="text" class="form-control" placeholder="">
                             </div>
 
-                            <div class="col-md-6">
-                                <h4>SMTP</h4>
-                                <div class="form-group">
-                                    <label>Host</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
+                            <div class="form-group">
+                                <label>Website URL</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
 
-                                <div class="form-group">
-                                    <label>User</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
+                            <div class="form-group">
+                                <label>Default Select</label>
+                                <select class="form-control">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input type="text" class="form-control" placeholder="">
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Encryption</label>
-                                    <select class="form-control">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
-                                    </select>
-                                </div>
+                            <div class="form-group">
+                                <label>Thank you page parameter</label>
+                                <input type="text" class="form-control" placeholder="">
                             </div>
                         </div>
+
+                        <div class="col-md-6">
+                            <h4>SMTP</h4>
+                            <div class="form-group">
+                                <label>Host</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>User</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Encryption</label>
+                                <select class="form-control">
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                    <option>Option 4</option>
+                                    <option>Option 5</option>
+                                </select>
+                            </div>
+                        </div>
+                        </script>
                     </div>
                 </div>
                 <!-- END Portlet PORTLET-->
             </div>
+
+            <!-- site result and status class -->
             <div class="col-md-4">
                 <!-- BEGIN Portlet PORTLET-->
                 <div class="portlet light bordered">
@@ -115,6 +122,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h4>Results </h4>
+
                                 <div class="row">
                                     <div class="col-md-2">
                                         <h4 class="">Win</h4>
@@ -134,7 +142,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-2">
                                         <h4 class="">Loss</h4>
@@ -154,7 +161,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-2">
                                         <h4 class="">Draw</h4>
@@ -174,7 +180,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="row">
                                     <div class="col-md-2">
                                         <h4 class="">Postpone</h4>
@@ -201,6 +206,7 @@
                 </div>
                 <!-- END Portlet PORTLET-->
             </div>
+
         </div>
 
         <div class="row">
