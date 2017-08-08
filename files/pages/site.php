@@ -26,7 +26,7 @@
         <h1 class="page-title">GetMyBet.com</h1>
 
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8">
                 <!-- BEGIN Portlet PORTLET-->
                 <div class="portlet light bordered">
                     <div class="portlet-title">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="portlet-body">
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <h4>General</h4>
                                 <div class="form-group">
                                     <label>Website name</label>
@@ -66,7 +66,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-6">
                                 <h4>SMTP</h4>
                                 <div class="form-group">
                                     <label>Host</label>
@@ -94,8 +94,23 @@
                                     </select>
                                 </div>
                             </div>
-
-                            <div class="col-md-4">
+                        </div>
+                    </div>
+                </div>
+                <!-- END Portlet PORTLET-->
+            </div>
+            <div class="col-md-4">
+                <!-- BEGIN Portlet PORTLET-->
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-speech"></i>
+                            <span class="caption-subject bold uppercase">Result Status And Class</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <h4>Results </h4>
                                 <div class="row">
                                     <div class="col-md-2">
