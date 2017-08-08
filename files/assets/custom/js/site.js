@@ -8,7 +8,7 @@ config.site = $('.page-content-wrapper.site');
     * when change site selection get site information
     */
 $(config.site).on('change', '.site-selection', function(){
-    showSiteInfo($(this).val());
+    getSiteInfo($(this).val());
 });
 
 /*
@@ -31,13 +31,13 @@ function getAllSitesIdsAndNames() {
             var html = compiledTemplate(data);
             element.find('.site-selection').html(html);
 
-            showSiteInfo(response[0].id);
+            getSiteInfo(response[0].id);
         },
          error: function () {}
     });
 }
 
-function showSiteInfo(siteId) {
+function getSiteInfo(siteId) {
     $.ajax({
         url: config.coreUrl + "/site/" + siteId,
         type: "get",
@@ -73,7 +73,7 @@ function showSiteGeneralConfiguration(data) {
     element.find('.site-name').html(html);
 }
 
-
+// show all package for selected site
 
 
 
