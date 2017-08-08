@@ -256,18 +256,18 @@
                                 <!-- general package information -->
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <br/>
-                                        <!-- radio buttons -->
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Normal/Vip</label>
                                                 <div class="mt-radio-inline">
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option1" checked=""> Normal
+                                                    <input type="radio" name="isVip_{{id}}" value="0"
+                                                        {{#js_compare "this.isVip === 0"}}checked="checked"{{/js_compare}}> Normal
                                                         <span></span>
                                                     </label>
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2"> Vip
+                                                        <input type="radio" name="isVip_{{id}}" value="1"
+                                                        {{#js_compare "this.isVip === 1"}}checked="checked"{{/js_compare}}> Vip
                                                         <span></span>
                                                     </label>
                                                 </div>
@@ -278,11 +278,13 @@
                                                 <label>Subscription Type</label>
                                                 <div class="mt-radio-inline">
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option1" checked=""> Tips
+                                                        <input type="radio" name="subscriptionType_{{id}}" value="tips"
+                                                        {{#js_compare "this.subscriptionType === 'tips'"}}checked="checked"{{/js_compare}}> Tips
                                                         <span></span>
                                                     </label>
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2"> Days
+                                                    <input type="radio" name="subscriptionType_{{id}}" value="days"
+                                                        {{#js_compare "this.subscriptionType === 'days'"}}checked="checked"{{/js_compare}}> Days
                                                         <span></span>
                                                     </label>
                                                 </div>
@@ -293,11 +295,13 @@
                                                 <label>Is recurring</label>
                                                 <div class="mt-radio-inline">
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios4" value="option1" checked=""> Tes
+                                                        <input type="radio" name="recurring_{{id}}" value="0"
+                                                        {{#js_compare "this.isRecurring === 0"}}checked="checked"{{/js_compare}}> No
                                                         <span></span>
                                                     </label>
                                                     <label class="mt-radio">
-                                                        <input type="radio" name="optionsRadios" id="optionsRadios5" value="option2"> No
+                                                        <input type="radio" name="recurring_{{id}}" value="1"
+                                                        {{#js_compare "this.isRecurring === 1"}}checked="checked"{{/js_compare}}> Yes
                                                         <span></span>
                                                     </label>
                                                 </div>
@@ -314,73 +318,73 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Package Identifier</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="identifier" value="{{identifier}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Tip Identifier</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="tipIdentifier" value="{{tipIdentifier}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Table Identifier</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="tableIdentifier" value="{{tableIdentifier}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Payment Name</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="paymentName" value="{{paymentName}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Vip Flag</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="vipFlag" value="{{vipFlag}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Days/Tips</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="tipsTotal" value="{{tipsTotal}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Tips/day</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="tipsPerDay" value="{{tipsPerDay}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Price</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="price" value="{{price}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Old Price</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="oldPrice" value="{{oldPrice}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Alias Subs. Type</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="aliasTipsTotal" value="aliasTipsTotal">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Alias tips/day</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="aliasTipsPerDay" value="{{aliasTipsPerDay}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Discount</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="discount" value="{{discount}}">
                                             </div>
                                         </div>
                                     </div>
