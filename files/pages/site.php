@@ -392,101 +392,28 @@
 
                                 <h4>Accepted Bets</h4>
                                 <br/>
+
+                                {{#each associatedPredictions}}
                                 <div class="row">
                                     <!-- bet group checkbox -->
                                     <div class="col-md-12">
-                                        <label class="mt-checkbox mt-checkbox-outline"> Over/Under
+                                        <label class="mt-checkbox mt-checkbox-outline">{{@key}} - Group
                                             <input type="checkbox" value="1" name="test">
                                             <span></span>
                                         </label>
                                     </div>
 
                                     <!-- sub elemts for same subgroup -->
+                                    {{#each predictions}}
                                     <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
+                                        <label class="mt-checkbox"> {{name}}
+                                            <input type="checkbox" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
                                             <span></span>
                                         </label>
                                     </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-
-                                    <!-- bet group checkbox -->
-                                    <div class="col-md-12">
-                                        <label class="mt-checkbox mt-checkbox-outline"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-
-                                    <!-- sub elemts for same subgroup -->
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> Over/Under
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
-
+                                    {{/each}}
                                 </div>
-                                <!-- /. row -->
+                                {{/each}}
 
                                 <h4>Email Configuration</h4>
                                 <br/>
