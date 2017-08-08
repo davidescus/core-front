@@ -77,6 +77,8 @@ function showPackagesTabs(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.package-tab').html(html);
+
+    element.find('.package-tab li').first().addClass('active');
 }
 
 // show packages tabs
@@ -86,6 +88,8 @@ function showPackagesTabsContent(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.package-tab-content').html(html);
+
+    element.find('.package-tab-content .tab-pane').first().addClass('active in');
 }
 
 
