@@ -49,7 +49,7 @@
                             <h4>General</h4>
                             <div class="form-group">
                                 <label>Website name</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" name="name" value="{{name}}">
                             </div>
 
                             <div class="form-group">

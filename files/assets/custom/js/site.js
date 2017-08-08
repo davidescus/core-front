@@ -55,14 +55,16 @@ function showSiteInfo(siteId) {
     });
 }
 
+// show site name in h1
 function showSiteName(data) {
     var element = config.site;
-    var template = element.find('.template-site-name').html();
+    var template = element.find('.template-site-general').html();
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
-    element.find('.site-name').html(html);
+    element.find('.site-general').html(html);
 }
 
+// show site general configuration
 function showSiteGeneralConfiguration(data) {
     var element = config.site;
     var template = element.find('.template-site-name').html();
