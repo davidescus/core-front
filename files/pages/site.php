@@ -209,6 +209,7 @@
 
         </div>
 
+        <!-- package section -->
         <div class="row">
             <div class="col-md-12">
                 <div class="portlet light bordered">
@@ -223,14 +224,29 @@
                         </div>
                     </div>
                     <div class="portlet-body">
-                        <ul class="nav nav-tabs">
-                            <li class="active">
-                                <a href="#tab_1_1" data-toggle="tab">Package 1</a>
-                            </li>
+
+                        <!-- script for package tabs -->
+                        <ul class="nav nav-tabs package-tab"></ul>
+                        <script class="template-package-tab" type="text/template7">
+                            {{#each packages}}
                             <li>
-                                <a href="#tab_1_2" data-toggle="tab">Package 2</a>
+                                <a href="#package-tab_{{id}}" data-toggle="tab">{{name}}</a>
                             </li>
-                        </ul>
+                            {{/each}}
+                        </script>
+
+                        <!-- script for package tabs
+                        <ul class="nav nav-tabs package-tab"></ul>
+                        <script class="template-site-general" type="text/template7">
+                        <li class="active">
+                            <a href="#tab_1_1" data-toggle="tab">{{name}}</a>
+                        </li>
+                        <li>
+                            <a href="#tab_1_2" data-toggle="tab">{{name}}</a>
+                        </li>
+                        </script>
+                        -->
+
                         <div class="tab-content">
                             <div class="tab-pane fade active in" id="tab_1_1">
 

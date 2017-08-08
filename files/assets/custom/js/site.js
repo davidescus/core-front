@@ -9,6 +9,7 @@ config.site = $('.page-content-wrapper.site');
     */
 $(config.site).on('change', '.site-selection', function(){
     getSiteInfo($(this).val());
+    getSitePackages($(this).val());
 });
 
 /*
@@ -32,6 +33,7 @@ function getAllSitesIdsAndNames() {
             element.find('.site-selection').html(html);
 
             getSiteInfo(response[0].id);
+            getSitePackages(response[0].id);
         },
          error: function () {}
     });
@@ -43,17 +45,39 @@ function getSiteInfo(siteId) {
         type: "get",
         success: function (response) {
 
-            console.log(response);
-
             // show site name in front;
             showSiteName(response);
             showSiteGeneralConfiguration(response);
         },
-         error: function () {
-
-        }
+         error: function () {}
     });
 }
+
+function getSitePackages(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/package-site/" + siteId,
+        type: "get",
+        success: function (response) {
+            console.log(response);
+            var data = {
+                packages: response,
+            }
+
+            showPackagesTabs(data);
+        },
+         error: function () {}
+    });
+}
+
+// show packages tabs
+function showPackagesTabs(data) {
+    var element = config.site;
+    var template = element.find('.template-package-tab').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab').html(html);
+}
+
 
 // show site name in h1
 function showSiteName(data) {
