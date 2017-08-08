@@ -64,6 +64,7 @@ function getSitePackages(siteId) {
             }
 
             showPackagesTabs(data);
+            showPackagesTabsContent(data);
         },
          error: function () {}
     });
@@ -76,6 +77,15 @@ function showPackagesTabs(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.package-tab').html(html);
+}
+
+// show packages tabs
+function showPackagesTabsContent(data) {
+    var element = config.site;
+    var template = element.find('.template-package-tab-content').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab-content').html(html);
 }
 
 

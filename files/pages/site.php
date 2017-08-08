@@ -247,9 +247,13 @@
                         </script>
                         -->
 
-                        <div class="tab-content">
-                            <div class="tab-pane fade active in" id="tab_1_1">
+                        <!-- script for package tab contents -->
+                        <div class="tab-content package-tab-content"></div>
+                        <script class="template-package-tab-content" type="text/template7">
+                            {{#each packages}}
+                            <div class="tab-pane fade" id="package-tab_{{id}}">
 
+                                <!-- general package information -->
                                 <div class="row">
                                     <div class="col-md-8">
                                         <br/>
@@ -304,7 +308,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label>Name</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" name="name" value="{{name}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -554,10 +558,11 @@
                                 </div>
 
                             </div>
-                            <div class="tab-pane fade" id="tab_1_2">
+                            {{/each}}
+                            </script>
 
-                            </div>
-                        </div>
+
+
                         <div class="clearfix margin-bottom-20"> </div>
                     </div>
                 </div>
