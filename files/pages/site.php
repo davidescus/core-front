@@ -402,71 +402,43 @@
                                     </div>
 
                                     <!-- sub elemts for same subgroup -->
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
 
-                                </div>
-                                <!-- /. row -->
-
-                                <div class="row">
                                     <!-- bet group checkbox -->
                                     <div class="col-md-12">
                                         <label class="mt-checkbox mt-checkbox-outline"> Over/Under
@@ -476,65 +448,41 @@
                                     </div>
 
                                     <!-- sub elemts for same subgroup -->
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="row">
-                                            <div class="col-md-5">
-                                                <label class="mt-checkbox"> Over/Under
-                                                    <input type="checkbox" value="1" name="test">
-                                                    <span></span>
-                                                </label>
-                                            </div>
-                                            <div class="col-md-7">
-                                                <div class="form-group">
-                                                    <input type="text" class="form-control input-sm" placeholder="">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="mt-checkbox"> Over/Under
+                                            <input type="checkbox" value="1" name="test">
+                                            <span></span>
+                                        </label>
                                     </div>
 
                                 </div>
@@ -573,6 +521,162 @@
             </div>
         </div>
 
+        <!-- Bet Types -->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light bordered">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-social-dribbble font-purple-soft"></i>
+                            <span class="caption-subject font-purple-soft bold uppercase">Bet Types</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="row">
+
+                            <!-- bet group checkbox -->
+                            <div class="col-md-12">
+                                <p>Over/Under</p>
+                            </div>
+
+                            <!-- sub elemts for same subgroup -->
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- bet group checkbox -->
+                            <div class="col-md-12">
+                                <p>Over/Under</p>
+                            </div>
+
+                            <!-- sub elemts for same subgroup -->
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <label class="mt-checkbox"> Over/Under</label>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control input-sm" placeholder="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /. row -->
+
+                        <div class="clearfix margin-bottom-20"> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
     <!-- END CONTENT BODY -->
