@@ -8,7 +8,6 @@
                 <div class="col-sm-6">
                     <select class="form-control site-selection select2"></select>
                     <script class="template-site-selection" type="text/template7">
-                        <option value=" ">Select Website</option>
                         {{#each sites}}
                         <option value="{{id}}">{{name}}</option>
                         {{/each}}
@@ -23,7 +22,11 @@
                 </div>
             </div>
         </div>
-        <h1 class="page-title">GetMyBet.com</h1>
+
+        <div class="site-name"></div>
+        <script class="template-site-name" type="text/template7">
+        <h1 class="page-title">{{name}}</h1>
+        </script>
 
         <div class="row">
             <div class="col-md-8">
