@@ -6,11 +6,13 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-6">
-                    <select class="form-control site-selection select2">
+                    <select class="form-control site-selection select2"></select>
+                    <script class="template-site-selection" type="text/template7">
                         <option value=" ">Select Website</option>
-                        <option value="1">Option 1</option>
-                        <option value="2">Option 2</option>
-                    </select>
+                        {{#each sites}}
+                        <option value="{{id}}">{{name}}</option>
+                        {{/each}}
+                    </script>
                 </div>
                 <div class="col-sm-6">
                     <div class="actions pull-right">

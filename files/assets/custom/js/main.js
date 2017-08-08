@@ -33,6 +33,10 @@ $(document).ready(function() {
      */
     function setControlFlow() {
 
+        if (config.activePage == 'site') {
+            getAllSitesIdsAndNames();
+        }
+
         if (config.activePage == 'association') {
 
             return;
