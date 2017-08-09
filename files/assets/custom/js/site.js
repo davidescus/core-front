@@ -61,7 +61,8 @@ config.site.on('click', '.save-site', function(){
         });
     });
 
-    console.log(data);
+    // update results names and classes
+    updateSiteResultStatusAndClass(data.status, data.site.siteId);
 
 
 });
@@ -168,6 +169,21 @@ function showSiteGeneralConfiguration(data) {
 /*
  * Results and Status
  ---------------------------------------------------------------------*/
+
+// update results status names and classes
+function updateSiteResultStatusAndClass(data, siteId) {
+
+    var params = {data: data};
+    $.ajax({
+        url: config.coreUrl + "/site-result-status/update/" + siteId,
+        type: "post",
+        data: params,
+        success: function (response) {
+            alert(response.message);
+        },
+         error: function () {}
+    });
+}
 
 // get site results status names and classes
 function getSiteResultStatusAndClass(siteId) {
