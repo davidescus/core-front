@@ -16,9 +16,9 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="actions pull-right">
-                        <button class="btn green">Add New</button>
-                        <button class="btn red">Delete</button>
-                        <button class="btn green">Save</button>
+                        <button class="btn green add-new-site">Add New</button>
+                        <button class="btn red delete-site">Delete</button>
+                        <button class="btn green save-site">Save</button>
                     </div>
                 </div>
             </div>
