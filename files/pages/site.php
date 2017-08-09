@@ -50,7 +50,7 @@
                             <h4>General</h4>
                             <div class="form-group">
                                 <label>Website name</label>
-                                <input type="text" class="form-control" name="name" value="{{name}}">
+                                <input type="text" class="form-control name" value="{{name}}">
                             </div>
 
                             <div class="form-group">
@@ -129,69 +129,77 @@
                                 <script class="template-site-result-status" type="text/template7">
 
                                 <!-- Win -->
-                                <div class="row">
+                                <div class="row" data-status-id="1">
                                     <div class="col-md-2"><h4>Win</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" name="statusName" value="{{status.1.statusName}}">
+                                            <input type="text" class="form-control statusName"
+                                            value="{{#if status.1.statusName}}{{status.1.statusName}}{{/if}}">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" name="statusClass" value="{{status.1.statusClass}}">
+                                            <input type="text" class="form-control statusClass"
+                                            value="{{#if status.1.statusClass}}{{status.1.statusClass}}{{/if}}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Loss -->
-                                <div class="row">
+                                <div class="row" data-status-id="2">
                                     <div class="col-md-2"><h4>Loss</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" name="statusName" value="{{status.2.statusName}}">
+                                            <input type="text" class="form-control statusName"
+                                            value="{{#if status.2.statusName}}{{status.2.statusName}}{{/if}}">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" name="statusClass" value="{{status.2.statusClass}}">
+                                            <input type="text" class="form-control statusClass"
+                                            value="{{#if status.2.statusClass}}{{status.2.statusClass}}{{/if}}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Draw -->
-                                <div class="row">
+                                <div class="row" data-status-id="3">
                                     <div class="col-md-2"><h4>Draw</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" name="statusName" value="{{status.3.statusName}}">
+                                            <input type="text" class="form-control statusName"
+                                            value="{{#if status.3.statusName}}{{status.3.statusName}}{{/if}}">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" name="statusClass" value="{{status.3.statusClass}}">
+                                            <input type="text" class="form-control statusClass"
+                                            value="{{#if status.3.statusClass}}{{status.3.statusClass}}{{/if}}">
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Postp. -->
-                                <div class="row">
+                                <div class="row" data-status-id="4">
                                     <div class="col-md-2"><h4>Postp</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" name="statusName" value="{{status.4.statusName}}">
+                                            <input type="text" class="form-control statusName"
+                                            value="{{#if status.4.statusName}}{{status.4.statusName}}{{/if}}">
                                         </div>
                                     </div>
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" name="statusClass" value="{{status.4.statusClass}}">
+                                            <input type="text" class="form-control statusClass"
+                                            value="{{#if status.4.statusClass}}{{status.4.statusClass}}{{/if}}">
                                         </div>
                                     </div>
                                 </div>
