@@ -76,6 +76,44 @@ function showSiteGeneralConfiguration(data) {
 }
 
 /*
+ * Results and Status
+ ---------------------------------------------------------------------*/
+
+// get site results status names and classes
+function getSiteResultStatusAndClass(siteId) {
+
+    // new website
+    if (siteId === 'new') {
+        showSiteResultStatusNameAndClass({
+            status: {1: {}, 2: {}, 3: {}, 4: {}},
+        });
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/site-result-status/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                status: response,
+            }
+            showSiteResultStatusNameAndClass(data);
+        },
+         error: function () {}
+    });
+}
+
+// show result status
+function showSiteResultStatusNameAndClass(data) {
+    var element = config.site;
+    var template = element.find('.template-site-result-status').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-result-status').html(html);
+}
+
+/*
  * Packages
  ---------------------------------------------------------------------*/
 
@@ -147,35 +185,6 @@ function showSitePredictionsNames(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.site-prediction-name').html(html);
-}
-
-/*
- * Results and Status
- ---------------------------------------------------------------------*/
-
-// get site results status names and classes
-function getSiteResultStatusAndClass(siteId) {
-    $.ajax({
-        url: config.coreUrl + "/site-result-status/" + siteId,
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                status: response,
-            }
-            showSiteResultStatusNameAndClass(data)
-        },
-         error: function () {}
-    });
-}
-
-// show result status
-function showSiteResultStatusNameAndClass(data) {
-    var element = config.site;
-    var template = element.find('.template-site-result-status').html();
-    var compiledTemplate = Template7.compile(template);
-    var html = compiledTemplate(data);
-    element.find('.site-result-status').html(html);
 }
 
 

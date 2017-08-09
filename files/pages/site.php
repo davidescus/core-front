@@ -8,6 +8,7 @@
                 <div class="col-sm-6">
                     <select class="form-control site-selection select2"></select>
                     <script class="template-site-selection" type="text/template7">
+                        <option value="new"> -- New Website -- </option>
                         {{#each sites}}
                         <option value="{{id}}">{{name}}</option>
                         {{/each}}
