@@ -10,6 +10,7 @@ config.site = $('.page-content-wrapper.site');
 $(config.site).on('change', '.site-selection', function(){
     getSiteInfo($(this).val());
     getSitePackages($(this).val());
+    getSitePredictions($(this).val());
 });
 
 /*
@@ -34,11 +35,13 @@ function getAllSitesIdsAndNames() {
 
             getSiteInfo(response[0].id);
             getSitePackages(response[0].id);
+            getSitePredictions(response[0].id);
         },
          error: function () {}
     });
 }
 
+// get site general informations
 function getSiteInfo(siteId) {
     $.ajax({
         url: config.coreUrl + "/site/" + siteId,
@@ -53,11 +56,33 @@ function getSiteInfo(siteId) {
     });
 }
 
+// get site packages
 function getSitePackages(siteId) {
     $.ajax({
         url: config.coreUrl + "/package-site/" + siteId,
         type: "get",
         success: function (response) {
+
+            var data = {
+                packages: response,
+            }
+
+            showPackagesTabs(data);
+            showPackagesTabsContent(data);
+        },
+         error: function () {}
+    });
+}
+
+// get site predictions name
+function getSitePredictions(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/site-prediction/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            console.log(response);
+            return;
 
             var data = {
                 packages: response,
