@@ -11,6 +11,7 @@ $(config.site).on('change', '.site-selection', function(){
     getSiteInfo($(this).val());
     getSitePackages($(this).val());
     getSitePredictions($(this).val());
+    getSiteResultStatusAndClass($(this).val());
 });
 
 /*
@@ -36,6 +37,7 @@ function getAllSitesIdsAndNames() {
             getSiteInfo(response[0].id);
             getSitePackages(response[0].id);
             getSitePredictions(response[0].id);
+            getSiteResultStatusAndClass(response[0].id);
         },
          error: function () {}
     });
@@ -89,6 +91,31 @@ function getSitePredictions(siteId) {
         },
          error: function () {}
     });
+}
+
+// get site results status names and classes
+function getSiteResultStatusAndClass(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/site-result-status/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                status: response,
+            }
+            showSiteResultStatusNameAndClass(data)
+        },
+         error: function () {}
+    });
+}
+
+// show packages tabs
+function showSiteResultStatusNameAndClass(data) {
+    var element = config.site;
+    var template = element.find('.template-site-result-status').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-result-status').html(html);
 }
 
 // show packages tabs

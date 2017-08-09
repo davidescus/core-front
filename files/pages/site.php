@@ -123,82 +123,78 @@
                             <div class="col-md-12">
                                 <h4>Results </h4>
 
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <h4 class="">Win</h4>
-                                    </div>
+                                <!-- show results status name and class for site -->
+                                <div class="site-result-status"></div>
+                                <script class="template-site-result-status" type="text/template7">
 
+                                <!-- Win -->
+                                <div class="row">
+                                    <div class="col-md-2"><h4>Win</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusName" value="{{status.1.statusName}}">
                                         </div>
                                     </div>
-
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusClass" value="{{status.1.statusClass}}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <h4 class="">Loss</h4>
-                                    </div>
 
+                                <!-- Loss -->
+                                <div class="row">
+                                    <div class="col-md-2"><h4>Loss</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusName" value="{{status.2.statusName}}">
                                         </div>
                                     </div>
-
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusClass" value="{{status.2.statusClass}}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <h4 class="">Draw</h4>
-                                    </div>
 
+                                <!-- Draw -->
+                                <div class="row">
+                                    <div class="col-md-2"><h4>Draw</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusName" value="{{status.3.statusName}}">
                                         </div>
                                     </div>
-
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusClass" value="{{status.3.statusClass}}">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-2">
-                                        <h4 class="">Postpone</h4>
-                                    </div>
 
+                                <!-- Postp. -->
+                                <div class="row">
+                                    <div class="col-md-2"><h4>Postp</h4></div>
                                     <div class="col-md-5">
                                         <div class="form-group">
                                             <label>Text</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusName" value="{{status.4.statusName}}">
                                         </div>
                                     </div>
-
                                     <div class="col-md-5">
                                          <div class="form-group">
                                             <label>Class</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                            <input type="text" class="form-control" name="statusClass" value="{{status.4.statusClass}}">
                                         </div>
                                     </div>
                                 </div>
+                                </script>
 
                             </div>
                         </div>
@@ -336,7 +332,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Days/Tips</label>
-                                                <input type="text" class="form-control" name="tipsTotal" value="{{tipsTotal}}">
+                                                <input type="text" class="form-control" name="subscription" value="{{subscription}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
@@ -360,7 +356,7 @@
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Alias Subs. Type</label>
-                                                <input type="text" class="form-control" name="aliasTipsTotal" value="aliasTipsTotal">
+                                                <input type="text" class="form-control" name="aliasTipsTotal" value="{{aliasTipsTotal}}">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
