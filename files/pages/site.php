@@ -469,7 +469,7 @@
                                         </div>
                                         <div class="col-md-7">
                                             <div class="form-group">
-                                                <input type="text" class="form-control input-sm" name="{{identifier}}" value="{{siteName}}">
+                                                <input type="text" class="form-control input-sm prediction" name="{{identifier}}" value="{{siteName}}">
                                             </div>
                                         </div>
                                     </div>
