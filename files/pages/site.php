@@ -235,18 +235,6 @@
                             {{/each}}
                         </script>
 
-                        <!-- script for package tabs
-                        <ul class="nav nav-tabs package-tab"></ul>
-                        <script class="template-site-general" type="text/template7">
-                        <li class="active">
-                            <a href="#tab_1_1" data-toggle="tab">{{name}}</a>
-                        </li>
-                        <li>
-                            <a href="#tab_1_2" data-toggle="tab">{{name}}</a>
-                        </li>
-                        </script>
-                        -->
-
                         <!-- script for package tab contents -->
                         <div class="tab-content package-tab-content"></div>
                         <script class="template-package-tab-content" type="text/template7">
