@@ -5,11 +5,16 @@ config.site = $('.page-content-wrapper.site');
  ---------------------------------------------------------------------*/
 
 // click on site selection
-$(config.site).on('change', '.site-selection', function(){
+config.site.on('change', '.site-selection', function(){
     getSiteInfo($(this).val());
     getSitePackages($(this).val());
     getSitePredictions($(this).val());
     getSiteResultStatusAndClass($(this).val());
+});
+
+// Add New button click
+config.site.on('click', '.add-new-site', function(){
+   config.site.find('.site-selection').val('new').change();
 });
 
 /*
