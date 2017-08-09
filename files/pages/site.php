@@ -440,8 +440,6 @@
                             {{/each}}
                             </script>
 
-
-
                         <div class="clearfix margin-bottom-20"> </div>
                     </div>
                 </div>
@@ -455,11 +453,14 @@
                     <div class="portlet-title">
                         <div class="caption">
                             <i class="icon-social-dribbble font-purple-soft"></i>
-                            <span class="caption-subject font-purple-soft bold uppercase">Bet Types</span>
+                            <span class="caption-subject font-purple-soft bold uppercase">Predictions Names</span>
                         </div>
                     </div>
                     <div class="portlet-body">
 
+                        <!-- iterate all site prediciton name -->
+                        <div class="site-prediction-name"></div>
+                        <script class="template-site-prediction-name" type="text/template7">
                         <div class="row">
 
                             <!-- bet group checkbox -->
@@ -597,7 +598,7 @@
                             </div>
 
                         </div>
-                        <!-- /. row -->
+                        </script>
 
                         <div class="clearfix margin-bottom-20"> </div>
                     </div>
