@@ -16,6 +16,7 @@ $(config.site).on('change', '.site-selection', function(){
  * Run on start page
  ---------------------------------------------------------------------*/
 
+// get all sites names and ids to populate site-selection
 function getAllSitesIdsAndNames() {
 
     $.ajax({
