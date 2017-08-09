@@ -17,6 +17,48 @@ config.site.on('click', '.add-new-site', function(){
    config.site.find('.site-selection').val('new').change();
 });
 
+// Save button click
+config.site.on('click', '.save-site', function(){
+
+    var data = {
+        site : {
+            siteId: config.site.find('.site-selection').val(),
+            name: config.site.find('.site-general .name').val(),
+        },
+    };
+
+    //new site
+    if (data.site.siteId === 'new') {
+
+        // add new site and retrive id
+        var response = addNewSite(data.site);
+
+        if (response.type === 'error') {
+            alert(response.message);
+            return;
+        }
+
+        // set siteId in site-selection and go ahead like an update
+        var siteId = response.data.id;
+
+    } else {
+
+        // add new site and retrive id
+        var response = updateSite(data.site);
+
+        if (response.type === 'error') {
+            alert(response.message);
+            return;
+        }
+    }
+
+
+    console.log(response);
+
+    // update existing site
+    alert('save this');
+});
+
 /*
  * Run on start page
  ---------------------------------------------------------------------*/
@@ -46,6 +88,42 @@ function getAllSitesIdsAndNames() {
 /*
  * General Informations
  ---------------------------------------------------------------------*/
+
+// store new site
+function addNewSite(data) {
+    var ret = {};
+
+    $.ajax({
+        url: config.coreUrl + "/site",
+        type: "post",
+        async: false,
+        data: data,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
+
+// store new site
+function updateSite(data) {
+    var ret = {};
+
+    $.ajax({
+        url: config.coreUrl + "/site/update/" + data.siteId,
+        type: "post",
+        async: false,
+        data: data,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
 
 // get site general informations
 function getSiteInfo(siteId) {
