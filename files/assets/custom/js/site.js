@@ -62,6 +62,9 @@ config.site.on('click', '.save-site', function(){
         });
     });
 
+    // update results names and classes
+    updateSiteResultStatusAndClass(data.status, data.site.siteId);
+
     // add predictions name and identifiers in data.prediction array
     config.site.find('.site-prediction-name .prediction').each(function(i, e) {
         data['prediction'].push({
@@ -69,9 +72,6 @@ config.site.on('click', '.save-site', function(){
             name: $(this).val(),
         });
     });
-
-    // update results names and classes
-    updateSiteResultStatusAndClass(data.status, data.site.siteId);
 
     // update site predictions name
     updateSitePredictionsNames(data.prediction, data.site.siteId);
