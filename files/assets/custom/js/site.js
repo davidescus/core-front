@@ -32,12 +32,7 @@ function getAllSitesIdsAndNames() {
             var template = element.find('.template-site-selection').html();
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
-            element.find('.site-selection').html(html);
-
-            getSiteInfo(response[0].id);
-            getSitePackages(response[0].id);
-            getSitePredictions(response[0].id);
-            getSiteResultStatusAndClass(response[0].id);
+            element.find('.site-selection').html(html).change();
         },
          error: function () {}
     });
