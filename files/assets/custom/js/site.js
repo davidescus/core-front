@@ -58,7 +58,7 @@ function getSitePackages(siteId) {
         url: config.coreUrl + "/package-site/" + siteId,
         type: "get",
         success: function (response) {
-            console.log(response);
+
             var data = {
                 packages: response,
             }
@@ -91,7 +91,6 @@ function showPackagesTabsContent(data) {
 
     element.find('.package-tab-content .tab-pane').first().addClass('active in');
 }
-
 
 // show site name in h1
 function showSiteName(data) {
