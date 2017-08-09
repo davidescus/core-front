@@ -53,97 +53,6 @@ function getSiteInfo(siteId) {
     });
 }
 
-// get site packages
-function getSitePackages(siteId) {
-    $.ajax({
-        url: config.coreUrl + "/package-site/" + siteId,
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                packages: response,
-            }
-
-            showPackagesTabs(data);
-            showPackagesTabsContent(data);
-        },
-         error: function () {}
-    });
-}
-
-// get site predictions name
-function getSitePredictions(siteId) {
-    $.ajax({
-        url: config.coreUrl + "/site-prediction/" + siteId,
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                predictionGroup: response,
-            }
-
-            showSitePredictionsNames(data);
-        },
-         error: function () {}
-    });
-}
-
-// get site results status names and classes
-function getSiteResultStatusAndClass(siteId) {
-    $.ajax({
-        url: config.coreUrl + "/site-result-status/" + siteId,
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                status: response,
-            }
-            showSiteResultStatusNameAndClass(data)
-        },
-         error: function () {}
-    });
-}
-
-// show packages tabs
-function showSiteResultStatusNameAndClass(data) {
-    var element = config.site;
-    var template = element.find('.template-site-result-status').html();
-    var compiledTemplate = Template7.compile(template);
-    var html = compiledTemplate(data);
-    element.find('.site-result-status').html(html);
-}
-
-// show packages tabs
-function showSitePredictionsNames(data) {
-    var element = config.site;
-    var template = element.find('.template-site-prediction-name').html();
-    var compiledTemplate = Template7.compile(template);
-    var html = compiledTemplate(data);
-    element.find('.site-prediction-name').html(html);
-}
-
-// show packages tabs
-function showPackagesTabs(data) {
-    var element = config.site;
-    var template = element.find('.template-package-tab').html();
-    var compiledTemplate = Template7.compile(template);
-    var html = compiledTemplate(data);
-    element.find('.package-tab').html(html);
-
-    element.find('.package-tab li').first().addClass('active');
-}
-
-// show packages tabs
-function showPackagesTabsContent(data) {
-    var element = config.site;
-    var template = element.find('.template-package-tab-content').html();
-    var compiledTemplate = Template7.compile(template);
-    var html = compiledTemplate(data);
-    element.find('.package-tab-content').html(html);
-
-    element.find('.package-tab-content .tab-pane').first().addClass('active in');
-}
-
 // show site name in h1
 function showSiteName(data) {
     var element = config.site;
@@ -162,7 +71,104 @@ function showSiteGeneralConfiguration(data) {
     element.find('.site-name').html(html);
 }
 
-// show all package for selected site
+
+
+// get site packages
+function getSitePackages(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/package-site/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                packages: response,
+            }
+
+            showPackagesTabs(data);
+            showPackagesTabsContent(data);
+        },
+         error: function () {}
+    });
+}
+
+// show packages tabs
+function showPackagesTabs(data) {
+    var element = config.site;
+    var template = element.find('.template-package-tab').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab').html(html);
+
+    element.find('.package-tab li').first().addClass('active');
+}
+
+// show packages tabs content
+function showPackagesTabsContent(data) {
+    var element = config.site;
+    var template = element.find('.template-package-tab-content').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab-content').html(html);
+
+    element.find('.package-tab-content .tab-pane').first().addClass('active in');
+}
+
+
+
+// get site predictions name
+function getSitePredictions(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/site-prediction/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                predictionGroup: response,
+            }
+
+            showSitePredictionsNames(data);
+        },
+         error: function () {}
+    });
+}
+
+// show predictions name
+function showSitePredictionsNames(data) {
+    var element = config.site;
+    var template = element.find('.template-site-prediction-name').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-prediction-name').html(html);
+}
+
+
+
+// get site results status names and classes
+function getSiteResultStatusAndClass(siteId) {
+    $.ajax({
+        url: config.coreUrl + "/site-result-status/" + siteId,
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                status: response,
+            }
+            showSiteResultStatusNameAndClass(data)
+        },
+         error: function () {}
+    });
+}
+
+// show result status
+function showSiteResultStatusNameAndClass(data) {
+    var element = config.site;
+    var template = element.find('.template-site-result-status').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-result-status').html(html);
+}
+
+
 
 
 
