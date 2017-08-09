@@ -1,12 +1,10 @@
 config.site = $('.page-content-wrapper.site');
 
 /*
- * Click actions
- */
+ * Clicks actions
+ ---------------------------------------------------------------------*/
 
-    /*
-    * when change site selection get site information
-    */
+// click on site selection
 $(config.site).on('change', '.site-selection', function(){
     getSiteInfo($(this).val());
     getSitePackages($(this).val());
@@ -15,8 +13,9 @@ $(config.site).on('change', '.site-selection', function(){
 });
 
 /*
- * this will populate website selection
- */
+ * Run on start page
+ ---------------------------------------------------------------------*/
+
 function getAllSitesIdsAndNames() {
 
     $.ajax({
@@ -37,6 +36,10 @@ function getAllSitesIdsAndNames() {
          error: function () {}
     });
 }
+
+/*
+ * General Informations
+ ---------------------------------------------------------------------*/
 
 // get site general informations
 function getSiteInfo(siteId) {
@@ -71,7 +74,9 @@ function showSiteGeneralConfiguration(data) {
     element.find('.site-name').html(html);
 }
 
-
+/*
+ * Packages
+ ---------------------------------------------------------------------*/
 
 // get site packages
 function getSitePackages(siteId) {
@@ -113,7 +118,9 @@ function showPackagesTabsContent(data) {
     element.find('.package-tab-content .tab-pane').first().addClass('active in');
 }
 
-
+/*
+ * Predictions
+ ---------------------------------------------------------------------*/
 
 // get site predictions name
 function getSitePredictions(siteId) {
@@ -141,7 +148,9 @@ function showSitePredictionsNames(data) {
     element.find('.site-prediction-name').html(html);
 }
 
-
+/*
+ * Results and Status
+ ---------------------------------------------------------------------*/
 
 // get site results status names and classes
 function getSiteResultStatusAndClass(siteId) {
