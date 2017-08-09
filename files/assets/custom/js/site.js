@@ -25,38 +25,45 @@ config.site.on('click', '.save-site', function(){
             siteId: config.site.find('.site-selection').val(),
             name: config.site.find('.site-general .name').val(),
         },
+        status: [],
     };
 
-    //new site
     if (data.site.siteId === 'new') {
 
         // add new site and retrive id
         var response = addNewSite(data.site);
-
         if (response.type === 'error') {
             alert(response.message);
             return;
         }
 
         // set siteId in site-selection and go ahead like an update
-        var siteId = response.data.id;
+        data.site.siteId = response.data.id;
 
     } else {
 
         // add new site and retrive id
         var response = updateSite(data.site);
-
         if (response.type === 'error') {
             alert(response.message);
             return;
         }
     }
 
+    alert(response.message);
 
-    console.log(response);
+    // add results names and classes in data.status array
+    config.site.find('.site-result-status .row').each(function(i, e) {
+        data['status'].push({
+            statusId: $(this).attr('data-status-id'),
+            statusName: $(this).find('.statusName').val(),
+            statusClass: $(this).find('.statusClass').val(),
+        });
+    });
 
-    // update existing site
-    alert('save this');
+    console.log(data);
+
+
 });
 
 /*
