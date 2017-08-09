@@ -461,143 +461,29 @@
                         <!-- iterate all site prediciton name -->
                         <div class="site-prediction-name"></div>
                         <script class="template-site-prediction-name" type="text/template7">
-                        <div class="row">
+                            {{#each predictionGroup}}
+                            <div class="row">
 
-                            <!-- bet group checkbox -->
-                            <div class="col-md-12">
-                                <p>Over/Under</p>
-                            </div>
+                                <!-- bet group checkbox -->
+                                <div class="col-md-12"><p>{{@key}}</p></div>
 
-                            <!-- sub elemts for same subgroup -->
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
+                                {{#each predictions}}
+                                <!-- sub elemts for same subgroup -->
+                                <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <label class="mt-checkbox">{{name}}</label>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control input-sm" name="{{identifier}}" value="{{siteName}}">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                {{/each}}
                             </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- bet group checkbox -->
-                            <div class="col-md-12">
-                                <p>Over/Under</p>
-                            </div>
-
-                            <!-- sub elemts for same subgroup -->
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <label class="mt-checkbox"> Over/Under</label>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control input-sm" placeholder="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                            {{/each}}
                         </script>
 
                         <div class="clearfix margin-bottom-20"> </div>

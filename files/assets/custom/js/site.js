@@ -81,18 +81,23 @@ function getSitePredictions(siteId) {
         type: "get",
         success: function (response) {
 
-            console.log(response);
-            return;
-
             var data = {
-                packages: response,
+                predictionGroup: response,
             }
 
-            showPackagesTabs(data);
-            showPackagesTabsContent(data);
+            showSitePredictionsNames(data);
         },
          error: function () {}
     });
+}
+
+// show packages tabs
+function showSitePredictionsNames(data) {
+    var element = config.site;
+    var template = element.find('.template-site-prediction-name').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-prediction-name').html(html);
 }
 
 // show packages tabs
