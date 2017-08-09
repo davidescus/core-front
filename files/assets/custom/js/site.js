@@ -26,6 +26,7 @@ config.site.on('click', '.save-site', function(){
             name: config.site.find('.site-general .name').val(),
         },
         status: [],
+        prediction: [],
     };
 
     if (data.site.siteId === 'new') {
@@ -61,9 +62,19 @@ config.site.on('click', '.save-site', function(){
         });
     });
 
+    // add predictions name and identifiers in data.prediction array
+    config.site.find('.site-prediction-name .prediction').each(function(i, e) {
+        data['prediction'].push({
+            predictionIdentifier: $(this).attr('name'),
+            name: $(this).val(),
+        });
+    });
+
     // update results names and classes
     updateSiteResultStatusAndClass(data.status, data.site.siteId);
 
+    // update site predictions name
+    updateSitePredictionsNames(data.prediction, data.site.siteId);
 
 });
 
@@ -266,6 +277,21 @@ function showPackagesTabsContent(data) {
 /*
  * Predictions
  ---------------------------------------------------------------------*/
+
+// update site predictions name
+function updateSitePredictionsNames(data, siteId) {
+
+    var params = {data: data};
+    $.ajax({
+        url: config.coreUrl + "/site-prediction/update/" + siteId,
+        type: "post",
+        data: params,
+        success: function (response) {
+            alert(response.message);
+        },
+         error: function () {}
+    });
+}
 
 // get site predictions name
 function getSitePredictions(siteId) {
