@@ -90,15 +90,6 @@ config.site.on('click', '.save-site', function(){
         var g = $(this).find('.general-info');
         var id = g.attr('data-package-id');
 
-        // asociated bets for package
-        var associatedPredictions = [];
-        $(this).find('.associated-predictions .prediction:checked').each(function(i, e) {
-            associatedPredictions.push({
-                packageId: id,
-                predictionIdentifier: $(this).val(),
-            });
-        });
-
         var package = {
             siteId: data.site.siteId,
             name: g.find('.name').val(),
@@ -151,6 +142,17 @@ config.site.on('click', '.save-site', function(){
             updatePackage(package, id);
         }
 
+        // collect associated predictions with package
+        var associatedPredictions = [];
+        $(this).find('.associated-predictions .prediction:checked').each(function(i, e) {
+            associatedPredictions.push({
+                packageId: package.id,
+                predictionIdentifier: $(this).val(),
+            });
+        });
+
+        // update associated predictions with package
+        associatePredicitonsWithPackage(associatedPredictions);
 
     });
 
@@ -452,6 +454,21 @@ function showPackagesTabsContent(data) {
 /*
  * Predictions
  ---------------------------------------------------------------------*/
+
+// associate predictions with package
+function associatePredicitonsWithPackage(data) {
+
+    var params = {data: data};
+    $.ajax({
+        url: config.coreUrl + "/package-prediction",
+        type: "post",
+        data: params,
+        success: function (response) {
+            alert(response.message);
+        },
+         error: function () {}
+    });
+}
 
 // update site predictions name
 function updateSitePredictionsNames(data, siteId) {
