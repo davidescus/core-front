@@ -246,185 +246,187 @@
                             {{#each packages}}
                             <div class="tab-pane fade" id="package-tab_{{id}}">
 
-                                <!-- general package information -->
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Normal/Vip</label>
-                                                <div class="mt-radio-inline">
-                                                    <label class="mt-radio">
-                                                    <input type="radio" name="isVip_{{id}}" value="0"
-                                                        {{#js_compare "this.isVip === 0"}}checked="checked"{{/js_compare}}> Normal
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="mt-radio">
-                                                        <input type="radio" name="isVip_{{id}}" value="1"
-                                                        {{#js_compare "this.isVip === 1"}}checked="checked"{{/js_compare}}> Vip
-                                                        <span></span>
-                                                    </label>
+                                <div class="package-wrapper">
+                                    <!-- general package information -->
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Normal/Vip</label>
+                                                    <div class="mt-radio-inline">
+                                                        <label class="mt-radio">
+                                                        <input type="radio" name="isVip_{{id}}" value="0"
+                                                            {{#js_compare "this.isVip === 0"}}checked="checked"{{/js_compare}}> Normal
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio">
+                                                            <input type="radio" name="isVip_{{id}}" value="1"
+                                                            {{#js_compare "this.isVip === 1"}}checked="checked"{{/js_compare}}> Vip
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Subscription Type</label>
-                                                <div class="mt-radio-inline">
-                                                    <label class="mt-radio">
-                                                        <input type="radio" name="subscriptionType_{{id}}" value="tips"
-                                                        {{#js_compare "this.subscriptionType === 'tips'"}}checked="checked"{{/js_compare}}> Tips
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="mt-radio">
-                                                    <input type="radio" name="subscriptionType_{{id}}" value="days"
-                                                        {{#js_compare "this.subscriptionType === 'days'"}}checked="checked"{{/js_compare}}> Days
-                                                        <span></span>
-                                                    </label>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Subscription Type</label>
+                                                    <div class="mt-radio-inline">
+                                                        <label class="mt-radio">
+                                                            <input type="radio" name="subscriptionType_{{id}}" value="tips"
+                                                            {{#js_compare "this.subscriptionType === 'tips'"}}checked="checked"{{/js_compare}}> Tips
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio">
+                                                        <input type="radio" name="subscriptionType_{{id}}" value="days"
+                                                            {{#js_compare "this.subscriptionType === 'days'"}}checked="checked"{{/js_compare}}> Days
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label>Is recurring</label>
-                                                <div class="mt-radio-inline">
-                                                    <label class="mt-radio">
-                                                        <input type="radio" name="recurring_{{id}}" value="0"
-                                                        {{#js_compare "this.isRecurring === 0"}}checked="checked"{{/js_compare}}> No
-                                                        <span></span>
-                                                    </label>
-                                                    <label class="mt-radio">
-                                                        <input type="radio" name="recurring_{{id}}" value="1"
-                                                        {{#js_compare "this.isRecurring === 1"}}checked="checked"{{/js_compare}}> Yes
-                                                        <span></span>
-                                                    </label>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label>Is recurring</label>
+                                                    <div class="mt-radio-inline">
+                                                        <label class="mt-radio">
+                                                            <input type="radio" name="recurring_{{id}}" value="0"
+                                                            {{#js_compare "this.isRecurring === 0"}}checked="checked"{{/js_compare}}> No
+                                                            <span></span>
+                                                        </label>
+                                                        <label class="mt-radio">
+                                                            <input type="radio" name="recurring_{{id}}" value="1"
+                                                            {{#js_compare "this.isRecurring === 1"}}checked="checked"{{/js_compare}}> Yes
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <!-- text inputs -->
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Name</label>
-                                                <input type="text" class="form-control" name="name" value="{{name}}">
+                                            <!-- text inputs -->
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Name</label>
+                                                    <input type="text" class="form-control" name="name" value="{{name}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Package Identifier</label>
-                                                <input type="text" class="form-control" name="identifier" value="{{identifier}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Package Identifier</label>
+                                                    <input type="text" class="form-control" name="identifier" value="{{identifier}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Tip Identifier</label>
-                                                <input type="text" class="form-control" name="tipIdentifier" value="{{tipIdentifier}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Tip Identifier</label>
+                                                    <input type="text" class="form-control" name="tipIdentifier" value="{{tipIdentifier}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Table Identifier</label>
-                                                <input type="text" class="form-control" name="tableIdentifier" value="{{tableIdentifier}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Table Identifier</label>
+                                                    <input type="text" class="form-control" name="tableIdentifier" value="{{tableIdentifier}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Payment Name</label>
-                                                <input type="text" class="form-control" name="paymentName" value="{{paymentName}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Payment Name</label>
+                                                    <input type="text" class="form-control" name="paymentName" value="{{paymentName}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Vip Flag</label>
-                                                <input type="text" class="form-control" name="vipFlag" value="{{vipFlag}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Vip Flag</label>
+                                                    <input type="text" class="form-control" name="vipFlag" value="{{vipFlag}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Days/Tips</label>
-                                                <input type="text" class="form-control" name="subscription" value="{{subscription}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Days/Tips</label>
+                                                    <input type="text" class="form-control" name="subscription" value="{{subscription}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Tips/day</label>
-                                                <input type="text" class="form-control" name="tipsPerDay" value="{{tipsPerDay}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Tips/day</label>
+                                                    <input type="text" class="form-control" name="tipsPerDay" value="{{tipsPerDay}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Price</label>
-                                                <input type="text" class="form-control" name="price" value="{{price}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Price</label>
+                                                    <input type="text" class="form-control" name="price" value="{{price}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Old Price</label>
-                                                <input type="text" class="form-control" name="oldPrice" value="{{oldPrice}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Old Price</label>
+                                                    <input type="text" class="form-control" name="oldPrice" value="{{oldPrice}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Alias Subs. Type</label>
-                                                <input type="text" class="form-control" name="aliasTipsTotal" value="{{aliasTipsTotal}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Alias Subs. Type</label>
+                                                    <input type="text" class="form-control" name="aliasTipsTotal" value="{{aliasTipsTotal}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>Alias tips/day</label>
-                                                <input type="text" class="form-control" name="aliasTipsPerDay" value="{{aliasTipsPerDay}}">
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label>Alias tips/day</label>
+                                                    <input type="text" class="form-control" name="aliasTipsPerDay" value="{{aliasTipsPerDay}}">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>Discount</label>
-                                                <input type="text" class="form-control" name="discount" value="{{discount}}">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Discount</label>
+                                                    <input type="text" class="form-control" name="discount" value="{{discount}}">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <h4>Accepted Bets</h4>
-                                <br/>
+                                    <h4>Accepted Bets</h4>
+                                    <br/>
 
-                                {{#each associatedPredictions}}
-                                <div class="row">
-                                    <!-- bet group checkbox -->
-                                    <div class="col-md-12">
-                                        <label class="mt-checkbox mt-checkbox-outline">{{@key}} - Group
-                                            <input type="checkbox" value="1" name="test">
-                                            <span></span>
-                                        </label>
-                                    </div>
+                                    {{#each associatedPredictions}}
+                                    <div class="row">
+                                        <!-- bet group checkbox -->
+                                        <div class="col-md-12">
+                                            <label class="mt-checkbox mt-checkbox-outline">{{@key}} - Group
+                                                <input type="checkbox" value="1" name="test">
+                                                <span></span>
+                                            </label>
+                                        </div>
 
-                                    <!-- sub elemts for same subgroup -->
-                                    {{#each predictions}}
-                                    <div class="col-md-3">
-                                        <label class="mt-checkbox"> {{name}}
-                                            <input type="checkbox" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
-                                            <span></span>
-                                        </label>
+                                        <!-- sub elemts for same subgroup -->
+                                        {{#each predictions}}
+                                        <div class="col-md-3">
+                                            <label class="mt-checkbox"> {{name}}
+                                                <input type="checkbox" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
+                                                <span></span>
+                                            </label>
+                                        </div>
+                                        {{/each}}
                                     </div>
                                     {{/each}}
-                                </div>
-                                {{/each}}
 
-                                <h4>Email Configuration</h4>
-                                <br/>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>From</label>
-                                            <input type="text" class="form-control" placeholder="">
+                                    <h4>Email Configuration</h4>
+                                    <br/>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label>From</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Subject</label>
+                                                <input type="text" class="form-control" placeholder="">
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Subject</label>
-                                            <input type="text" class="form-control" placeholder="">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="form-group">
-                                            <label>Template</label>
-                                            <textarea class="form-control" rows="5">Not use for moment</textarea>
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label>Template</label>
+                                                <textarea class="form-control" rows="5">Not use for moment</textarea>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
