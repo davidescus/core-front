@@ -12,9 +12,16 @@ config.site.on('change', '.site-selection', function(){
     getSiteResultStatusAndClass($(this).val());
 });
 
-// Add New button click
+// Add New Site button click
 config.site.on('click', '.add-new-site', function(){
-   config.site.find('.site-selection').val('new').change();
+    config.site.find('.site-selection').val('new').change();
+});
+
+// Add New Package button click
+config.site.on('click', '.add-new-package', function(){
+    var id = Math.random().toString().substring(2);
+    addNewPackageTab(id);
+    addNewPackageTabContent(id);
 });
 
 // Save button click
@@ -77,7 +84,7 @@ config.site.on('click', '.save-site', function(){
     // update site predictions name
     //updateSitePredictionsNames(data.prediction, data.site.siteId);
 
-    // add all existings packages
+    // create, delete or update packages and update associated predictions
     config.site.find('.package-tab-content .package-wrapper').each(function(i, e) {
 
         var g = $(this).find('.general-info');
@@ -113,6 +120,19 @@ config.site.on('click', '.save-site', function(){
         };
 
         // new package
+
+        var testString = "sdfsdfsdsdfsdf";
+
+
+
+        alert(n);
+
+        if (testString.match(/new/g)) {
+            alert('contain');
+        }
+
+        return;
+
             updatePackage(package, id);
 
     });
@@ -310,6 +330,50 @@ function getSitePackages(siteId) {
     });
 }
 
+// show new packages tab
+function addNewPackageTab(id) {
+
+    var data = {
+        packages: [{
+            id: id,
+            name: 'New - ' + id,
+        }],
+    };
+
+    var element = config.site;
+    var template = element.find('.template-package-tab').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab').append(html);
+
+    element.find('.package-tab li').removeClass('active');
+    element.find('.package-tab li[data-id="' + id + '"]').first().addClass('active');
+}
+
+// show new package tab content
+function addNewPackageTabContent(id) {
+
+    // get all predictions
+    var predictions = getPredictions();
+
+    var data = {
+        packages: [{
+            id: id,
+            name: 'New - ' + id,
+            associatedPredictions: predictions,
+        }],
+    };
+
+    var element = config.site;
+    var template = element.find('.template-package-tab-content').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.package-tab-content').append(html);
+
+    element.find('.package-tab-content .tab-pane').removeClass('active in');
+    element.find('.package-tab-content .tab-pane#package-tab_' + id).addClass('active in');
+}
+
 // show packages tabs
 function showPackagesTabs(data) {
     var element = config.site;
@@ -377,6 +441,20 @@ function showSitePredictionsNames(data) {
     element.find('.site-prediction-name').html(html);
 }
 
+// get all predictions
+function getPredictions() {
+    var ret = {};
+    $.ajax({
+        url: config.coreUrl + "/prediction",
+        type: "get",
+        async: false,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+    return ret;
+}
 
 
 
