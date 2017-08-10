@@ -68,6 +68,19 @@ config.site.on('click', '.save-site', function(){
             alert(response.message);
             return;
         }
+
+        // delete deleted packages
+        var existingPackages = getPackagesAssociatesWithSite(data.site.siteId);
+
+        // check if package exist in front
+        $.each(existingPackages, function(i, e) {
+
+            // if element not exist in front
+            if(config.site.find('.package-tab li[data-id="' + e +'"]').length === 0) {
+                var response = deletePackage(e);
+                alert(response.message);
+            }
+        });
     }
 
     alert(response.message);
@@ -95,7 +108,7 @@ config.site.on('click', '.save-site', function(){
     // update site predictions name
     updateSitePredictionsNames(data.prediction, data.site.siteId);
 
-    // create, delete or update packages and update associated predictions
+    // create or update packages and update associated predictions
     config.site.find('.package-tab-content .package-wrapper').each(function(i, e) {
 
         var g = $(this).find('.general-info');
@@ -347,6 +360,23 @@ function addNewPackage(data) {
 }
 
 // create associatin package - site
+// @return array
+function getPackagesAssociatesWithSite(siteId) {
+    var ret = {};
+    $.ajax({
+        url: config.coreUrl + "/site-package/" + siteId,
+        type: "get",
+        async: false,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
+
+// create associatin package - site
 function associatePackageWithSite(data) {
     var ret = {};
     var params = {data: data};
@@ -376,6 +406,22 @@ function updatePackage(data, id) {
         },
          error: function () {}
     });
+}
+
+// delete a package
+function deletePackage(id) {
+    var ret = {};
+    $.ajax({
+        url: config.coreUrl + "/package/delete/" + id,
+        type: "get",
+        async: false,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
 }
 
 // get site packages
