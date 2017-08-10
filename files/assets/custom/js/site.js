@@ -19,7 +19,7 @@ config.site.on('click', '.add-new-site', function(){
 
 // Add New Package button click
 config.site.on('click', '.add-new-package', function(){
-    var id = Math.random().toString().substring(2);
+    var id = 'new' +  Math.random().toString().substring(2);
     addNewPackageTab(id);
     addNewPackageTabContent(id);
 });
@@ -100,7 +100,6 @@ config.site.on('click', '.save-site', function(){
         });
 
         var package = {
-            id: id,
             name: g.find('.name').val(),
             identifier: g.find('.identifier').val(),
             tipIdentifier: g.find('.tipIdentifier').val(),
@@ -119,21 +118,27 @@ config.site.on('click', '.save-site', function(){
             discount: g.find('.discount').val(),
         };
 
+
         // new package
+        if (id.match(/new/g)) {
 
-        var testString = "sdfsdfsdsdfsdf";
+            var response = addNewPackage(package);
+            if (response.type === 'error') {
+                alert(response.message);
+                return;
+            }
 
+            // add package id from response
+            package.id = response.data.id;
 
+            // asociate package with site
 
-        alert(n);
-
-        if (testString.match(/new/g)) {
-            alert('contain');
+        } else {
+            // add package id
+            package.id = id;
+            updatePackage(package, id);
         }
 
-        return;
-
-            updatePackage(package, id);
 
     });
 
@@ -297,6 +302,24 @@ function showSiteResultStatusNameAndClass(data) {
 /*
  * Packages
  ---------------------------------------------------------------------*/
+
+// store new package
+function addNewPackage(data) {
+    var ret = {};
+
+    $.ajax({
+        url: config.coreUrl + "/package",
+        type: "post",
+        async: false,
+        data: data,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
 
 // update site packages
 function updatePackage(data, id) {
