@@ -224,8 +224,8 @@
                             <span class="caption-subject font-purple-soft bold uppercase">Packages</span>
                         </div>
                         <div class="actions">
-                            <button class="btn green">Add New</button>
-                            <button class="btn red">Delete</button>
+                            <button class="btn green add-new-package">Add New</button>
+                            <button class="btn red delete-package">Delete</button>
                         </div>
                     </div>
                     <div class="portlet-body">
