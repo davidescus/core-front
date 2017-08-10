@@ -248,7 +248,7 @@
 
                                 <div class="package-wrapper">
                                     <!-- general package information -->
-                                    <div class="row">
+                                    <div class="row general-info" data-package-id="{{id}}">
                                         <div class="col-md-8">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -306,79 +306,79 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Name</label>
-                                                    <input type="text" class="form-control" name="name" value="{{name}}">
+                                                    <input type="text" class="form-control name" value="{{name}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Package Identifier</label>
-                                                    <input type="text" class="form-control" name="identifier" value="{{identifier}}">
+                                                    <input type="text" class="form-control identifier" value="{{identifier}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Tip Identifier</label>
-                                                    <input type="text" class="form-control" name="tipIdentifier" value="{{tipIdentifier}}">
+                                                    <input type="text" class="form-control tipIdentifier" value="{{tipIdentifier}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Table Identifier</label>
-                                                    <input type="text" class="form-control" name="tableIdentifier" value="{{tableIdentifier}}">
+                                                    <input type="text" class="form-control tableIdentifier" value="{{tableIdentifier}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Payment Name</label>
-                                                    <input type="text" class="form-control" name="paymentName" value="{{paymentName}}">
+                                                    <input type="text" class="form-control paymentName" value="{{paymentName}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Vip Flag</label>
-                                                    <input type="text" class="form-control" name="vipFlag" value="{{vipFlag}}">
+                                                    <input type="text" class="form-control vipFlag" value="{{vipFlag}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Days/Tips</label>
-                                                    <input type="text" class="form-control" name="subscription" value="{{subscription}}">
+                                                    <input type="text" class="form-control subscription" value="{{subscription}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Tips/day</label>
-                                                    <input type="text" class="form-control" name="tipsPerDay" value="{{tipsPerDay}}">
+                                                    <input type="text" class="form-control tipsPerDay" value="{{tipsPerDay}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Price</label>
-                                                    <input type="text" class="form-control" name="price" value="{{price}}">
+                                                    <input type="text" class="form-control price" value="{{price}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Old Price</label>
-                                                    <input type="text" class="form-control" name="oldPrice" value="{{oldPrice}}">
+                                                    <input type="text" class="form-control oldPrice" value="{{oldPrice}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Alias Subs. Type</label>
-                                                    <input type="text" class="form-control" name="aliasTipsTotal" value="{{aliasTipsTotal}}">
+                                                    <input type="text" class="form-control aliasSubscriptionType" value="{{aliasSubscriptionType}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
                                                     <label>Alias tips/day</label>
-                                                    <input type="text" class="form-control" name="aliasTipsPerDay" value="{{aliasTipsPerDay}}">
+                                                    <input type="text" class="form-control aliasTipsPerDay" value="{{aliasTipsPerDay}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Discount</label>
-                                                    <input type="text" class="form-control" name="discount" value="{{discount}}">
+                                                    <input type="text" class="form-control discount" value="{{discount}}">
                                                 </div>
                                             </div>
                                         </div>
