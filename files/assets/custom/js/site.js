@@ -24,6 +24,17 @@ config.site.on('click', '.add-new-package', function(){
     addNewPackageTabContent(id);
 });
 
+// Delete a package for front
+config.site.on('click', '.delete-package', function(){
+    if (confirm("Are you sure? You will delete active package!")) {
+        config.site.find('.package-tab li.active').remove();
+        config.site.find('.package-tab-content .tab-pane.active.in').remove();
+
+        config.site.find('.package-tab li').first().addClass('active');
+        config.site.find('.package-tab-content .tab-pane').first().addClass('active in');
+    }
+});
+
 // Save button click
 config.site.on('click', '.save-site', function(){
 
@@ -59,7 +70,7 @@ config.site.on('click', '.save-site', function(){
         }
     }
 
-    //alert(response.message);
+    alert(response.message);
 
     // add results names and classes in data.status array
     config.site.find('.site-result-status .row').each(function(i, e) {
@@ -71,7 +82,7 @@ config.site.on('click', '.save-site', function(){
     });
 
     // update results names and classes
-    //updateSiteResultStatusAndClass(data.status, data.site.siteId);
+    updateSiteResultStatusAndClass(data.status, data.site.siteId);
 
     // add predictions name and identifiers in data.prediction array
     config.site.find('.site-prediction-name .prediction').each(function(i, e) {
@@ -82,7 +93,7 @@ config.site.on('click', '.save-site', function(){
     });
 
     // update site predictions name
-    //updateSitePredictionsNames(data.prediction, data.site.siteId);
+    updateSitePredictionsNames(data.prediction, data.site.siteId);
 
     // create, delete or update packages and update associated predictions
     config.site.find('.package-tab-content .package-wrapper').each(function(i, e) {
