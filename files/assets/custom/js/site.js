@@ -133,12 +133,17 @@ config.site.on('click', '.save-site', function(){
             package.id = response.data.id;
 
             // asociate package with site
-             resp = associatePackageWithSite({
-                 siteId: data.site.siteId,
-                 packageId: package.id,
-             });
+            resp = associatePackageWithSite({
+                siteId: data.site.siteId,
+                packageId: package.id,
+            });
 
-             console.log(resp);
+            if (resp.type === 'error') {
+                // TODO do something on error
+                alert('Association coould not be created');
+            }
+
+            alert(resp.message);
 
         } else {
             // add package id
