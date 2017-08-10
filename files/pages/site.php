@@ -289,12 +289,12 @@
                                                     <label>Is recurring</label>
                                                     <div class="mt-radio-inline">
                                                         <label class="mt-radio">
-                                                            <input type="radio" name="recurring_{{id}}" value="0"
+                                                            <input type="radio" name="isRecurring_{{id}}" value="0"
                                                             {{#js_compare "this.isRecurring === 0"}}checked="checked"{{/js_compare}}> No
                                                             <span></span>
                                                         </label>
                                                         <label class="mt-radio">
-                                                            <input type="radio" name="recurring_{{id}}" value="1"
+                                                            <input type="radio" name="isRecurring_{{id}}" value="1"
                                                             {{#js_compare "this.isRecurring === 1"}}checked="checked"{{/js_compare}}> Yes
                                                             <span></span>
                                                         </label>
@@ -388,7 +388,7 @@
                                     <br/>
 
                                     {{#each associatedPredictions}}
-                                    <div class="row">
+                                    <div class="row associated-predictions">
                                         <!-- bet group checkbox -->
                                         <div class="col-md-12">
                                             <label class="mt-checkbox mt-checkbox-outline">{{@key}} - Group
@@ -401,7 +401,7 @@
                                         {{#each predictions}}
                                         <div class="col-md-3">
                                             <label class="mt-checkbox"> {{name}}
-                                                <input type="checkbox" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
+                                                <input type="checkbox" class="prediction" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
                                                 <span></span>
                                             </label>
                                         </div>
