@@ -119,7 +119,6 @@ config.site.on('click', '.save-site', function(){
             discount: g.find('.discount').val(),
         };
 
-
         // new package
         if (id.match(/new/g)) {
 
@@ -146,7 +145,8 @@ config.site.on('click', '.save-site', function(){
             alert(resp.message);
 
         } else {
-            // add package id
+
+            // existing package
             package.id = id;
             updatePackage(package, id);
         }
