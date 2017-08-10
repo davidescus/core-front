@@ -100,6 +100,7 @@ config.site.on('click', '.save-site', function(){
         });
 
         var package = {
+            siteId: data.site.siteId,
             name: g.find('.name').val(),
             identifier: g.find('.identifier').val(),
             tipIdentifier: g.find('.tipIdentifier').val(),
@@ -132,6 +133,12 @@ config.site.on('click', '.save-site', function(){
             package.id = response.data.id;
 
             // asociate package with site
+             resp = associatePackageWithSite({
+                 siteId: data.site.siteId,
+                 packageId: package.id,
+             });
+
+             console.log(resp);
 
         } else {
             // add package id
@@ -312,6 +319,24 @@ function addNewPackage(data) {
         type: "post",
         async: false,
         data: data,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
+
+// create associatin package - site
+function associatePackageWithSite(data) {
+    var ret = {};
+    var params = {data: data};
+    $.ajax({
+        url: config.coreUrl + "/site-package",
+        type: "post",
+        async: false,
+        data: params,
         success: function (response) {
             ret = response;
         },
