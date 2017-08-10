@@ -27,6 +27,7 @@ config.site.on('click', '.save-site', function(){
         },
         status: [],
         prediction: [],
+        package: [],
     };
 
     if (data.site.siteId === 'new') {
@@ -51,7 +52,7 @@ config.site.on('click', '.save-site', function(){
         }
     }
 
-    alert(response.message);
+    //alert(response.message);
 
     // add results names and classes in data.status array
     config.site.find('.site-result-status .row').each(function(i, e) {
@@ -63,7 +64,7 @@ config.site.on('click', '.save-site', function(){
     });
 
     // update results names and classes
-    updateSiteResultStatusAndClass(data.status, data.site.siteId);
+    //updateSiteResultStatusAndClass(data.status, data.site.siteId);
 
     // add predictions name and identifiers in data.prediction array
     config.site.find('.site-prediction-name .prediction').each(function(i, e) {
@@ -74,7 +75,50 @@ config.site.on('click', '.save-site', function(){
     });
 
     // update site predictions name
-    updateSitePredictionsNames(data.prediction, data.site.siteId);
+    //updateSitePredictionsNames(data.prediction, data.site.siteId);
+
+    // add all existings packages
+    config.site.find('.package-tab-content .package-wrapper').each(function(i, e) {
+
+        var g = $(this).find('.general-info');
+        var id = g.attr('data-package-id');
+
+        // asociated bets for package
+        var associatedPredictions = [];
+        $(this).find('.associated-predictions .prediction:checked').each(function(i, e) {
+            associatedPredictions.push({
+                packageId: id,
+                predictionIdentifier: $(this).val(),
+            });
+        });
+
+        var package = {
+            id: id,
+            name: g.find('.name').val(),
+            identifier: g.find('.identifier').val(),
+            tipIdentifier: g.find('.tipIdentifier').val(),
+            tableIdentifier: g.find('.tableIdentifier').val(),
+            isVip: g.find('input[name="isVip_' + id +'"]:checked').val(),
+            isRecurring: g.find('input[name="isRecurring_' + id +'"]:checked').val(),
+            subscriptionType: g.find('input[name="subscriptionType_' + id +'"]:checked').val(),
+            paymentName: g.find('.paymentName').val(),
+            vipFlag: g.find('.vipFlag').val(),
+            subscription: g.find('.subscription').val(),
+            tipsPerDay: g.find('.tipsPerDay').val(),
+            price: g.find('.price').val(),
+            oldPrice: g.find('.oldPrice').val(),
+            aliasSubscriptionType: g.find('.aliasSubscriptionType').val(),
+            aliasTipsPerDay: g.find('.aliasTipsPerDay').val(),
+            discount: g.find('.discount').val(),
+        };
+
+        // new package
+            updatePackage(package, id);
+
+    });
+
+    //console.log(data);
+    //return;
 
 });
 
@@ -233,6 +277,20 @@ function showSiteResultStatusNameAndClass(data) {
 /*
  * Packages
  ---------------------------------------------------------------------*/
+
+// update site packages
+function updatePackage(data, id) {
+    var params = {data: data};
+    $.ajax({
+        url: config.coreUrl + "/package/update/" + id,
+        type: "post",
+        data: params,
+        success: function (response) {
+            alert(response.message);
+        },
+         error: function () {}
+    });
+}
 
 // get site packages
 function getSitePackages(siteId) {
