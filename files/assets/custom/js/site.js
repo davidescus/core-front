@@ -48,6 +48,8 @@ config.site.on('click', '.delete-site', function(){
         response = deleteSite(id);
         alert(response.message);
     }
+
+    getAllSitesIdsAndNames();
 });
 
 
@@ -196,9 +198,7 @@ config.site.on('click', '.save-site', function(){
 
     });
 
-    //console.log(data);
-    //return;
-
+    getAllSitesIdsAndNames();
 });
 
 /*
