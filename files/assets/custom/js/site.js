@@ -35,6 +35,22 @@ config.site.on('click', '.delete-package', function(){
     }
 });
 
+// Delete Site
+config.site.on('click', '.delete-site', function(){
+
+    var id = config.site.find('.site-selection').val();
+    if (id === 'new') {
+        alert("You must select a site!");
+        return;
+    }
+
+    if (confirm("Are you sure? You will delete sected site, associated packages, prediction names!")) {
+        response = deleteSite(id);
+        alert(response.message);
+    }
+});
+
+
 // Save button click
 config.site.on('click', '.save-site', function(){
 
@@ -242,6 +258,23 @@ function updateSite(data) {
         type: "post",
         async: false,
         data: data,
+        success: function (response) {
+            ret = response;
+        },
+         error: function () {}
+    });
+
+    return ret;
+}
+
+// store new site
+function deleteSite(id) {
+    var ret = {};
+
+    $.ajax({
+        url: config.coreUrl + "/site/delete/" + id,
+        type: "get",
+        async: false,
         success: function (response) {
             ret = response;
         },
