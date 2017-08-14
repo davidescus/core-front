@@ -93,7 +93,7 @@ $('#modal-available-events').on('click', '.import', function() {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
 
             $('#modal-available-events').modal('hide');
-            getEventsAssociations(table);
+            getEventsAssociations(table, $('#association-system-date').val());
         },
         error: function () {}
     });
@@ -149,7 +149,7 @@ $('.table-association').on('click', '.delete-event', function() {
 
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
 
-            getEventsAssociations($this.parents('.table-association').attr('data-table'));
+            getEventsAssociations($this.parents('.table-association').attr('data-table'), $('#association-system-date').val());
         },
         error: function () {}
     });
