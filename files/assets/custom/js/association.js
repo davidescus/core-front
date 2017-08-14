@@ -5,6 +5,19 @@ config.association = $('.page-content-wrapper.association');
  */
 
 /*
+* change date selector
+*/
+$('#association-system-date').on('change', function() {
+    var date = $(this).val();
+
+    getEventsAssociations('run', date);
+    getEventsAssociations('ruv', date);
+    getEventsAssociations('nun', date);
+    getEventsAssociations('nuv', date);
+
+});
+
+/*
 * refresh provider, leagues and available events number
 */
 $('.table-association').on('click', '.refresh-event-info', function() {

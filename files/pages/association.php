@@ -8,13 +8,13 @@
         <div class="page-bar">
             <div class="date-selector">
                 <select id="association-system-date" class="form-control input-small input-sm">
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>"><?php echo gmdate('Y-m-d', strtotime('+3day')); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>"><?php echo gmdate('Y-m-d', strtotime('+2day')); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>"><?php echo gmdate('Y-m-d', strtotime('+1day')); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected"><?php echo gmdate('Y-m-d'); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>"><?php echo gmdate('Y-m-d', strtotime('-1day')); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>"><?php echo gmdate('Y-m-d', strtotime('-2day')); ?></option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>"><?php echo gmdate('Y-m-d', strtotime('-3day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
+                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
             <button type="button" class="btn green btn-outline add-event-btn">Add Event</button>
