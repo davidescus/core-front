@@ -265,7 +265,7 @@ function getAvailableEvents(filters) {
 
 /*
 * get association and populate table
-*  arg = table
+*  argTable = table identifier
 */
 function getEventsAssociations(argTable) {
 
