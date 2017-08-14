@@ -267,10 +267,10 @@ function getAvailableEvents(filters) {
 * get association and populate table
 *  arg = table
 */
-function getEventsAssociations(arg) {
+function getEventsAssociations(table) {
 
     $.ajax({
-        url: config.coreUrl + "/association/" + arg,
+        url: config.coreUrl + "/association/" + table,
         type: "get",
         success: function (response) {
 
