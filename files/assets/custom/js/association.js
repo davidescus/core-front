@@ -1,6 +1,5 @@
 config.association = $('.page-content-wrapper.association');
 
-
 /*
  *  Clickable acctions
  */
@@ -261,6 +260,7 @@ function getAvailableEvents(filters) {
         },
         error: function () {}
     });
+
 }
 
 /*
@@ -275,16 +275,37 @@ function getEventsAssociations(arg) {
         success: function (response) {
 
             var element = $('#table-association-' + arg);
-            var data = {associations: response};
+            var table = element.find('.association-table-datatable').DataTable();
+            var buttons = '<button type="button" class="btn green btn-outline search-events-btn modal-available-packages">Associate</button>';
+            buttons += '<button type="button" class="btn red btn-outline search-events-btn delete-event">Del</button>';
 
-            var template = $('#template-table-association-content').html();
-            var compiledTemplate = Template7.compile(template);
-            var html = compiledTemplate(data);
-            element.find('.table-association-content').html(html);
+            // clear table
+            table.clear().draw();
 
+            $.each(response, function(i, e) {
+
+                var node = table.row.add( [
+                    e.country,
+                    e.league,
+                    e.homeTeam,
+                    e.awayTeam,
+                    e.odd,
+                    e.predictionId,
+                    e.result,
+                    e.statusId,
+                    e.eventDate,
+                    e.systemDate,
+                    buttons,
+                ] ).draw(false).node();
+
+                // add data-id attribute to inserted row
+                $(node).attr('data-id', e.id);
+
+            });
         },
         error: function () {}
     });
+
 }
 
 

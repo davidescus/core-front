@@ -115,8 +115,27 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+
                             <!-- content of association table -->
-                            <div class="table-association-content"></div>
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column association-table-datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Country</th>
+                                        <th>League</th>
+                                        <th>Home Team</th>
+                                        <th>Away Team</th>
+                                        <th>Odd</th>
+                                        <th>Prediction</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                        <th>Event Date</th>
+                                        <th>System Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -220,8 +239,27 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+
                             <!-- content of association table -->
-                            <div class="table-association-content"></div>
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column association-table-datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Country</th>
+                                        <th>League</th>
+                                        <th>Home Team</th>
+                                        <th>Away Team</th>
+                                        <th>Odd</th>
+                                        <th>Prediction</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                        <th>Event Date</th>
+                                        <th>System Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -325,8 +363,27 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+
                             <!-- content of association table -->
-                            <div class="table-association-content"></div>
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column association-table-datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Country</th>
+                                        <th>League</th>
+                                        <th>Home Team</th>
+                                        <th>Away Team</th>
+                                        <th>Odd</th>
+                                        <th>Prediction</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                        <th>Event Date</th>
+                                        <th>System Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -430,8 +487,27 @@
                             </div>
                         </div>
                         <div class="portlet-body">
+
                             <!-- content of association table -->
-                            <div class="table-association-content"></div>
+                            <table class="table table-striped table-bordered table-hover table-checkable order-column association-table-datatable">
+                                <thead>
+                                    <tr>
+                                        <th>Country</th>
+                                        <th>League</th>
+                                        <th>Home Team</th>
+                                        <th>Away Team</th>
+                                        <th>Odd</th>
+                                        <th>Prediction</th>
+                                        <th>Result</th>
+                                        <th>Status</th>
+                                        <th>Event Date</th>
+                                        <th>System Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+
                         </div>
                     </div>
                     <!-- END EXAMPLE TABLE PORTLET-->
@@ -445,47 +521,6 @@
     <!-- END CONTENT BODY -->
 </div>
 <!-- END CONTENT -->
-
-<!-- content of table association -->
-<script id="template-table-association-content" type="text/template7">
-    <table class="table table-striped table-bordered table-hover table-checkable order-column assocition_table">
-        <thead>
-            <tr>
-                <th>Country</th>
-                <th>League</th>
-                <th>Home Team</th>
-                <th>Away Team</th>
-                <th>Odd</th>
-                <th>Prediction</th>
-                <th>Result</th>
-                <th>Status</th>
-                <th>Event Date</th>
-                <th>System Date</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each associations}}
-            <tr data-id="{{id}}">
-                <td>{{country}}</td>
-                <td>{{league}}</td>
-                <td>{{homeTeam}}</td>
-                <td>{{awayTeam}}</td>
-                <td>{{odd}}</td>
-                <td>{{predictionId}}</td>
-                <td>{{result}}</td>
-                <td>{{statusId}}</td>
-                <td>{{eventDate}}</td>
-                <td>{{systemDate}}</td>
-                <td>
-                    <button type="button" class="btn green btn-outline search-events-btn modal-available-packages">Associate</button>
-                    <button type="button" class="btn red btn-outline search-events-btn delete-event">Del</button>
-                </td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
-</script>
 
 <!-- START ASSOCIATE EVENT MODAL -->
 <div class="modal fade" id="modal-associate-events" tabindex="-1" role="basic" aria-hidden="true">
@@ -618,4 +653,17 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- END ADD EVENTS MODAL -->
+
+
+
+
+
+
+
+
+
+
+
+
+
 
