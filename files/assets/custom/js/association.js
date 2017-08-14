@@ -267,10 +267,10 @@ function getAvailableEvents(filters) {
 * get association and populate table
 *  argTable = table identifier
 */
-function getEventsAssociations(argTable) {
+function getEventsAssociations(argTable, dateModifier = '0') {
 
     $.ajax({
-        url: config.coreUrl + "/association/" + argTable,
+        url: config.coreUrl + "/association/event/" + argTable + '/' + dateModifier,
         type: "get",
         success: function (response) {
 
