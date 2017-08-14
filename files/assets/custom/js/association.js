@@ -1,3 +1,6 @@
+config.association = $('.page-content-wrapper.association');
+
+
 /*
  *  Clickable acctions
  */
@@ -70,7 +73,7 @@ $('#modal-available-events').on('click', '.import', function() {
         data: {
             eventsIds: ids,
             table : table,
-            systemDate: $('#modal-available-events .system-date').val(),
+            systemDate: $('#association-system-date').val(),
         },
         beforeSend: function() {},
         success: function (response) {
@@ -106,8 +109,6 @@ $('.table-association').on('click', '.modal-available-packages', function() {
             var data = response;
             data.table = table;
 
-            console.log(data);
-
             var element = $('#modal-associate-events');
 
             var template = element.find('.template-modal-content').html();
@@ -130,8 +131,8 @@ $('.table-association').on('click', '.delete-event', function() {
     var id = $this.parents('tr').attr('data-id');
 
     $.ajax({
-        url: config.coreUrl + "/association/" + id,
-        type: "delete",
+        url: config.coreUrl + "/association/delete/" + id,
+        type: "get",
         success: function (response) {
 
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
@@ -248,7 +249,7 @@ function getAvailableEvents(filters) {
             var data = {
                 table: filters.table,
                 events: response,
-                currentDate: new Date().toISOString().split('T')[0],
+                systemDate: $('#association-system-date').val(),
             };
 
             var template = element.find('.template-modal-content').html();
