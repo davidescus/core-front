@@ -129,10 +129,8 @@ var TableDatatablesManaged = function () {
 
 }();
 
-
-
-jQuery(document).ready(function() {    
-   Custom.init(); 
+jQuery(document).ready(function() {
+   Custom.init();
    TableDatatablesManaged.init();
 });
 
