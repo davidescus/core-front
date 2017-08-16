@@ -17,7 +17,7 @@
                     <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
-            <button type="button" class="btn green btn-outline add-event-btn">Add Event</button>
+            <a class="btn green btn-outline add-event-btn" data-toggle="modal" href="#modal-add-events">Add Event</a>
         </div>
         <!-- END PAGE BAR-->
         <!-- END PAGE HEADER-->
@@ -583,7 +583,7 @@
 </div>
 <!-- END ASSOCIATE EVENT MODAL -->
 
-<!-- START ADD EVENTS MODAL -->
+<!-- START INSERT EVENTS MODAL -->
 <div class="modal fade" id="modal-available-events" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
@@ -652,7 +652,176 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- END ADD EVENTS MODAL -->
+<!-- END INSERT EVENTS MODAL -->
+
+
+<!-- START INSERT EVENTS MODAL -->
+<div class="modal fade" id="modal-add-events" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+        
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title import_modal_title">Add Event</h4>
+            </div>
+            <div class="modal-body" id="form_wizard_1">
+                <form class="form-horizontal add_event_form" action="#" id="submit_form" method="POST">
+                    <div class="form-wizard">
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li>
+                                    <a href="#tab1" data-toggle="tab" class="step active">
+                                        <span class="number"> 1 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Select Event </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#tab2" data-toggle="tab" class="step">
+                                        <span class="number"> 4 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i> Confirm Event </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success"> </div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="alert alert-danger display-none">
+                                    <button class="close" data-dismiss="alert"></button> You have some form errors. Please check below. </div>
+                                <div class="alert alert-success display-none">
+                                    <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
+                                <div class="tab-pane active" id="tab1">
+                                   <h3 class="block">Seach for events</h3>
+                                   <div class="add_tip_automatically row">
+	                                   <div class="form-group col-md-4">
+	                                        <label class="control-label">Select Table</label>
+	                                        <select class="form-control">
+	                                            <option value="1"></option>
+	                                            <option value="AF">Option 1</option>
+	                                            <option value="AL">Albania</option>
+	                                            <option value="DZ">Algeria</option>
+	                                        </select>
+	                                    </div>
+	                                    
+	                                    <div class="form-group col-md-6">
+	                                        <label class="control-label">Search Event</label>
+	                                        <div class="input-group">
+	                                            <span class="input-group-addon">
+	                                                <i class="fa fa-cogs"></i>
+	                                            </span>
+	                                            <input type="text" id="typeahead_example_modal_3" name="typeahead_example_modal_3" class="form-control" /> 
+	                                        </div>
+	                                    </div>
+
+	                                    <div class="col-md-2">
+	                                    	<label class="mt-checkbox mt-checkbox-outline"> Add No Tip
+	                                            <input type="checkbox" value="1" name="test">
+	                                            <span></span>
+	                                        </label>
+	                                    </div>
+
+                                    </div>
+                                    <a class="btn btn-success">Add Event Manually <i class="fa fa-angle-down"></i> </a>
+
+                                    <h3 class="block">Add event manually</h3>
+                                    <ul class="add_event_manually row">
+	                                    <li class="col-md-3">
+	                                    	<div class="form-group">
+	                                            <label class="control-label">Select Country</label>
+		                                    	<select class="form-control select-provider select2">
+		                                    		<option></option>
+		                                    		<option value="1"> 1 </option>
+		                                    		<option value="2"> 2 </option>
+		                                    	</select>
+		                                    </div>
+	                                    </li>
+	                                    <li class="col-md-3">
+	                                    	<div class="form-group">
+	                                            <label class="control-label">Select League</label>
+		                                    	<select class="form-control select-provider select2">
+		                                    		<option></option>
+		                                    		<option value="1"> 1 </option>
+		                                    		<option value="2"> 2 </option>
+		                                    	</select>
+		                                    </div>
+	                                    </li>
+	                                    <li class="col-md-3">
+	                                    	<div class="form-group">
+	                                            <label class="control-label">Select Event</label>
+		                                    	<select class="form-control select-provider select2">
+		                                    		<option></option>
+		                                    		<option value="1"> 1 </option>
+		                                    		<option value="2"> 2 </option>
+		                                    	</select>
+		                                    </div>
+	                                    </li>
+	                                    <li class="col-md-3">
+	                                    	<div class="form-group">
+	                                            <label class="control-label">Select Prediction</label>
+		                                    	<select class="form-control select-provider select2">
+		                                    		<option></option>
+		                                    		<option value="1"> 1 </option>
+		                                    		<option value="2"> 2 </option>
+		                                    	</select>
+		                                    </div>
+	                                    </li>
+                                    </ul>
+                                    
+                                </div>
+                                <div class="tab-pane" id="tab2">
+                                    <h3 class="block">Confirm the event</h3>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Country:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="username"> Romania </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">League:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="email"> Liga 1 </p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Event:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="email"> Steaua - Dinamo</p>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-md-3">Prediction:</label>
+                                        <div class="col-md-4">
+                                            <p class="form-control-static" data-display="email"> Over 2.5 </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <a href="javascript:;" class="btn default button-previous">
+                                        <i class="fa fa-angle-left"></i> Back </a>
+                                    <a href="javascript:;" class="btn btn-outline green button-next"> Continue
+                                        <i class="fa fa-angle-right"></i>
+                                    </a>
+                                    <a href="javascript:;" class="btn green button-submit"> Submit
+                                        <i class="fa fa-check"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END INSERT EVENTS MODAL -->
 
 
 
