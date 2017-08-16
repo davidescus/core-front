@@ -34,8 +34,18 @@ License: You must have a valid license purchased only from themeforest(the above
         <link href="../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
         <!-- END GLOBAL MANDATORY STYLES -->
 
+        <!-- BEGIN PLUGIN STYLES -->
         <link href="../assets/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
         <link href="../assets/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+        <link href="../assets/global/plugins/bootstrap-summernote/summernote.css" rel="stylesheet" type="text/css" />
+        <!-- END PLUGIN STYLES -->
 
         <!-- BEGIN THEME GLOBAL STYLES -->
         <link href="../assets/global/css/components-rounded.min.css" rel="stylesheet" id="style_components" type="text/css" />
@@ -48,6 +58,9 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
 
+        <!-- custom css -->
+        <link href="../assets/custom/css/style.css" rel="stylesheet" type="text/css" />
+
         <!-- jquery -->
         <script src="../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
         <!-- template7 -->
@@ -55,6 +68,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
         <!-- js general configuration -->
         <script src="../assets/custom/js/config.js"></script>
+
         <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
