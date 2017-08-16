@@ -18,6 +18,73 @@ $('#association-system-date').on('change', function() {
 });
 
 /*
+ * type on search event
+ */
+    $('#modal-add-manual-event .search-match').keyup(function() {
+        var element = $('#modal-add-manual-event');
+        var filterValue = $(this).val();
+
+        if (filterValue.length < 2) {
+            element.find('.selectable-block').addClass('hidden');
+            return;
+        }
+
+        $.ajax({
+            url: config.coreUrl + "/match/filter/" + filterValue,
+            type: "get",
+            success: function (response) {
+
+                var data = {matches: response};
+                element.find('.selectable-block').removeClass('hidden');
+
+                var template = element.find('.template-selectable-block').html();
+                var compiledTemplate = Template7.compile(template);
+                var html = compiledTemplate(data);
+                element.find('.selectable-block').html(html);
+            },
+            error: function () {}
+        });
+    });
+
+/*
+ * Click on selectable-row for select match
+ */
+    $('#modal-add-manual-event .selectable-block').on('click', '.selectable-row', function() {
+
+        var matchId = $(this).attr('data-id');
+
+        // return if click on no available events
+        if (typeof matchId === typeof undefined || matchId === false)
+            return;
+
+        var element = $('#modal-add-manual-event');
+
+        // put content in html input
+        element.find('.search-match').val($(this).html());
+
+        // put id in hidden input .match-id
+        element.find('.match-id').val(matchId);
+        element.find('.selectable-block').addClass('hidden');
+
+        // show infos on confirm event
+        $.ajax({
+            url: config.coreUrl + "/match/" + matchId,
+            type: "get",
+            success: function (response) {
+
+                var element = $('#modal-add-manual-event .confirm-event');
+
+                element.find('.country').html(response.country);
+                element.find('.league').html(response.league);
+                element.find('.teams').html(response.homeTeam + ' - ' + response.awayTeam);
+            },
+            error: function () {}
+        });
+
+    });
+
+
+/*
 * refresh provider, leagues and available events number
 */
 $('.table-association').on('click', '.refresh-event-info', function() {

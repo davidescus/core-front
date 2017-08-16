@@ -17,7 +17,7 @@
                     <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
-            <a class="btn green btn-outline add-event-btn" data-toggle="modal" href="#modal-add-events">Add Event</a>
+            <a class="btn green btn-outline add-event-btn" data-toggle="modal" href="#modal-add-manual-event">Add Event</a>
         </div>
         <!-- END PAGE BAR-->
         <!-- END PAGE HEADER-->
@@ -656,7 +656,7 @@
 
 
 <!-- START INSERT EVENTS MODAL -->
-<div class="modal fade" id="modal-add-events" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-add-manual-event" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
         
@@ -693,25 +693,25 @@
                                 <div class="alert alert-success display-none">
                                     <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
                                 <div class="tab-pane active" id="tab1">
-                                   <h3 class="block">Seach for events</h3>
-                                   <div class="add_tip_automatically row">
-	                                   <div class="form-group col-md-4">
+                                    <h3 class="block">Seach for events</h3>
+                                    <div class="add_tip_automatically row">
+	                                    <div class="form-group col-md-4">
 	                                        <label class="control-label">Select Table</label>
 	                                        <select class="form-control">
-	                                            <option value="1"></option>
-	                                            <option value="AF">Option 1</option>
-	                                            <option value="AL">Albania</option>
-	                                            <option value="DZ">Algeria</option>
+	                                            <option value="run">Real Users Normal</option>
+	                                            <option value="ruv">Real Users Vip</option>
+	                                            <option value="nun">No Users Normal</option>
+	                                            <option value="nuv">No Users Vip</option>
 	                                        </select>
 	                                    </div>
-	                                    
+
 	                                    <div class="form-group col-md-6">
 	                                        <label class="control-label">Search Event</label>
 	                                        <div class="input-group">
 	                                            <span class="input-group-addon">
 	                                                <i class="fa fa-cogs"></i>
 	                                            </span>
-	                                            <input type="text" id="typeahead_example_modal_3" name="typeahead_example_modal_3" class="form-control" /> 
+	                                            <input type="text" class="form-control search-match"/>
 	                                        </div>
 	                                    </div>
 
@@ -723,6 +723,25 @@
 	                                    </div>
 
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+
+                                            <!-- hidden inputt to persist matchId -->
+                                            <input type="hidden" class="match-id">
+
+                                            <!-- div for founded events -->
+                                            <div class="selectable-block"></div>
+                                            <script class="template-selectable-block" type="text/template7">
+                                                {{#each matches}}
+                                                <div class="selectable-row" data-id="{{id}}">{{country}}:{{league}}{{homeTeam}} vs {{awayTeam}} {{eventDate}}</div>
+                                                {{else}}
+                                                <div class="selectable">No Events Available</div>
+                                                {{/each}}
+                                            </script>
+                                        </div>
+                                    </div>
+
                                     <a class="btn btn-success">Add Event Manually <i class="fa fa-angle-down"></i> </a>
 
                                     <h3 class="block">Add event manually</h3>
@@ -768,32 +787,34 @@
 		                                    </div>
 	                                    </li>
                                     </ul>
-                                    
+
                                 </div>
                                 <div class="tab-pane" id="tab2">
-                                    <h3 class="block">Confirm the event</h3>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Country:</label>
-                                        <div class="col-md-4">
-                                            <p class="form-control-static" data-display="username"> Romania </p>
+                                    <div class="confirm-event">
+                                        <h3 class="block">Confirm the event</h3>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Country:</label>
+                                            <div class="col-md-4">
+                                                <p class="form-control-static country">-</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">League:</label>
-                                        <div class="col-md-4">
-                                            <p class="form-control-static" data-display="email"> Liga 1 </p>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">League:</label>
+                                            <div class="col-md-4">
+                                                <p class="form-control-static league">-</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Event:</label>
-                                        <div class="col-md-4">
-                                            <p class="form-control-static" data-display="email"> Steaua - Dinamo</p>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Event:</label>
+                                            <div class="col-md-4">
+                                                <p class="form-control-static teams">-</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-3">Prediction:</label>
-                                        <div class="col-md-4">
-                                            <p class="form-control-static" data-display="email"> Over 2.5 </p>
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Prediction:</label>
+                                            <div class="col-md-4">
+                                                <p class="form-control-static prediction">-</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
