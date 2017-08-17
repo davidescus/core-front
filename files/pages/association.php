@@ -659,7 +659,7 @@
 <div class="modal fade" id="modal-add-manual-event" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-        
+
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title import_modal_title">Add Event</h4>
@@ -697,8 +697,8 @@
                                     <div class="add_tip_automatically row">
 	                                    <div class="form-group col-md-2">
 	                                        <label class="control-label">Select Table</label>
-	                                        <select class="form-control">
-	                                            <option value="run">Real Users Normal</option>
+	                                        <select class="form-control select-table">
+	                                            <option value="run" selected="selected">Real Users Normal</option>
 	                                            <option value="ruv">Real Users Vip</option>
 	                                            <option value="nun">No Users Normal</option>
 	                                            <option value="nuv">No Users Vip</option>

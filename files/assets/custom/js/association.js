@@ -71,7 +71,7 @@ $('#association-system-date').on('change', function() {
                     return;
 
                 // start seccond ajax to create associate event with table
-                var table = $('#modal-add-manual-event .table').val();
+                var table = $('#modal-add-manual-event .select-table').val();
                 var currentDate = $('#association-system-date').val();
                 $.ajax({
                     url: config.coreUrl + "/association",
