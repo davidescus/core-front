@@ -66,12 +66,38 @@ $('#association-system-date').on('change', function() {
             },
             success: function (response) {
 
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
                 if (response.type == 'error')
                     return;
 
-                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                // start seccond ajax to create associate event with table
+                var table = $('#modal-add-manual-event .table').val();
+                var currentDate = $('#association-system-date').val();
+                $.ajax({
+                    url: config.coreUrl + "/association",
+                    type: "post",
+                    dataType: "json",
+                    data: {
+                        eventsIds: [response.data.id],
+                        table : table,
+                        systemDate: currentDate,
+                    },
+                    beforeSend: function() {},
+                    success: function (r) {
 
-                var eventId = response.data.id;
+                        alert("Type: --- " + r.type + " --- \r\n" + r.message);
+
+                        // refresh table to see new entry
+                        getEventsAssociations(table, currentDate);
+
+                        // hide modal
+                        $('#modal-add-manual-event').hide();
+
+                        // TODO clean inputs
+
+                    },
+                    error: function () {}
+                });
 
             },
             error: function () {}
