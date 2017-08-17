@@ -18,6 +18,70 @@ $('#association-system-date').on('change', function() {
 });
 
 /*
+ * Lanch modal create event
+ */
+    config.association.on('click', '.add-manual-event', function() {
+
+        $.ajax({
+            url: config.coreUrl + "/prediction",
+            type: "get",
+            success: function (response) {
+
+                console.log(response);
+
+                var data = {predictions: response};
+                var element = $('#modal-add-manual-event');
+
+                var template = element.find('.template-select-prediction').html();
+                var compiledTemplate = Template7.compile(template);
+                var html = compiledTemplate(data);
+
+                element.find('.select-prediction-feed').html(html);
+                element.find('.select-prediction-manual').html(html);
+            },
+            error: function () {}
+        });
+
+        $('#modal-add-manual-event').modal('show');
+
+    });
+
+// on change prediction show text in confirm area
+    $('#modal-add-manual-event').on('change', '.select-prediction-feed', function() {
+        $('#modal-add-manual-event .confirm-event .prediction').html($(this).val());
+    });
+
+// Click on add manual event submit
+    $('#modal-add-manual-event').on('click', '.button-submit', function() {
+
+        // get match id
+        var matchId = $('#modal-add-manual-event').find('.match-id').val();
+
+        $.ajax({
+            url: config.coreUrl + "/event/create-from-match",
+            type: "post",
+            dataType: "json",
+            data: {
+                matchId: matchId,
+                predictionId: $('#modal-add-manual-event .select-prediction-feed').val(),
+                odd: $('#modal-add-manual-event .odd').val(),
+            },
+            success: function (response) {
+
+                if (response.type == 'error')
+                    return;
+
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+
+                var eventId = response.data.id;
+
+            },
+            error: function () {}
+        });
+
+    });
+
+/*
  * type on search event
  */
     $('#modal-add-manual-event .search-match').keyup(function() {

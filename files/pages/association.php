@@ -17,7 +17,7 @@
                     <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
-            <a class="btn green btn-outline add-event-btn" data-toggle="modal" href="#modal-add-manual-event">Add Event</a>
+            <a class="btn green btn-outline add-event-btn add-manual-event">Add Event</a>
         </div>
         <!-- END PAGE BAR-->
         <!-- END PAGE HEADER-->
@@ -695,7 +695,7 @@
                                 <div class="tab-pane active" id="tab1">
                                     <h3 class="block">Seach for events</h3>
                                     <div class="add_tip_automatically row">
-	                                    <div class="form-group col-md-4">
+	                                    <div class="form-group col-md-2">
 	                                        <label class="control-label">Select Table</label>
 	                                        <select class="form-control">
 	                                            <option value="run">Real Users Normal</option>
@@ -705,7 +705,7 @@
 	                                        </select>
 	                                    </div>
 
-	                                    <div class="form-group col-md-6">
+	                                    <div class="form-group col-md-5">
 	                                        <label class="control-label">Search Event</label>
 	                                        <div class="input-group">
 	                                            <span class="input-group-addon">
@@ -713,6 +713,28 @@
 	                                            </span>
 	                                            <input type="text" class="form-control search-match"/>
 	                                        </div>
+	                                    </div>
+
+                                        <!-- select prediction -->
+	                                    <div class="col-md-2">
+	                                    	<div class="form-group">
+	                                            <label class="control-label">Select Prediction</label>
+		                                    	<select class="form-control select-prediction-feed select2"></select>
+                                                <script class="template-select-prediction" type="text/template7">
+                                                    <option value="-">- Select -</option>
+                                                    {{#each predictions}}
+                                                        {{#each predictions}}
+                                                        <option value="{{identifier}}">{{name}}</option>
+                                                        {{/each}}
+                                                    {{/each}}
+		                                    	</script>
+		                                    </div>
+	                                    </div>
+
+                                        <!-- odd -->
+	                                    <div class="col-md-2">
+	                                    	<label class="control-label">Odd</label>
+	                                        <input type="text" class="form-control odd">
 	                                    </div>
 
 	                                    <div class="col-md-2">
@@ -779,11 +801,7 @@
 	                                    <li class="col-md-3">
 	                                    	<div class="form-group">
 	                                            <label class="control-label">Select Prediction</label>
-		                                    	<select class="form-control select-provider select2">
-		                                    		<option></option>
-		                                    		<option value="1"> 1 </option>
-		                                    		<option value="2"> 2 </option>
-		                                    	</select>
+		                                    	<select class="form-control select-prediction-manual select2"></select>
 		                                    </div>
 	                                    </li>
                                     </ul>
@@ -828,7 +846,7 @@
                                     <a href="javascript:;" class="btn btn-outline green button-next"> Continue
                                         <i class="fa fa-angle-right"></i>
                                     </a>
-                                    <a href="javascript:;" class="btn green button-submit"> Submit
+                                    <a class="btn green button-submit"> Submit
                                         <i class="fa fa-check"></i>
                                     </a>
                                 </div>
