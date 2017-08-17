@@ -34,74 +34,149 @@ $('#association-system-date').on('change', function() {
                 var compiledTemplate = Template7.compile(template);
                 var html = compiledTemplate(data);
 
-                element.find('.select-prediction-feed').html(html);
-                element.find('.select-prediction-manual').html(html);
+                element.find('.select-prediction').html(html);
             },
             error: function () {}
         });
 
+        showContentBasedOnEventType($('#modal-add-manual-event [name="association-modal-event-type"]:checked').val());
+        $('#modal-add-manual-event .confirm-event .systemDate').html($('#association-system-date').val());
+        $('#modal-add-manual-event .confirm-event .table').html($('#modal-add-manual-event .select-table option:selected').val());
         $('#modal-add-manual-event').modal('show');
 
     });
 
 // on change prediction show text in confirm area
-    $('#modal-add-manual-event').on('change', '.select-prediction-feed', function() {
+    $('#modal-add-manual-event').on('change', '.select-prediction', function() {
         $('#modal-add-manual-event .confirm-event .prediction').html($(this).val());
     });
+
+// on change prediction show text in confirm area
+    $('#modal-add-manual-event').on('change', '.select-table', function() {
+        $('#modal-add-manual-event .confirm-event .table').html($(this).val());
+    });
+
+// show odd on confirm add event modal
+    $('#modal-add-manual-event .odd').keyup(function() {
+        $('#modal-add-manual-event .confirm-event .odd').html($(this).val());
+    });
+
+// change radio for add new event type
+    $('#modal-add-manual-event').on('change', '[name="association-modal-event-type"]', function() {
+        showContentBasedOnEventType($(this).val())
+    });
+
+// that function will manage what we see on add event when change event type
+function showContentBasedOnEventType(type) {
+
+    // add class hidden all
+    $('#modal-add-manual-event .add-event-option').addClass('hidden');
+
+    if (type === 'noTip') {
+        $('#modal-add-manual-event .add-event-option.option-no-tip').removeClass('hidden');
+    }
+
+    if (type === 'create') {
+        $('#modal-add-manual-event .add-event-option.option-create').removeClass('hidden');
+        $('#modal-add-manual-event .add-event-option.option-add-create').removeClass('hidden');
+    }
+
+    if (type === 'add') {
+        $('#modal-add-manual-event .add-event-option.option-add').removeClass('hidden');
+        $('#modal-add-manual-event .add-event-option.option-add-create').removeClass('hidden');
+    }
+}
 
 // Click on add manual event submit
     $('#modal-add-manual-event').on('click', '.button-submit', function() {
 
-        // get match id
-        var matchId = $('#modal-add-manual-event').find('.match-id').val();
+        // check what user want to do: add no tip, add tip from events or create tip
+        var eventType = $('#modal-add-manual-event [name="association-modal-event-type"]:checked').val();
+        var table = $('#modal-add-manual-event .select-table').val();
+        var currentDate = $('#association-system-date').val();
 
-        $.ajax({
-            url: config.coreUrl + "/event/create-from-match",
-            type: "post",
-            dataType: "json",
-            data: {
-                matchId: matchId,
-                predictionId: $('#modal-add-manual-event .select-prediction-feed').val(),
-                odd: $('#modal-add-manual-event .odd').val(),
-            },
-            success: function (response) {
+        if (eventType === 'noTip') {
 
-                alert("Type: --- " + response.type + " --- \r\n" + response.message);
-                if (response.type == 'error')
-                    return;
+            $.ajax({
+                url: config.coreUrl + "/association/no-tip",
+                type: "post",
+                dataType: "json",
+                data: {
+                    table : table,
+                    systemDate: currentDate,
+                },
+                success: function (r) {
 
-                // start seccond ajax to create associate event with table
-                var table = $('#modal-add-manual-event .select-table').val();
-                var currentDate = $('#association-system-date').val();
-                $.ajax({
-                    url: config.coreUrl + "/association",
-                    type: "post",
-                    dataType: "json",
-                    data: {
-                        eventsIds: [response.data.id],
-                        table : table,
-                        systemDate: currentDate,
-                    },
-                    beforeSend: function() {},
-                    success: function (r) {
+                    alert("Type: --- " + r.type + " --- \r\n" + r.message);
 
-                        alert("Type: --- " + r.type + " --- \r\n" + r.message);
+                    // refresh table to see new entry
+                    getEventsAssociations(table, currentDate);
 
-                        // refresh table to see new entry
-                        getEventsAssociations(table, currentDate);
+                    // hide modal
+                    $('#modal-add-manual-event').modal('hide');
+                },
+                error: function () {}
+            });
 
-                        // hide modal
-                        $('#modal-add-manual-event').hide();
+            return;
+        }
 
-                        // TODO clean inputs
+        if (eventType === 'noTip') {
+            alert('Not implemented yet!');
+            return;
+        }
 
-                    },
-                    error: function () {}
-                });
+        if (eventType === 'noTip') {
+            // get match id
+            var matchId = $('#modal-add-manual-event').find('.match-id').val();
 
-            },
-            error: function () {}
-        });
+            $.ajax({
+                url: config.coreUrl + "/event/create-from-match",
+                type: "post",
+                dataType: "json",
+                data: {
+                    matchId: matchId,
+                    predictionId: $('#modal-add-manual-event .select-prediction').val(),
+                    odd: $('#modal-add-manual-event .odd').val(),
+                },
+                success: function (response) {
+
+                    alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                    if (response.type == 'error')
+                        return;
+
+                    // start seccond ajax to create associate event with table
+                    $.ajax({
+                        url: config.coreUrl + "/association",
+                        type: "post",
+                        dataType: "json",
+                        data: {
+                            eventsIds: [response.data.id],
+                            table : table,
+                            systemDate: currentDate,
+                        },
+                        beforeSend: function() {},
+                        success: function (r) {
+
+                            alert("Type: --- " + r.type + " --- \r\n" + r.message);
+
+                            // refresh table to see new entry
+                            getEventsAssociations(table, currentDate);
+
+                            // hide modal
+                            $('#modal-add-manual-event').modal('hide');
+
+                            // TODO clean inputs
+
+                        },
+                        error: function () {}
+                    });
+
+                },
+                error: function () {}
+            });
+            return;
+        }
 
     });
 

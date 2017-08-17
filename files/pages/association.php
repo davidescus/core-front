@@ -693,9 +693,11 @@
                                 <div class="alert alert-success display-none">
                                     <button class="close" data-dismiss="alert"></button> Your form validation is successful! </div>
                                 <div class="tab-pane active" id="tab1">
-                                    <h3 class="block">Seach for events</h3>
+                                    <h3 class="block">Choose table and event type</h3>
                                     <div class="add_tip_automatically row">
-	                                    <div class="form-group col-md-2">
+
+                                        <!-- table selection -->
+	                                    <div class="form-group col-md-6">
 	                                        <label class="control-label">Select Table</label>
 	                                        <select class="form-control select-table">
 	                                            <option value="run" selected="selected">Real Users Normal</option>
@@ -705,135 +707,192 @@
 	                                        </select>
 	                                    </div>
 
-	                                    <div class="form-group col-md-5">
-	                                        <label class="control-label">Search Event</label>
-	                                        <div class="input-group">
-	                                            <span class="input-group-addon">
-	                                                <i class="fa fa-cogs"></i>
-	                                            </span>
-	                                            <input type="text" class="form-control search-match"/>
-	                                        </div>
+                                        <!-- event type selection -->
+	                                    <div class="form-group col-md-6">
+	                                        <label>Select event type</label>
+                                            <div class="mt-radio-inline">
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="association-modal-event-type" value="noTip">
+                                                        Add No Tip
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="association-modal-event-type" value="add" checked>
+                                                        Add Event
+                                                        <span></span>
+                                                    </label>
+                                                    <label class="mt-radio">
+                                                        <input type="radio" name="association-modal-event-type" value="create">
+                                                        Create Event
+                                                        <span></span>
+                                                    </label>
+                                            </div>
 	                                    </div>
 
-                                        <!-- select prediction -->
-	                                    <div class="col-md-2">
-	                                    	<div class="form-group">
-	                                            <label class="control-label">Select Prediction</label>
-		                                    	<select class="form-control select-prediction-feed select2"></select>
-                                                <script class="template-select-prediction" type="text/template7">
-                                                    <option value="-">- Select -</option>
-                                                    {{#each predictions}}
-                                                        {{#each predictions}}
-                                                        <option value="{{identifier}}">{{name}}</option>
-                                                        {{/each}}
-                                                    {{/each}}
-		                                    	</script>
-		                                    </div>
+                                        <!-- hidden inputt to persist matchId -->
+                                        <input type="hidden" class="match-id">
+
+                                        <!-- content based on event type selection  noTip -->
+	                                    <div class="col-md-12">
+                                            <div class="add-event-option option-no-tip">
+                                                <h3>You chose to add no tip</h3>
+                                            </div>
 	                                    </div>
 
-                                        <!-- odd -->
-	                                    <div class="col-md-2">
-	                                    	<label class="control-label">Odd</label>
-	                                        <input type="text" class="form-control odd">
+                                        <!-- content based on event type selection  add -->
+	                                    <div class="col-md-12">
+                                            <div class="add-event-option option-add hidden">
+                                                <h3>Search event</h3>
+                                                <div class="row">
+
+                                                    <!-- search event -->
+                                                    <div class="form-group col-md-12">
+                                                        <label class="control-label">Search Event</label>
+                                                        <div class="input-group">
+                                                            <span class="input-group-addon">
+                                                                <i class="fa fa-cogs"></i>
+                                                            </span>
+                                                            <input type="text" class="form-control search-match"/>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- div for founded events -->
+                                                    <div class="col-md-12">
+                                                        <div class="selectable-block"></div>
+                                                        <script class="template-selectable-block" type="text/template7">
+                                                            {{#each matches}}
+                                                            <div class="selectable-row" data-id="{{id}}">{{country}}:{{league}}{{homeTeam}} vs {{awayTeam}} {{eventDate}}</div>
+                                                            {{else}}
+                                                            <div class="selectable">No Events Available</div>
+                                                            {{/each}}
+                                                        </script>
+                                                    </div>
+
+                                                </div>
+                                            </div>
 	                                    </div>
 
-	                                    <div class="col-md-2">
-	                                    	<label class="mt-checkbox mt-checkbox-outline"> Add No Tip
-	                                            <input type="checkbox" value="1" name="test">
-	                                            <span></span>
-	                                        </label>
+                                        <!-- content based on event type selection  create -->
+	                                    <div class="col-md-12">
+                                            <div class="add-event-option option-create hidden">
+                                                <h3>Create Event Manually</h3>
+                                                <ul class="add_event_manually row">
+                                                    <li class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Select Country</label>
+                                                            <select class="form-control select-provider select2">
+                                                                <option></option>
+                                                                <option value="1"> 1 </option>
+                                                                <option value="2"> 2 </option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Select League</label>
+                                                            <select class="form-control select-provider select2">
+                                                                <option></option>
+                                                                <option value="1"> 1 </option>
+                                                                <option value="2"> 2 </option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Select Event</label>
+                                                            <select class="form-control select-provider select2">
+                                                                <option></option>
+                                                                <option value="1"> 1 </option>
+                                                                <option value="2"> 2 </option>
+                                                            </select>
+                                                        </div>
+                                                    </li>
+                                                    <li class="col-md-3">
+                                                        <div class="form-group">
+                                                            <label class="control-label">Select Prediction</label>
+                                                            <select class="form-control select-prediction-manual select2"></select>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
 	                                    </div>
 
+                                        <!-- content based on event type selection  add or create -->
+	                                    <div class="col-md-12">
+                                            <div class="row add-event-option option-add-create hidden">
+                                                <!-- select prediction -->
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label class="control-label">Select Prediction</label>
+                                                        <select class="form-control select-prediction select2"></select>
+                                                        <script class="template-select-prediction" type="text/template7">
+                                                            <option value="-">- Select -</option>
+                                                            {{#each predictions}}
+                                                                {{#each predictions}}
+                                                                <option value="{{identifier}}">{{name}}</option>
+                                                                {{/each}}
+                                                            {{/each}}
+                                                        </script>
+                                                    </div>
+                                                </div>
+
+                                                <!-- odd -->
+                                                <div class="col-md-5">
+                                                    <label class="control-label">Odd</label>
+                                                    <input type="text" class="form-control odd">
+                                                </div>
+                                            </div>
+	                                    </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-12">
-
-                                            <!-- hidden inputt to persist matchId -->
-                                            <input type="hidden" class="match-id">
-
-                                            <!-- div for founded events -->
-                                            <div class="selectable-block"></div>
-                                            <script class="template-selectable-block" type="text/template7">
-                                                {{#each matches}}
-                                                <div class="selectable-row" data-id="{{id}}">{{country}}:{{league}}{{homeTeam}} vs {{awayTeam}} {{eventDate}}</div>
-                                                {{else}}
-                                                <div class="selectable">No Events Available</div>
-                                                {{/each}}
-                                            </script>
-                                        </div>
-                                    </div>
-
-                                    <a class="btn btn-success">Add Event Manually <i class="fa fa-angle-down"></i> </a>
-
-                                    <h3 class="block">Add event manually</h3>
-                                    <ul class="add_event_manually row">
-	                                    <li class="col-md-3">
-	                                    	<div class="form-group">
-	                                            <label class="control-label">Select Country</label>
-		                                    	<select class="form-control select-provider select2">
-		                                    		<option></option>
-		                                    		<option value="1"> 1 </option>
-		                                    		<option value="2"> 2 </option>
-		                                    	</select>
-		                                    </div>
-	                                    </li>
-	                                    <li class="col-md-3">
-	                                    	<div class="form-group">
-	                                            <label class="control-label">Select League</label>
-		                                    	<select class="form-control select-provider select2">
-		                                    		<option></option>
-		                                    		<option value="1"> 1 </option>
-		                                    		<option value="2"> 2 </option>
-		                                    	</select>
-		                                    </div>
-	                                    </li>
-	                                    <li class="col-md-3">
-	                                    	<div class="form-group">
-	                                            <label class="control-label">Select Event</label>
-		                                    	<select class="form-control select-provider select2">
-		                                    		<option></option>
-		                                    		<option value="1"> 1 </option>
-		                                    		<option value="2"> 2 </option>
-		                                    	</select>
-		                                    </div>
-	                                    </li>
-	                                    <li class="col-md-3">
-	                                    	<div class="form-group">
-	                                            <label class="control-label">Select Prediction</label>
-		                                    	<select class="form-control select-prediction-manual select2"></select>
-		                                    </div>
-	                                    </li>
-                                    </ul>
-
                                 </div>
+
+                                <!-- confirm section -->
                                 <div class="tab-pane" id="tab2">
                                     <div class="confirm-event">
-                                        <h3 class="block">Confirm the event</h3>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Country:</label>
-                                            <div class="col-md-4">
-                                                <p class="form-control-static country">-</p>
+                                        <h3 class="block">Confirm the event
+                                            - table: <span class="table"></span>
+                                            system date: <span class="systemDate"></span>
+                                        </h3>
+
+                                        <!-- add no tip -->
+                                        <div class="add-event-option option-no-tip">
+                                            <h4 class="block">Tou will add no tip</h4>
+                                        </div>
+
+                                        <!-- add event ot create event -->
+                                        <div class="add-event-option option-add-create">
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Country:</label>
+                                                <div class="col-md-4">
+                                                    <p class="form-control-static country">-</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">League:</label>
+                                                <div class="col-md-4">
+                                                    <p class="form-control-static league">-</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Event:</label>
+                                                <div class="col-md-4">
+                                                    <p class="form-control-static teams">-</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Prediction:</label>
+                                                <div class="col-md-4">
+                                                    <p class="form-control-static prediction">-</p>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="control-label col-md-3">Odd</label>
+                                                <div class="col-md-4">
+                                                    <p class="form-control-static odd">-</p>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">League:</label>
-                                            <div class="col-md-4">
-                                                <p class="form-control-static league">-</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Event:</label>
-                                            <div class="col-md-4">
-                                                <p class="form-control-static teams">-</p>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">Prediction:</label>
-                                            <div class="col-md-4">
-                                                <p class="form-control-static prediction">-</p>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
