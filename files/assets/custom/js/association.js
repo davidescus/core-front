@@ -27,8 +27,6 @@ $('#association-system-date').on('change', function() {
             type: "get",
             success: function (response) {
 
-                console.log(response);
-
                 var data = {predictions: response};
                 var element = $('#modal-add-manual-event');
 
