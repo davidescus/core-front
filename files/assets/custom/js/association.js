@@ -121,12 +121,12 @@ function showContentBasedOnEventType(type) {
             return;
         }
 
-        if (eventType === 'noTip') {
+        if (eventType === 'create') {
             alert('Not implemented yet!');
             return;
         }
 
-        if (eventType === 'noTip') {
+        if (eventType === 'add') {
             // get match id
             var matchId = $('#modal-add-manual-event').find('.match-id').val();
 
