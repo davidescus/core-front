@@ -505,19 +505,3 @@ function showContentBasedOnEventType(type) {
         $('#modal-add-manual-event .add-event-option.option-add-create').removeClass('hidden');
     }
 }
-
-
-// Trash, to delete
-/*
- *  Check event on modal row click
- */
-    //$('#modal-available-events').on('click', '.event', function() {
-    //    var c = $(this).find('.use');
-    //    (c.is(':checked')) ?  c.prop('checked', false) : c.prop('checked', true);
-    //});
-
-
-
-
-
-
