@@ -522,68 +522,7 @@
 </div>
 <!-- END CONTENT -->
 
-<!-- START ASSOCIATE EVENT MODAL -->
-<div class="modal fade" id="modal-associate-events" tabindex="-1" role="basic" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content"></div>
-        <script class="template-modal-content" type="text/template7">
-            <input class="event-id" type="hidden" value="{{event.id}}">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <div class="assoc_modal_titles col-md-9">
-                    <h4 class="modal-title">Associate Event: {{table}}</h4>
-                    <h6>
-                        {{event.country}}:
-                        {{event.league}},
-                        {{event.homeTeam}} - {{event.awayTeam}},
-                        {{event.predictionId}}
-                    </h6>
-                </div>
-                <div class="col-md-3">
-                    <input type="text" class="form-control assoc_websites_search" placeholder="Search">
-                </div>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-
-                    {{#each sites}}
-                    <div class="col-md-6 assoc_website">
-                        <div class="form-group row">
-                            <label class="col-md-3 control-label">
-                                <span class="assoc_website_name">{{siteName}}</span>
-                                <br>
-                                <span class="assoc_website_tips_remaining"> 1/3 </span>
-                            </label>
-                            <div class="col-md-9">
-                                <div class="mt-checkbox-list">
-
-                                    {{#each packages}}
-                                    <label class="mt-checkbox mt-checkbox-outline">
-                                        <input class="use" type="checkbox" {{#if eventIsAssociated}}checked="checked"{{/if}} data-id="{{id}}"/> {{name}}
-                                        {{packageAssociatedEventsNumber}} / {{tipsPerDay}}
-                                        <span></span>
-                                    </label>
-                                    {{/each}}
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {{/each}}
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                <button type="button" class="btn green associate-event">Import</button>
-            </div>
-        </script>
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- END ASSOCIATE EVENT MODAL -->
-
-<!-- START INSERT EVENTS MODAL -->
+<!-- START MODAL AVAILABLE EVENTS -->
 <div class="modal fade" id="modal-available-events" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
@@ -652,10 +591,74 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- END INSERT EVENTS MODAL -->
+<!-- END MODAL AVAILABLE EVENTS -->
 
+<!-- START MODAL ASSOCIATE EVENT-PACKAGE  -->
+<div class="modal fade" id="modal-associate-events" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content"></div>
+        <script class="template-modal-content" type="text/template7">
+            <input class="event-id" type="hidden" value="{{event.id}}">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <div class="assoc_modal_titles col-md-9">
+                    <h4 class="modal-title">Associate Event: {{table}}</h4>
+                    <h6>
+                        {{#if event.isNoTip}}
+                            No Tip
+                        {{else}}
+                            {{event.country}}:
+                            {{event.league}},
+                            {{event.homeTeam}} - {{event.awayTeam}},
+                            {{event.predictionId}}
+                        {{/if}}
+                    </h6>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control assoc_websites_search" placeholder="Search">
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
 
-<!-- START INSERT EVENTS MODAL -->
+                    {{#each sites}}
+                    <div class="col-md-6 assoc_website">
+                        <div class="form-group row">
+                            <label class="col-md-3 control-label">
+                                <span class="assoc_website_name">{{siteName}}</span>
+                                <br>
+                                <span class="assoc_website_tips_remaining"> 1/3 </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="mt-checkbox-list">
+
+                                    {{#each packages}}
+                                    <label class="mt-checkbox mt-checkbox-outline">
+                                        <input class="use" type="checkbox" {{#if eventIsAssociated}}checked="checked"{{/if}} data-id="{{id}}"/> {{name}}
+                                        {{packageAssociatedEventsNumber}} / {{tipsPerDay}}
+                                        <span></span>
+                                    </label>
+                                    {{/each}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green associate-event">Import</button>
+            </div>
+        </script>
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END MODAL ASSOCIATE EVENT-PACKAGE -->
+
+<!-- START MODAL ADD EVENT -->
 <div class="modal fade" id="modal-add-manual-event" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -919,7 +922,7 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- END INSERT EVENTS MODAL -->
+<!-- END MODAL ADD EVENT -->
 
 
 
