@@ -4,6 +4,13 @@ config.distribution = $('.page-content-wrapper.distribution');
      *  ----- CLICKABLE ACTIONS -----
     ----------------------------------------------------------------------*/
 
+// Clickable
+// when change select-system-date
+// will reload table content with events from selected date.
+config.distribution.on('change', '.select-system-date', function() {
+    getDistributedEvents($(this).val());
+});
+
 // seelect / deselect all events from a site
 $('#container-distributed-events').on('change', '.select-group-site', function() {
     if ($(this).is(':checked'))
