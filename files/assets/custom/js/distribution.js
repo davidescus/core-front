@@ -21,41 +21,29 @@ config.distribution.on('change', '.table-content .select-group-site', function()
 });
 
     /*
-     *  ----- CONTROLS ACTIONS  -----
+     *  ----- ACTIONS  -----
     ----------------------------------------------------------------------*/
 
-
-
-/*
- * Manual publish events in archive
- */
-$('#container-distributed-events').on('click', '.action-publish', function() {
-    var data = [];
-
-    // get events ids for association
-    $('#container-distributed-events .use:checked').each(function() {
-        var parentPackageId = $(this).closest('.package-row').attr('data-id');
-        data.push({
-            packageId: parentPackageId,
-            distributionId: $(this).attr('data-id'),
-        });
-    });
-
+// Actions
+// Publish events in archive
+config.distribution.on('click', '.actions .publish', function() {
     $.ajax({
-        url: config.coreUrl + "/archive",
+        url: config.coreUrl + "/archive/publish",
         type: "post",
-        dataType: "json",
         data: {
-            data: data,
+            ids: getCheckedEventsIds(),
         },
         success: function (response) {
 
+            console.log(response);
+
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
-            getDistributedEvents();
+            getDistributedEvents(config.distribution.find('.select-system-date').val());
         },
         error: function () {}
     });
 });
+
 
 /*
  * Delete distributions (bulk)
@@ -71,7 +59,6 @@ $('#container-distributed-events').on('click', '.action-delete', function() {
     $.ajax({
         url: config.coreUrl + "/distribution",
         type: "delete",
-        dataType: "json",
         data: {
             ids: ids,
         },
@@ -88,6 +75,17 @@ $('#container-distributed-events').on('click', '.action-delete', function() {
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
 
+// Functions - general
+// colect in array all checked events from .table-content
+// @return []
+function getCheckedEventsIds() {
+    var d = [];
+    config.distribution.find('.table-content .use:checked').each(function(){
+        d.push($(this).attr('data-event-id'));
+    });
+    return d;
+}
+
 // Functions
 // @string date formaf: YYYY-mm-dd
 // get all distributed events and put it on table
@@ -96,9 +94,6 @@ function getDistributedEvents(date = '0') {
         url: config.coreUrl + "/distribution/" + date,
         type: "get",
         success: function (response) {
-
-            console.log(response);
-
             var data = {sites: response};
             var element = config.distribution;
 
