@@ -11,13 +11,20 @@ config.distribution.on('change', '.select-system-date', function() {
     getDistributedEvents($(this).val());
 });
 
-// seelect / deselect all events from a site
-$('#container-distributed-events').on('change', '.select-group-site', function() {
-    if ($(this).is(':checked'))
-        $(this).closest('.row').find('.use').prop('checked', true);
-    else
-        $(this).closest('.row').find('.use').prop('checked', false);
+// Clickable
+// when click on site checkbox
+// toogle select/unselect all site events
+config.distribution.on('change', '.table-content .select-group-site', function() {
+    var siteId = $(this).val();
+    var bool = $(this).is(':checked') ? true : false;
+    config.distribution.find('.use[data-site-id="' + siteId + '"]').prop('checked', bool);
 });
+
+    /*
+     *  ----- CONTROLS ACTIONS  -----
+    ----------------------------------------------------------------------*/
+
+
 
 /*
  * Manual publish events in archive
