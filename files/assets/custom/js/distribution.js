@@ -34,9 +34,6 @@ config.distribution.on('click', '.actions .publish', function() {
             ids: getCheckedEventsIds(),
         },
         success: function (response) {
-
-            console.log(response);
-
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             getDistributedEvents(config.distribution.find('.select-system-date').val());
         },
@@ -44,28 +41,18 @@ config.distribution.on('click', '.actions .publish', function() {
     });
 });
 
-
-/*
- * Delete distributions (bulk)
- */
-$('#container-distributed-events').on('click', '.action-delete', function() {
-    var ids = [];
-
-    // get events ids for association
-    $('#container-distributed-events .use:checked').each(function() {
-        ids.push($(this).attr('data-id'));
-    });
-
+// Actions
+// Delete events from distribution
+config.distribution.on('click', '.actions .delete', function() {
     $.ajax({
-        url: config.coreUrl + "/distribution",
-        type: "delete",
+        url: config.coreUrl + "/distribution/delete",
+        type: "post",
         data: {
-            ids: ids,
+            ids: getCheckedEventsIds(),
         },
         success: function (response) {
-
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
-            getDistributedEvents();
+            getDistributedEvents(config.distribution.find('.select-system-date').val());
         },
         error: function () {}
     });
