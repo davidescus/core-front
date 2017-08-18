@@ -43,24 +43,12 @@
                         <i class="fa fa-angle-down"></i>
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
-                        <li>
-                            <a href="#preview_and_send" data-toggle="modal"> Preview and Send </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Send </a>
-                        </li>
-                        <li>
-                            <a href="#edit_send_hour" data-toggle="modal" > Edit </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Publish </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Delete </a>
-                        </li>
-                        <li>
-                            <a href="#manage_users" data-toggle="modal"> Manage Users </a>
-                        </li>
+                        <li><a href="#preview_and_send" data-toggle="modal"> Preview and Send </a></li>
+                        <li><a href="javascript:;"> Send </a></li>
+                        <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
+                        <li><a class="publish"> Publish </a></li>
+                        <li><a class="delete"> Delete </a></li>
+                        <li><a href="#manage_users" data-toggle="modal"> Manage Users </a></li>
                     </ul>
                 </div>
             </div>
