@@ -1,4 +1,3 @@
-
 <!-- BEGIN CONTENT -->
 <div class="page-content-wrapper distribution hidden">
     <!-- BEGIN CONTENT BODY -->
@@ -73,95 +72,84 @@
         <!-- BEGIN PAGE TITLE-->
         <h1 class="page-title">Tips Distributions</h1>
         <!-- END PAGE TITLE-->
-        
+
         <!-- BEGIN SAMPLE TABLE PORTLET-->
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-social-dribbble font-green"></i>
-                    <span class="caption-subject font-green bold uppercase">Simple Table</span>
-                </div>
-                <div class="actions">
-                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                        <i class="icon-cloud-upload"></i>
-                    </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                        <i class="icon-wrench"></i>
-                    </a>
-                    <a class="btn btn-circle btn-icon-only btn-default" href="javascript:;">
-                        <i class="icon-trash"></i>
-                    </a>
+                    <span class="caption-subject font-green bold uppercase">Distributed Events</span>
                 </div>
             </div>
             <div class="portlet-body">
-                <div class="table-scrollable">
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th> # </th>
-                                <th> Country </th>
-                                <th> League </th>
-                                <th> Event </th>
-                                <th> Prediction </th>
-                                <th> Odd </th>
-                                <th> Score </th>
-                                <th> Result </th>
-                                <th> Sent At </th>
-                                <th> Status </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="website_tr">
-                                <td> <input type="checkbox"> </td>
-                                <td colspan="9"> Payfortips.com </td>
-                            </tr>
-                            <tr class="pack_tr">
-                                <td> <input type="checkbox"> </td>
-                                <td colspan="9"> 3 Tips - 3/3 </td>
-                            </tr>
-                            <tr>
-                                <td> <input type="checkbox"> </td>
-                                <td> Romania </td>
-                                <td> Liga 1 </td>
-                                <td> Steaua - Dinamo </td>
-                                <td> Over 2.5 </td>
-                                <td> 1.85 </td>
-                                <td> 2-0 </td>
-                                <td> Win </td>
-                                <td> 10:30 </td>
-                                <td> <span class="label label-sm label-success"> Published </span> </td>
-                            </tr>
-                            <tr>
-                                <td> <input type="checkbox"> </td>
-                                <td> Romania </td>
-                                <td> Liga 1 </td>
-                                <td> Steaua - Dinamo </td>
-                                <td> Over 2.5 </td>
-                                <td> 1.85 </td>
-                                <td> 2-0 </td>
-                                <td> Win </td>
-                                <td> 10:30 </td>
-                                <td> <span class="label label-sm label-danger"> Unpublished </span> </td>
-                            </tr>
-                            <tr class="website_tr">
-                                <td> <input type="checkbox"> </td>
-                                <td colspan="9"> GetMyBet.com </td>
-                            </tr>
-                            <tr class="pack_tr">
-                                <td> <input type="checkbox"> </td>
-                                <td colspan="9"> 3 Tips - 3/3 </td>
-                            </tr>
-                            <tr>
-                                <td> <input type="checkbox"> </td>
-                                <td colspan="9"> No Tips </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+                <!-- main table -->
+                <div class="table-content"></div>
+                <script class="template-table-content" type="text/template7">
+                    <div class="table-scrollable">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr>
+                                    <th> # </th>
+                                    <th> Country </th>
+                                    <th> League </th>
+                                    <th> Event </th>
+                                    <th> Prediction </th>
+                                    <th> Odd </th>
+                                    <th> Score </th>
+                                    <th> Status </th>
+                                    <th> Sent At </th>
+                                    <th> Status </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each sites}}
+                                    <tr class="website_tr">
+                                        <td> <input type="checkbox"> </td>
+                                        <td colspan="9">{{name}}</td>
+                                    </tr>
+                                    {{#each packages}}
+                                        <tr class="pack_tr">
+                                            <td></td>
+                                            <td colspan="9">{{name}} - {{eventsNumber}}/{{tipsPerDay}}</td>
+                                        </tr>
+                                        {{#each events}}
+                                            <tr data-id="{{id}}">
+                                                <td><input class="use" type="checkbox" data-id="{{id}}"/></td>
+                                                {{#if isNoTip}}
+                                                    <td colspan="7">NO TIP</td>
+                                                {{else}}
+                                                    <td>{{country}}</td>
+                                                    <td>{{league}}</td>
+                                                    <td>{{homeTeam}} - {{awayTeam}}</td>
+                                                    <td>{{predictionName}}</td>
+                                                    <td>{{odd}}</td>
+                                                    <td>{{result}}</td>
+                                                    <td>{{statusId}}</td>
+                                                {{/if}}
+                                                <td>{{mailingDate}}</td>
+                                                {{#if isPublish}}
+                                                    <td><span class="label label-sm label-success"> Published </span></td>
+                                                {{else}}
+                                                    <td><span class="label label-sm label-danger"> Unpublished </span></td>
+                                                {{/if}}
+                                            </tr>
+                                            {{else}}
+                                            <tr>
+                                                <td> </td>
+                                                <td colspan="9">--- No events distributed in package ---</td>
+                                            </tr>
+                                        {{/each}}
+                                    {{/each}}
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </script>
+
             </div>
         </div>
         <!-- END SAMPLE TABLE PORTLET-->
-        
 
         <!-- END TIPS DISTRIBUTION -->
     </div>
@@ -177,7 +165,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Change Send Hour</h4>
             </div>
-            <div class="modal-body"> 
+            <div class="modal-body">
                 <label class="control-label">Choose Date</label>
                 <input type="text" value="2:30 PM" data-format="hh:mm A" class="form-control clockface_1" />
             </div>
@@ -200,7 +188,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Preview and Send</h4>
             </div>
-            <div class="modal-body"> 
+            <div class="modal-body">
                 <label class="control-label">Pack: Payfortips - 2 Tips</label>
                 <div class="form-group">
                     <div name="summernote" id="summernote_1"> </div>
@@ -226,7 +214,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Manage Users</h4>
             </div>
-            <div class="modal-body"> 
+            <div class="modal-body">
                 <div class="panel-group accordion" id="accordion3">
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -289,7 +277,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        
+
                                         <tr>
                                             <td> <input type="checkbox"> </td>
                                             <td> Romania </td>
