@@ -105,7 +105,7 @@
                             <tbody>
                                 {{#each sites}}
                                     <tr class="website_tr">
-                                        <td> <input type="checkbox"> </td>
+                                        <td> <input class="select-group-site" type="checkbox" value="{{siteId}}"> </td>
                                         <td colspan="9">{{name}}</td>
                                     </tr>
                                     {{#each packages}}
@@ -114,7 +114,7 @@
                                             <td colspan="9">{{name}} - {{eventsNumber}}/{{tipsPerDay}}</td>
                                         </tr>
                                         {{#each events}}
-                                            <tr data-id="{{id}}">
+                                            <tr>
                                                 <td><input class="use" type="checkbox" data-id="{{id}}"/></td>
                                                 {{#if isNoTip}}
                                                     <td colspan="7">NO TIP</td>
