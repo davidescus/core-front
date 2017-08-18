@@ -16,7 +16,7 @@
                     <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
-            <div class="bar-buttons">
+            <div class="bar-buttons actions">
                 <div class="btn-group">
                     <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Schedule
                         <i class="fa fa-angle-down"></i>
@@ -115,7 +115,9 @@
                                         </tr>
                                         {{#each events}}
                                             <tr>
-                                                <td><input class="use" type="checkbox" data-id="{{id}}"/></td>
+                                                <td>
+                                                    <input class="use" type="checkbox" data-site-id="{{siteId}}" data-event-id="{{id}}"/>
+                                                </td>
                                                 {{#if isNoTip}}
                                                     <td colspan="7">NO TIP</td>
                                                 {{else}}
