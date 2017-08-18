@@ -1,6 +1,9 @@
-/*
- * Clickable events
- */
+config.distribution = $('.page-content-wrapper.distribution');
+
+    /*
+     *  ----- CLICKABLE ACTIONS -----
+    ----------------------------------------------------------------------*/
+
 // seelect / deselect all events from a site
 $('#container-distributed-events').on('change', '.select-group-site', function() {
     if ($(this).is(':checked'))
@@ -67,19 +70,23 @@ $('#container-distributed-events').on('click', '.action-delete', function() {
     });
 });
 
-/*
- * This function will complete distribution table
- * with all distributed events
- */
-function getDistributedEvents() {
+    /*
+     *  ----- Functions -----
+    ----------------------------------------------------------------------*/
+
+// Functions
+// @string date formaf: YYYY-mm-dd
+// get all distributed events and put it on table
+function getDistributedEvents(date = '0') {
     $.ajax({
-        url: config.coreUrl + "/distribution",
+        url: config.coreUrl + "/distribution/" + date,
         type: "get",
         success: function (response) {
 
-            var data = response;
+            console.log(response);
 
-            var element = $('#container-distributed-events');
+            var data = {sites: response};
+            var element = config.distribution;
 
             var template = element.find('.template-table-content').html();
             var compiledTemplate = Template7.compile(template);
