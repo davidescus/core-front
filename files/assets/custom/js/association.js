@@ -444,13 +444,12 @@ function getAvailableEventsNumber(filters) {
 
 // Functions
 // @string argTable
-// @string dateModifier
-// get associated events - table based on dateModifier
-//     0 - today, +1day, -1day, ...
+// @string date
+// get associated events - table based on date format: YYYY-mm-dd
 // first clear DataTable, after repopulate it add row by row.
-function getEventsAssociations(argTable, dateModifier = '0') {
+function getEventsAssociations(argTable, date = '0') {
     $.ajax({
-        url: config.coreUrl + "/association/event/" + argTable + '/' + dateModifier,
+        url: config.coreUrl + "/association/event/" + argTable + '/' + date,
         type: "get",
         success: function (response) {
 
