@@ -39,7 +39,6 @@ $(document).ready(function() {
 
         if (config.activePage == 'association') {
 
-            return;
             // autocomlete provider and league
             getTableAvailableFiltersValues('run');
             getTableAvailableFiltersValues('ruv');
@@ -60,14 +59,11 @@ $(document).ready(function() {
         }
 
         if (config.activePage == 'distribution') {
-            return;
             getDistributedEvents();
         }
 
         if (config.activePage == 'archive-big') {
-            return;
-            // this is only for moment to get show all events inside archive_big table
-            getAllEventsForArchivesBig();
+            showAvailableSites();
         }
     }
 });
