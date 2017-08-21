@@ -10,34 +10,32 @@
         <!-- BEGIN MONTH TABLE PORTLET-->
         <div class="portlet light bordered">
             <div class="portlet-title">
-                <div class="selection-param">
-                    <ul class="table_import_filters_container">
-                        <li>
-                            <div class="form-group">
-                                <label class="control-label">Site</label>
-                                <select class="form-control select-site select2 table_import_filter_select"></select>
-                                <script class="template-select-site" type="text/template7">
-                                   <option value=""> -- select -- </option>
-                                   {{#each sites}}
-                                   <option value="{{provider}}">{{provider}} </option>
-                                   {{/each}}
-                                </script>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="form-group">
-                                <label class="control-label">Table</label>
-                                <select class="form-control select-table select2 table_import_filter_select"></select>
-                                <script class="template-select-table" type="text/template7">
-                                   <option value=""> -- select -- </option>
-                                   {{#each leagues}}
-                                   <option value="{{league}}">{{league}} </option>
-                                   {{/each}}
-                                </script>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+                <ul class="table_import_filters_container">
+                    <li>
+                        <div class="form-group">
+                            <label class="control-label">Site</label>
+                            <select class="form-control select-site select2 table_import_filter_select"></select>
+                            <script class="template-select-site" type="text/template7">
+                               <option value=""> -- select -- </option>
+                               {{#each sites}}
+                               <option value="{{id}}">{{name}} </option>
+                               {{/each}}
+                            </script>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="form-group">
+                            <label class="control-label">Table</label>
+                            <select class="form-control select-table select2 table_import_filter_select"></select>
+                            <script class="template-select-table" type="text/template7">
+                               <option value=""> -- select -- </option>
+                               {{#each tables}}
+                               <option value="{{tableIdentifier}}">{{tableIdentifier}} </option>
+                               {{/each}}
+                            </script>
+                        </div>
+                    </li>
+                </ul>
             </div>
             <div class="portlet-body">
 
