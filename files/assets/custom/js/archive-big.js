@@ -4,6 +4,13 @@ config.archiveBig = $('.page-content-wrapper.archive-big');
      *  ----- CLICKABLE ACTIONS -----
     ----------------------------------------------------------------------*/
 
+// Clickable - date selection
+// change date selection
+// trigger function to get available events in selected date.
+config.archiveBig.on('change', '.select-date', function() {
+    showMonthAvailableEventsInBigArchive();
+});
+
 // Clickable - site selection
 // change site selection
 // show available tables for selected site.
@@ -31,30 +38,7 @@ config.archiveBig.on('change', '.select-site', function() {
 // change table selection
 // get archive events for selected: site, table, month
 config.archiveBig.on('change', '.select-table', function() {
-
-    var param = {
-        siteId: config.archiveBig.find('.select-site').val(),
-        tableIdentifier: config.archiveBig.find('.select-table').val(),
-        date: config.archiveBig.find('.select-date').val(),
-    };
-
-    $.ajax({
-        url: config.coreUrl + "/archive-big/month-events?" + $.param(param),
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                events: response,
-            }
-            var element = config.archiveBig;
-
-            var template = element.find('.template-table-content-month').html();
-            var compiledTemplate = Template7.compile(template);
-            var html = compiledTemplate(data);
-            element.find('.table-content-month').html(html);
-        },
-         error: function () {}
-    });
+    showMonthAvailableEventsInBigArchive();
 });
 
     /*
@@ -108,3 +92,36 @@ function showAvailableMonths() {
     });
 
 }
+
+// Functions
+// this will populate mounth table with events
+// it use: select-date, select-site, select-table
+function showMonthAvailableEventsInBigArchive() {
+    var param = {
+        siteId: config.archiveBig.find('.select-site').val(),
+        tableIdentifier: config.archiveBig.find('.select-table').val(),
+        date: config.archiveBig.find('.select-date').val(),
+    };
+
+    if (param.siteId == '-' || param.tableIdentifier == '-' || param.date == '-')
+        return;
+
+    $.ajax({
+        url: config.coreUrl + "/archive-big/month-events?" + $.param(param),
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                events: response,
+            }
+            var element = config.archiveBig;
+
+            var template = element.find('.template-table-content-month').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.table-content-month').html(html);
+        },
+         error: function () {}
+    });
+}
+
