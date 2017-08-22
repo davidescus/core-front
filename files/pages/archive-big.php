@@ -143,10 +143,11 @@
                         <div class="form-group">
                             <label class="control-label">Prediction</label>
                             <select class="form-control prediction select2"></select>
-                            <script class="template-prediction type="text/template7">
-                               <option value=""> -- all -- </option>
-                               {{#each tipsters}}
-                               <option value="{{provider}}">{{provider}} </option>
+                            <script class="template-prediction" type="text/template7">
+                               {{#each groups}}
+                                   {{#each predictions}}
+                                       <option value="{{identifier}}">{{name}} </option>
+                                   {{/each}}
                                {{/each}}
                             </script>
                         </div>

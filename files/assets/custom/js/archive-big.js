@@ -94,6 +94,10 @@ config.archiveBig.on('click', '.table-content-month .edit', function() {
 
             // set status selected
             element.find('.status option[value="' + data.statusId + '"]').prop('selected', true).change();
+
+            // set prediction selected
+            element.find('.prediction option[value="' + data.predictionId + '"]').prop('selected', true).change();
+
             element.modal();
         },
          error: function () {}
@@ -180,6 +184,30 @@ function showMonthAvailableEventsInBigArchive() {
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
             element.find('.table-content-month').html(html);
+        },
+         error: function () {}
+    });
+}
+
+// Functions
+// get and complete predictions in edit modal events
+function bigArchiveShowAllPredictions() {
+    $.ajax({
+        url: config.coreUrl + "/prediction",
+        type: "get",
+        success: function (response) {
+
+            console.log(response);
+
+            var data = {
+                groups: response,
+            }
+            var element = $('#archive-big-modal-edit');
+
+            var template = element.find('.template-prediction').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.prediction').html(html);
         },
          error: function () {}
     });
