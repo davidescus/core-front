@@ -41,6 +41,28 @@ config.archiveBig.on('change', '.select-table', function() {
     showMonthAvailableEventsInBigArchive();
 });
 
+// Clickable - show / hide event
+// toogle show/hide even
+config.archiveBig.on('click', '.table-content-month .show-hide', function() {
+    var $this = $(this);
+    $.ajax({
+        url: config.coreUrl + "/archive-big/show-hide/" + $this.closest('tr').attr('data-id'),
+        type: "get",
+        success: function (response) {
+
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+
+            if (response.type === 'success') {
+                if ($this.hasClass('red'))
+                    $this.removeClass('red').addClass('green').text('Show');
+                else
+                    $this.removeClass('green').addClass('red').text('Hide');
+            }
+        },
+         error: function () {}
+    });
+});
+
     /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
