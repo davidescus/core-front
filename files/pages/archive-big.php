@@ -13,42 +13,6 @@
                     <option value="2017-06">06/2017</option>
                 </select>
             </div>
-            <div class="bar-buttons actions">
-                <div class="btn-group">
-                    <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Schedule
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                        <li>
-                            <label class="control-label">Start Date</label>
-                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
-                        </li>
-                        <li>
-                            <label class="control-label">End Date</label>
-                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Stop </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;"> Start Schedule </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="btn-group">
-                    <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Controls
-                        <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                        <li><a href="#preview_and_send" data-toggle="modal"> Preview and Send </a></li>
-                        <li><a href="javascript:;"> Send </a></li>
-                        <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
-                        <li><a class="publish"> Publish </a></li>
-                        <li><a class="delete"> Delete </a></li>
-                        <li><a href="#manage_users" data-toggle="modal"> Manage Users </a></li>
-                    </ul>
-                </div>
-            </div>
         </div>
         <!-- END PAGE BAR-->
         <!-- END PAGE HEADER-->
