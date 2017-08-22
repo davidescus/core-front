@@ -86,7 +86,7 @@ function showAvailableSites() {
 
 // Functions
 // will populate month selector
-function getAvailableMonths() {
+function showAvailableMonths() {
     $.ajax({
         url: config.coreUrl + "/archive-big/available-months",
         type: "get",

@@ -63,7 +63,8 @@ $(document).ready(function() {
         }
 
         if (config.activePage == 'archive-big') {
-            getAvailableMonths();
+            showAvailableMonths();
+            showAvailableSites();
         }
     }
 });
