@@ -77,7 +77,7 @@
                             </thead>
                             <tbody>
                                 {{#each events}}
-                                <tr>
+                                <tr data-id="{{id}}">
                                     <td>{{systemDate}}</td>
                                     {{#if isNoTip}}
                                         <td colspan="7">NO TIP</td>
@@ -90,7 +90,14 @@
                                         <td>{{result}}</td>
                                         <td>{{statusId}}</td>
                                     {{/if}}
-                                    <td>Actions</td>
+                                    <td>
+                                        {{#if isVisible}}
+                                        <button class="btn red show-hide">Hide</button>
+                                        {{else}}
+                                        <button class="btn green show-hide">Show</button>
+                                        {{/if}}
+                                        <button class="btn blue edit">Edit</button>
+                                    </td>
                                 </tr>
                                 {{else}}
                                 <tr>
