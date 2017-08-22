@@ -64,6 +64,43 @@ config.archiveBig.on('click', '.table-content-month .show-hide', function() {
 });
 
     /*
+     *  ----- Modal Edit -----
+    ----------------------------------------------------------------------*/
+// Modal Edit
+// get selected event
+// get all predictions
+// launch modal
+config.archiveBig.on('click', '.table-content-month .edit', function() {
+    var $this = $(this);
+    $.ajax({
+        url: config.coreUrl + "/archive-big/event/" + $this.closest('tr').attr('data-id'),
+        type: "get",
+        success: function (response) {
+
+            console.log(response);
+
+            if (!response) {
+                alert('Maybe this event will not exists anymore.');
+                return;
+            }
+
+            var data = response;
+            var element = $('#archive-big-modal-edit');
+
+            var template = element.find('.template-event-info').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.event-info').html(html);
+
+            // set status selected
+            element.find('.status option[value="' + data.statusId + '"]').prop('selected', true).change();
+            element.modal();
+        },
+         error: function () {}
+    });
+});
+
+    /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
 
