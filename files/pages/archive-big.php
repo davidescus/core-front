@@ -7,11 +7,13 @@
         <!-- BEGIN PAGE BAR-->
         <div class="page-bar">
             <div class="date-selector">
-                <select class="form-control input-small input-sm select-date">
-                    <option value="2017-08">08/2017</option>
-                    <option value="2017-07">07/2017</option>
-                    <option value="2017-06">06/2017</option>
-                </select>
+                <select class="form-control input-small input-sm select-date"></select>
+                <script class="template-select-date" type="text/template7">
+                    <option value="-">-- select --</option>
+                    {{#each months}}
+                    <option value="{{year}}-{{month}}">{{month}}/{{year}}</option>
+                    {{/each}}
+                </script>
             </div>
         </div>
         <!-- END PAGE BAR-->
@@ -30,7 +32,7 @@
                             <label class="control-label">Site</label>
                             <select class="form-control select-site select2 table_import_filter_select"></select>
                             <script class="template-select-site" type="text/template7">
-                               <option value=""> -- select -- </option>
+                               <option value="-"> -- select -- </option>
                                {{#each sites}}
                                <option value="{{id}}">{{name}} </option>
                                {{/each}}
@@ -40,9 +42,11 @@
                     <li>
                         <div class="form-group">
                             <label class="control-label">Table</label>
-                            <select class="form-control select-table select2 table_import_filter_select"></select>
+                            <select class="form-control select-table select2 table_import_filter_select">
+                               <option value="-"> -- select -- </option>
+                            </select>
                             <script class="template-select-table" type="text/template7">
-                               <option value=""> -- select -- </option>
+                               <option value="-"> -- select -- </option>
                                {{#each tables}}
                                <option value="{{tableIdentifier}}">{{tableIdentifier}} </option>
                                {{/each}}
