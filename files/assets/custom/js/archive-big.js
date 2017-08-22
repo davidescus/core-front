@@ -76,8 +76,6 @@ function showAvailableMonths() {
         type: "get",
         success: function (response) {
 
-            console.log(response);
-
             var data = {
                 months: response,
             }
@@ -87,6 +85,9 @@ function showAvailableMonths() {
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
             element.find('.select-date').html(html);
+
+            // select seccond option
+            element.find('.select-date option:eq(1)').prop('selected', true);
         },
          error: function () {}
     });
