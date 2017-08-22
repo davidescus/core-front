@@ -3,6 +3,56 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
 
+        <!-- BEGIN PAGE HEADER-->
+        <!-- BEGIN PAGE BAR-->
+        <div class="page-bar">
+            <div class="date-selector">
+                <select class="form-control input-small input-sm select-date">
+                    <option value="2017-08">08/2017</option>
+                    <option value="2017-07">07/2017</option>
+                    <option value="2017-06">06/2017</option>
+                </select>
+            </div>
+            <div class="bar-buttons actions">
+                <div class="btn-group">
+                    <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Schedule
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li>
+                            <label class="control-label">Start Date</label>
+                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                        </li>
+                        <li>
+                            <label class="control-label">End Date</label>
+                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                        </li>
+                        <li>
+                            <a href="javascript:;"> Stop </a>
+                        </li>
+                        <li>
+                            <a href="javascript:;"> Start Schedule </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn-group">
+                    <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Controls
+                        <i class="fa fa-angle-down"></i>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                        <li><a href="#preview_and_send" data-toggle="modal"> Preview and Send </a></li>
+                        <li><a href="javascript:;"> Send </a></li>
+                        <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
+                        <li><a class="publish"> Publish </a></li>
+                        <li><a class="delete"> Delete </a></li>
+                        <li><a href="#manage_users" data-toggle="modal"> Manage Users </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- END PAGE BAR-->
+        <!-- END PAGE HEADER-->
+
         <!-- BEGIN TABLE TITLE-->
         <h1 class="page-title">Big archives</h1>
         <!-- END TABLE TITLE-->
@@ -46,7 +96,7 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
-                                    <th> # </th>
+                                    <th> System Date </th>
                                     <th> Country </th>
                                     <th> League </th>
                                     <th> Event </th>
@@ -54,13 +104,13 @@
                                     <th> Odd </th>
                                     <th> Score </th>
                                     <th> Status </th>
-                                    <th> Sent At </th>
-                                    <th> Status </th>
+                                    <th> Actions </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {{#each events}}
                                 <tr>
+                                    <td>{{systemDate}}</td>
                                     {{#if isNoTip}}
                                         <td colspan="7">NO TIP</td>
                                     {{else}}
@@ -72,10 +122,10 @@
                                         <td>{{result}}</td>
                                         <td>{{statusId}}</td>
                                     {{/if}}
+                                    <td>Actions</td>
                                 </tr>
                                 {{else}}
                                 <tr>
-                                    <td> </td>
                                     <td colspan="9">--- No events in this table ---</td>
                                 </tr>
                                 {{/each}}

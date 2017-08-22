@@ -1,11 +1,10 @@
 config.archiveBig = $('.page-content-wrapper.archive-big');
 
-
     /*
      *  ----- CLICKABLE ACTIONS -----
     ----------------------------------------------------------------------*/
 
-// Clickable
+// Clickable - site selection
 // change site selection
 // show available tables for selected site.
 config.archiveBig.on('change', '.select-site', function() {
@@ -22,15 +21,41 @@ config.archiveBig.on('change', '.select-site', function() {
             var template = element.find('.template-select-table').html();
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
-            element.find('.select-table').html(html);
+            element.find('.select-table').html(html).change();
         },
          error: function () {}
     });
 });
 
-    /*
-     *  ----- 4 Tables -----
-    ----------------------------------------------------------------------*/
+// Clickable - table selection
+// change table selection
+// get archive events for selected: site, table, month
+config.archiveBig.on('change', '.select-table', function() {
+
+    var param = {
+        siteId: config.archiveBig.find('.select-site').val(),
+        tableIdentifier: config.archiveBig.find('.select-table').val(),
+        date: config.archiveBig.find('.select-date').val(),
+    };
+
+    $.ajax({
+        url: config.coreUrl + "/archive-big/month-events?" + $.param(param),
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                events: response,
+            }
+            var element = config.archiveBig;
+
+            var template = element.find('.template-table-content-month').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.table-content-month').html(html);
+        },
+         error: function () {}
+    });
+});
 
     /*
      *  ----- Functions -----
