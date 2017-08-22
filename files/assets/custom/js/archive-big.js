@@ -83,9 +83,28 @@ function showAvailableSites() {
          error: function () {}
     });
 }
-//
+
 // Functions
-// will populate site table selector
-function showAvailableTablesBySite() {
+// will populate month selector
+function getAvailableMonths() {
+    $.ajax({
+        url: config.coreUrl + "/archive-big/available-months",
+        type: "get",
+        success: function (response) {
+
+            console.log(response);
+
+            var data = {
+                months: response,
+            }
+            var element = config.archiveBig;
+
+            var template = element.find('.template-select-date').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.select-date').html(html);
+        },
+         error: function () {}
+    });
 
 }
