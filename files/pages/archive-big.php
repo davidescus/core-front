@@ -129,6 +129,7 @@
 
                 <div class="event-info row"></div>
                 <script class="template-event-info" type="text/template7">
+                    <input type="hidden" class="event-id" value="{{id}}"/>
                     <h4>
                         {{country}}
                         {{league}}

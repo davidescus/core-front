@@ -66,7 +66,8 @@ config.archiveBig.on('click', '.table-content-month .show-hide', function() {
     /*
      *  ----- Modal Edit -----
     ----------------------------------------------------------------------*/
-// Modal Edit
+
+// Modal - Edit
 // get selected event
 // get all predictions
 // launch modal
@@ -76,8 +77,6 @@ config.archiveBig.on('click', '.table-content-month .edit', function() {
         url: config.coreUrl + "/archive-big/event/" + $this.closest('tr').attr('data-id'),
         type: "get",
         success: function (response) {
-
-            console.log(response);
 
             if (!response) {
                 alert('Maybe this event will not exists anymore.');
@@ -99,6 +98,29 @@ config.archiveBig.on('click', '.table-content-month .edit', function() {
             element.find('.prediction option[value="' + data.predictionId + '"]').prop('selected', true).change();
 
             element.modal();
+        },
+         error: function () {}
+    });
+});
+
+// Modal - Edit
+// save edit prediction and status
+$('#archive-big-modal-edit').on('click', '.save', function() {
+    var element = $('#archive-big-modal-edit');
+
+    $.ajax({
+        url: config.coreUrl + "/archive-big/update/prediction-and-status/" + element.find('.event-id').val(),
+        type: "post",
+        data: {
+            siteId: config.archiveBig.find('.select-site').val(),
+            predictionId: element.find('.prediction').val(),
+            statusId: element.find('.status').val(),
+        },
+        success: function (response) {
+
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            showMonthAvailableEventsInBigArchive();
+            element.modal('hide');
         },
          error: function () {}
     });
