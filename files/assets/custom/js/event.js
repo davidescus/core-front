@@ -43,6 +43,32 @@ config.event.on('click', '.edit', function() {
     });
 });
 
+// Modal - edit result-status
+// save edit result and status
+$('#event-modal-edit-result-status').on('click', '.save', function() {
+    console.log('this was clicked');
+    var element = $('#event-modal-edit-result-status');
+
+    $.ajax({
+        url: config.coreUrl + "/event/update-result-status/" + element.find('.event-id').val(),
+        type: "post",
+        data: {
+            result: element.find('.result').val(),
+            statusId: element.find('.status').val(),
+        },
+        success: function (response) {
+
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+
+            if (response.type === 'success') {
+                eventGetEvents();
+                element.modal('hide');
+            }
+        },
+         error: function () {}
+    });
+});
+
     /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
