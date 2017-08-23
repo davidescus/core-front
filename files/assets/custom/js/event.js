@@ -4,11 +4,43 @@ config.event = $('.page-content-wrapper.event');
      *  ----- CLICKABLE ACTIONS -----
     ----------------------------------------------------------------------*/
 
-// Clickable - edit
+    /*
+     *  ----- Modal edit result-status -----
+    ----------------------------------------------------------------------*/
+
+// Modal - edit result-status
 // get selected event
 // launch modal to change result and status
 config.event.on('click', '.edit', function() {
+    var $this = $(this);
+    $.ajax({
+        url: config.coreUrl + "/event/by-id/" + $this.closest('tr').attr('data-id'),
+        type: "get",
+        success: function (response) {
 
+            if (!response) {
+                alert('Maybe this event will not exists anymore.');
+                return;
+            }
+
+            var data = response;
+            var element = $('#event-modal-edit-result-status');
+
+            var template = element.find('.template-event-info').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.event-info').html(html);
+
+            // set result if exists.
+            element.find('.result').val(data.result);
+
+            // set status selected
+            element.find('.status option[value="' + data.statusId + '"]').prop('selected', true).change();
+
+            element.modal();
+        },
+         error: function () {}
+    });
 });
 
     /*

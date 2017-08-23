@@ -70,3 +70,55 @@
 </div>
 <!-- END CONTENT -->
 
+<!-- START MODAL EDIT RESULT-STATUS -->
+<div class="modal fade" id="event-modal-edit-result-status" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Edit Result and Status</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="event-info row"></div>
+                <script class="template-event-info" type="text/template7">
+                    <input type="hidden" class="event-id" value="{{id}}"/>
+                    <h4>
+                        {{country}}
+                        {{league}}
+                        {{homeTeam}} - {{awayTeam}}
+                        {{eventDate}}
+                    </h4>
+                </script>
+
+                <!-- status and prediction -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Result</label>
+                            <input type="text" class="form-control result"/>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Status</label>
+                            <select class="form-control status select2">
+                               <option value="">-- select --</option>
+                               <option value="1">Win</option>
+                               <option value="2">Loss</option>
+                               <option value="3">Draw</option>
+                               <option value="4">PostP.</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green save">Save</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END MODAL EDIT RESULT-STATUS -->
