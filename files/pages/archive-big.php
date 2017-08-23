@@ -96,7 +96,10 @@
                                         {{else}}
                                         <button class="btn green show-hide">Show</button>
                                         {{/if}}
+                                        {{#if isNoTip}}
+                                        {{else}}
                                         <button class="btn blue edit">Edit</button>
+                                        {{/if}}
                                     </td>
                                 </tr>
                                 {{else}}
