@@ -32,51 +32,28 @@
                                     <th> Odd </th>
                                     <th> Score </th>
                                     <th> Status </th>
-                                    <th> Sent At </th>
-                                    <th> Status </th>
+                                    <th> Actions </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each sites}}
-                                    <tr class="website_tr">
-                                        <td> <input class="select-group-site" type="checkbox" value="{{siteId}}"> </td>
-                                        <td colspan="9">{{name}}</td>
-                                    </tr>
-                                    {{#each packages}}
-                                        <tr class="pack_tr">
-                                            <td></td>
-                                            <td colspan="9">{{name}} - {{eventsNumber}}/{{tipsPerDay}}</td>
-                                        </tr>
-                                        {{#each events}}
-                                            <tr>
-                                                <td>
-                                                    <input class="use" type="checkbox" data-site-id="{{siteId}}" data-event-id="{{id}}"/>
-                                                </td>
-                                                {{#if isNoTip}}
-                                                    <td colspan="7">NO TIP</td>
-                                                {{else}}
-                                                    <td>{{country}}</td>
-                                                    <td>{{league}}</td>
-                                                    <td>{{homeTeam}} - {{awayTeam}}</td>
-                                                    <td>{{predictionName}}</td>
-                                                    <td>{{odd}}</td>
-                                                    <td>{{result}}</td>
-                                                    <td>{{statusId}}</td>
-                                                {{/if}}
-                                                <td>{{mailingDate}}</td>
-                                                {{#if isPublish}}
-                                                    <td><span class="label label-sm label-success"> Published </span></td>
-                                                {{else}}
-                                                    <td><span class="label label-sm label-danger"> Unpublished </span></td>
-                                                {{/if}}
-                                            </tr>
-                                            {{else}}
-                                            <tr>
-                                                <td> </td>
-                                                <td colspan="9">--- No events distributed in package ---</td>
-                                            </tr>
-                                        {{/each}}
-                                    {{/each}}
+                                {{#each events}}
+                                <tr data-id="{{id}}">
+                                    <td>{{id}}</td>
+                                    <td>{{country}}</td>
+                                    <td>{{league}}</td>
+                                    <td>{{homeTeam}} - {{awayTeam}}</td>
+                                    <td>{{predictionId}}</td>
+                                    <td>{{odd}}</td>
+                                    <td>{{result}}</td>
+                                    <td>{{statusId}}</td>
+                                    <td>
+                                        <button class="btn blue edit">Edit</button>
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td colspan="9">--- No events distributed in packages ---</td>
+                                </tr>
                                 {{/each}}
                             </tbody>
                         </table>
