@@ -37,6 +37,10 @@ $(document).ready(function() {
             getAllSitesIdsAndNames();
         }
 
+        if (config.activePage == 'event') {
+            eventGetEvents();
+        }
+
         if (config.activePage == 'association') {
 
             // autocomlete provider and league
@@ -65,6 +69,7 @@ $(document).ready(function() {
         if (config.activePage == 'archive-big') {
             showAvailableMonths();
             showAvailableSites();
+            bigArchiveShowAllPredictions();
         }
     }
 });
