@@ -46,7 +46,6 @@ config.event.on('click', '.edit', function() {
 // Modal - edit result-status
 // save edit result and status
 $('#event-modal-edit-result-status').on('click', '.save', function() {
-    console.log('this was clicked');
     var element = $('#event-modal-edit-result-status');
 
     $.ajax({
