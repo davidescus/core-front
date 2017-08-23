@@ -93,6 +93,9 @@
 
                 <!-- status and prediction -->
                 <div class="row">
+
+                    <!-- hidden input for event id -->
+                    <input type="hidden" class="event-id">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label class="control-label">Result</label>
