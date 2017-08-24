@@ -77,7 +77,7 @@ $('#event-modal-edit-result-status').on('click', '.save', function() {
 // get all distributed events and show in table
 function eventGetEvents() {
     $.ajax({
-        url: config.coreUrl + "/event/distributed-events",
+        url: config.coreUrl + "/event/associated-events",
         type: "get",
         success: function (response) {
 
