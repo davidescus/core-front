@@ -55,12 +55,12 @@
 
                             <div class="form-group">
                                 <label>Website URL</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" readonly="readonly">
                             </div>
 
                             <div class="form-group">
-                                <label>Default Select</label>
-                                <select class="form-control">
+                                <label>Default Date</label>
+                                <select class="form-control" readonly="readonly">
                                     <option>Option 1</option>
                                     <option>Option 2</option>
                                     <option>Option 3</option>
@@ -71,7 +71,7 @@
 
                             <div class="form-group">
                                 <label>Thank you page parameter</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" readonly="readonly">
                             </div>
                         </div>
 
@@ -79,22 +79,22 @@
                             <h4>SMTP</h4>
                             <div class="form-group">
                                 <label>Host</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" readonly="readonly">
                             </div>
 
                             <div class="form-group">
                                 <label>User</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" readonly="readonly">
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" class="form-control" placeholder="">
+                                <input type="text" class="form-control" readonly="readonly">
                             </div>
 
                             <div class="form-group">
                                 <label>Encryption</label>
-                                <select class="form-control">
+                                <select class="form-control" readonly="readonly">
                                     <option>Option 1</option>
                                     <option>Option 2</option>
                                     <option>Option 3</option>
@@ -234,7 +234,7 @@
                         <ul class="nav nav-tabs package-tab"></ul>
                         <script class="template-package-tab" type="text/template7">
                             {{#each packages}}
-                            <li>
+                            <li data-id="{{id}}">
                                 <a href="#package-tab_{{id}}" data-toggle="tab">{{name}}</a>
                             </li>
                             {{/each}}
@@ -415,17 +415,17 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>From</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" readonly="readonly">
                                             </div>
                                             <div class="form-group">
                                                 <label>Subject</label>
-                                                <input type="text" class="form-control" placeholder="">
+                                                <input type="text" class="form-control" readonly="readonly">
                                             </div>
                                         </div>
                                         <div class="col-md-8">
                                             <div class="form-group">
                                                 <label>Template</label>
-                                                <textarea class="form-control" rows="5">Not use for moment</textarea>
+                                                <textarea class="form-control" rows="5" readonly="readonly">Not use for moment</textarea>
                                             </div>
                                         </div>
                                     </div>
