@@ -67,7 +67,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <script src="https://cdnjs.cloudflare.com/ajax/libs/template7/1.2.3/template7.js"></script>
 
         <!-- js general configuration -->
-        <script src="../assets/custom/js/config.js"></script>
+        <script src="../config.js"></script>
 
         <!-- END HEAD -->
 
