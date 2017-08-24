@@ -87,6 +87,19 @@ config.association.on('click', '.add-manual-event', function() {
     showContentBasedOnEventType($('#modal-add-manual-event [name="association-modal-event-type"]:checked').val());
     $('#modal-add-manual-event .confirm-event .systemDate').html($('#association-system-date').val());
     $('#modal-add-manual-event .confirm-event .table').html($('#modal-add-manual-event .select-table option:selected').val());
+
+    // reset modal fields
+    $('#modal-add-manual-event .select-table').val('run').change();
+    $('#modal-add-manual-event .search-match').val('');
+    $('#modal-add-manual-event .odd').val('');
+    $('#modal-add-manual-event .confirm-event .country').html('-');
+    $('#modal-add-manual-event .confirm-event .league').html('-');
+    $('#modal-add-manual-event .confirm-event .teams').html('-');
+    $('#modal-add-manual-event .confirm-event .prediction').html('-');
+    $('#modal-add-manual-event .confirm-event .odd').html('-');
+
+    $('#modal-add-manual-event .button-previous').trigger('click');
+
     $('#modal-add-manual-event').modal('show');
 });
 
