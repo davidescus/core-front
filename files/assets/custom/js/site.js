@@ -505,6 +505,9 @@ function addNewPackageTabContent(id) {
         packages: [{
             id: id,
             name: 'New - ' + id,
+            isVip: 0,
+            subscriptionType: 'days',
+            isRecurring: 1,
             associatedPredictions: predictions,
         }],
     };
