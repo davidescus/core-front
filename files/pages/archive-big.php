@@ -54,10 +54,10 @@
                         </div>
                     </li>
                     <li>
-                        <button type="button" class="btn green btn-outline publish">Publish Current Month</button>
+                        <button type="button" class="btn green btn-outline publishMonth">Publish Current Month</button>
                     </li>
                     <li>
-                        <button type="button" class="btn green btn-outline update">Update is site</button>
+                        <button type="button" class="btn green btn-outline publishInSite">Update is site</button>
                     </li>
                 </ul>
             </div>
