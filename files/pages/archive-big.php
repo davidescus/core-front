@@ -53,6 +53,12 @@
                             </script>
                         </div>
                     </li>
+                    <li>
+                        <button type="button" class="btn green btn-outline publish">Publish Current Month</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn green btn-outline update">Update is site</button>
+                    </li>
                 </ul>
             </div>
             <div class="portlet-body">
