@@ -57,7 +57,7 @@
                         <button type="button" class="btn green btn-outline publishMonth">Publish Current Month</button>
                     </li>
                     <li>
-                        <button type="button" class="btn green btn-outline publishInSite">Update is site</button>
+                        <button type="button" class="btn green btn-outline publishInSite">Update in site</button>
                     </li>
                 </ul>
             </div>
@@ -70,6 +70,7 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Status</th>
                                     <th> System Date </th>
                                     <th> Country </th>
                                     <th> League </th>
@@ -84,6 +85,11 @@
                             <tbody>
                                 {{#each events}}
                                 <tr data-id="{{id}}">
+                                    {{#if isPublishInSite}}
+                                        <td><span class="label label-sm label-success">Publish</span></td>
+                                    {{else}}
+                                        <td><span class="label label-sm label-danger">UnPub</span></td>
+                                    {{/if}}
                                     <td>{{systemDate}}</td>
                                     {{#if isNoTip}}
                                         <td colspan="7">NO TIP</td>

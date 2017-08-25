@@ -41,6 +41,44 @@ config.archiveBig.on('change', '.select-table', function() {
     showMonthAvailableEventsInBigArchive();
 });
 
+// Clickable - publish currrent month.
+// publish all events for selected month
+// - for all tables
+config.archiveBig.on('click', '.publishMonth', function() {
+    var siteId = config.archiveBig.find('.select-site').val();
+    var date = config.archiveBig.find('.select-date').val();
+
+    if (siteId ==  '-') {
+        alert('You must select a site.');
+        return;
+    }
+    if (date ==  '-') {
+        alert('You must select a month.');
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/archive-big/publish-month",
+        type: "post",
+        data: {
+            siteId: siteId,
+            date: date,
+        },
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            showMonthAvailableEventsInBigArchive();
+        },
+         error: function () {}
+    });
+});
+
+// Clickable - publish changes in site
+// publish allbig archive changes in site
+// - for all tables
+config.archiveBig.on('click', '.publishInSite', function() {
+    alert('Not implementd yet');
+});
+
 // Clickable - show / hide event
 // toogle show/hide even
 config.archiveBig.on('click', '.table-content-month .show-hide', function() {
