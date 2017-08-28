@@ -27,15 +27,6 @@ $(document).ready(function() {
         setControlFlow();
     }
 
-    // check if response server is ok,
-    // if not redirect to login
-    function loginCheck() {
-
-        var href = document.location.href.split("?")[0];
-        window.location.replace(href);
-        return;
-    }
-
     /*
      * This function will controll methods
      * executed by specific page
