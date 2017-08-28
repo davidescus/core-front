@@ -37,7 +37,9 @@ config.distribution.on('click', '.actions .publish', function() {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             getDistributedEvents(config.distribution.find('.select-system-date').val());
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -54,7 +56,9 @@ config.distribution.on('click', '.actions .delete', function() {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             getDistributedEvents(config.distribution.find('.select-system-date').val());
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -89,6 +93,8 @@ function getDistributedEvents(date = '0') {
             var html = compiledTemplate(data);
             element.find('.table-content').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
