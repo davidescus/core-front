@@ -16,7 +16,7 @@ config.archiveBig.on('change', '.select-date', function() {
 // show available tables for selected site.
 config.archiveBig.on('change', '.select-site', function() {
     $.ajax({
-        url: config.coreUrl + "/site/available-table/" + $(this).val(),
+        url: config.coreUrl + "/site/available-table/" + $(this).val() + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -58,7 +58,7 @@ config.archiveBig.on('click', '.publishMonth', function() {
     }
 
     $.ajax({
-        url: config.coreUrl + "/archive-big/publish-month",
+        url: config.coreUrl + "/archive-big/publish-month" + "?" + getToken(),
         type: "post",
         data: {
             siteId: siteId,
@@ -84,7 +84,7 @@ config.archiveBig.on('click', '.publishInSite', function() {
 config.archiveBig.on('click', '.table-content-month .show-hide', function() {
     var $this = $(this);
     $.ajax({
-        url: config.coreUrl + "/archive-big/show-hide/" + $this.closest('tr').attr('data-id'),
+        url: config.coreUrl + "/archive-big/show-hide/" + $this.closest('tr').attr('data-id') + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -112,7 +112,7 @@ config.archiveBig.on('click', '.table-content-month .show-hide', function() {
 config.archiveBig.on('click', '.table-content-month .edit', function() {
     var $this = $(this);
     $.ajax({
-        url: config.coreUrl + "/archive-big/event/" + $this.closest('tr').attr('data-id'),
+        url: config.coreUrl + "/archive-big/event/" + $this.closest('tr').attr('data-id') + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -147,7 +147,7 @@ $('#archive-big-modal-edit').on('click', '.save', function() {
     var element = $('#archive-big-modal-edit');
 
     $.ajax({
-        url: config.coreUrl + "/archive-big/update/prediction-and-status/" + element.find('.event-id').val(),
+        url: config.coreUrl + "/archive-big/update/prediction-and-status/" + element.find('.event-id').val() + "?" + getToken(),
         type: "post",
         data: {
             siteId: config.archiveBig.find('.select-site').val(),
@@ -173,7 +173,7 @@ $('#archive-big-modal-edit').on('click', '.save', function() {
 // will populate site selector
 function showAvailableSites() {
     $.ajax({
-        url: config.coreUrl + "/site/ids-and-names",
+        url: config.coreUrl + "/site/ids-and-names" + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -195,7 +195,7 @@ function showAvailableSites() {
 // will populate month selector
 function showAvailableMonths() {
     $.ajax({
-        url: config.coreUrl + "/archive-big/available-months",
+        url: config.coreUrl + "/archive-big/available-months" + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -231,7 +231,7 @@ function showMonthAvailableEventsInBigArchive() {
         return;
 
     $.ajax({
-        url: config.coreUrl + "/archive-big/month-events?" + $.param(param),
+        url: config.coreUrl + "/archive-big/month-events?" + $.param(param) + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -253,7 +253,7 @@ function showMonthAvailableEventsInBigArchive() {
 // get and complete predictions in edit modal events
 function bigArchiveShowAllPredictions() {
     $.ajax({
-        url: config.coreUrl + "/prediction",
+        url: config.coreUrl + "/prediction" + "?" + getToken(),
         type: "get",
         success: function (response) {
 
