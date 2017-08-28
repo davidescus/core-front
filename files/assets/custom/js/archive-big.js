@@ -30,7 +30,9 @@ config.archiveBig.on('change', '.select-site', function() {
             var html = compiledTemplate(data);
             element.find('.select-table').html(html).change();
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -68,7 +70,9 @@ config.archiveBig.on('click', '.publishMonth', function() {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             showMonthAvailableEventsInBigArchive();
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -97,7 +101,9 @@ config.archiveBig.on('click', '.table-content-month .show-hide', function() {
                     $this.removeClass('green').addClass('red').text('Hide');
             }
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -137,7 +143,9 @@ config.archiveBig.on('click', '.table-content-month .edit', function() {
 
             element.modal();
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -160,7 +168,9 @@ $('#archive-big-modal-edit').on('click', '.save', function() {
             showMonthAvailableEventsInBigArchive();
             element.modal('hide');
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -187,7 +197,9 @@ function showAvailableSites() {
             var html = compiledTemplate(data);
             element.find('.select-site').html(html);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -212,7 +224,9 @@ function showAvailableMonths() {
             // select seccond option
             element.find('.select-date option:eq(1)').prop('selected', true);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
 }
@@ -245,7 +259,9 @@ function showMonthAvailableEventsInBigArchive() {
             var html = compiledTemplate(data);
             element.find('.table-content-month').html(html);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -269,7 +285,9 @@ function bigArchiveShowAllPredictions() {
             var html = compiledTemplate(data);
             element.find('.prediction').html(html);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
