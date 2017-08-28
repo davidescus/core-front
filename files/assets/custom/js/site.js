@@ -209,7 +209,7 @@ config.site.on('click', '.save-site', function(){
 function getAllSitesIdsAndNames() {
 
     $.ajax({
-        url: config.coreUrl + "/site/ids-and-names",
+        url: config.coreUrl + "/site/ids-and-names" + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -236,7 +236,7 @@ function addNewSite(data) {
     var ret = {};
 
     $.ajax({
-        url: config.coreUrl + "/site",
+        url: config.coreUrl + "/site" + "?" + getToken(),
         type: "post",
         async: false,
         data: data,
@@ -254,7 +254,7 @@ function updateSite(data) {
     var ret = {};
 
     $.ajax({
-        url: config.coreUrl + "/site/update/" + data.siteId,
+        url: config.coreUrl + "/site/update/" + data.siteId + "?" + getToken(),
         type: "post",
         async: false,
         data: data,
@@ -272,7 +272,7 @@ function deleteSite(id) {
     var ret = {};
 
     $.ajax({
-        url: config.coreUrl + "/site/delete/" + id,
+        url: config.coreUrl + "/site/delete/" + id + "?" + getToken(),
         type: "get",
         async: false,
         success: function (response) {
@@ -287,7 +287,7 @@ function deleteSite(id) {
 // get site general informations
 function getSiteInfo(siteId) {
     $.ajax({
-        url: config.coreUrl + "/site/" + siteId,
+        url: config.coreUrl + "/site/" + siteId + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -326,7 +326,7 @@ function updateSiteResultStatusAndClass(data, siteId) {
 
     var params = {data: data};
     $.ajax({
-        url: config.coreUrl + "/site-result-status/update/" + siteId,
+        url: config.coreUrl + "/site-result-status/update/" + siteId + "?" + getToken(),
         type: "post",
         data: params,
         success: function (response) {
@@ -348,7 +348,7 @@ function getSiteResultStatusAndClass(siteId) {
     }
 
     $.ajax({
-        url: config.coreUrl + "/site-result-status/" + siteId,
+        url: config.coreUrl + "/site-result-status/" + siteId + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -379,7 +379,7 @@ function addNewPackage(data) {
     var ret = {};
 
     $.ajax({
-        url: config.coreUrl + "/package",
+        url: config.coreUrl + "/package" + "?" + getToken(),
         type: "post",
         async: false,
         data: data,
@@ -397,7 +397,7 @@ function addNewPackage(data) {
 function getPackagesAssociatesWithSite(siteId) {
     var ret = {};
     $.ajax({
-        url: config.coreUrl + "/site-package/" + siteId,
+        url: config.coreUrl + "/site-package/" + siteId + "?" + getToken(),
         type: "get",
         async: false,
         success: function (response) {
@@ -414,7 +414,7 @@ function associatePackageWithSite(data) {
     var ret = {};
     var params = {data: data};
     $.ajax({
-        url: config.coreUrl + "/site-package",
+        url: config.coreUrl + "/site-package" + "?" + getToken(),
         type: "post",
         async: false,
         data: params,
@@ -431,7 +431,7 @@ function associatePackageWithSite(data) {
 function updatePackage(data, id) {
     var params = {data: data};
     $.ajax({
-        url: config.coreUrl + "/package/update/" + id,
+        url: config.coreUrl + "/package/update/" + id + "?" + getToken(),
         type: "post",
         data: params,
         success: function (response) {
@@ -445,7 +445,7 @@ function updatePackage(data, id) {
 function deletePackage(id) {
     var ret = {};
     $.ajax({
-        url: config.coreUrl + "/package/delete/" + id,
+        url: config.coreUrl + "/package/delete/" + id + "?" + getToken(),
         type: "get",
         async: false,
         success: function (response) {
@@ -460,7 +460,7 @@ function deletePackage(id) {
 // get site packages
 function getSitePackages(siteId) {
     $.ajax({
-        url: config.coreUrl + "/package-site/" + siteId,
+        url: config.coreUrl + "/package-site/" + siteId + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -553,7 +553,7 @@ function associatePredicitonsWithPackage(data) {
 
     var params = {data: data};
     $.ajax({
-        url: config.coreUrl + "/package-prediction",
+        url: config.coreUrl + "/package-prediction" + "?" + getToken(),
         type: "post",
         data: params,
         success: function (response) {
@@ -568,7 +568,7 @@ function updateSitePredictionsNames(data, siteId) {
 
     var params = {data: data};
     $.ajax({
-        url: config.coreUrl + "/site-prediction/update/" + siteId,
+        url: config.coreUrl + "/site-prediction/update/" + siteId + "?" + getToken(),
         type: "post",
         data: params,
         success: function (response) {
@@ -581,7 +581,7 @@ function updateSitePredictionsNames(data, siteId) {
 // get site predictions name
 function getSitePredictions(siteId) {
     $.ajax({
-        url: config.coreUrl + "/site-prediction/" + siteId,
+        url: config.coreUrl + "/site-prediction/" + siteId + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -608,7 +608,7 @@ function showSitePredictionsNames(data) {
 function getPredictions() {
     var ret = {};
     $.ajax({
-        url: config.coreUrl + "/prediction",
+        url: config.coreUrl + "/prediction" + "?" + getToken(),
         type: "get",
         async: false,
         success: function (response) {
@@ -618,22 +618,3 @@ function getPredictions() {
     });
     return ret;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
