@@ -223,7 +223,9 @@ function getAllSitesIdsAndNames() {
             var html = compiledTemplate(data);
             element.find('.site-selection').html(html).change();
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -243,7 +245,9 @@ function addNewSite(data) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -261,7 +265,9 @@ function updateSite(data) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -278,7 +284,9 @@ function deleteSite(id) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -295,7 +303,9 @@ function getSiteInfo(siteId) {
             showSiteName(response);
             showSiteGeneralConfiguration(response);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -332,7 +342,9 @@ function updateSiteResultStatusAndClass(data, siteId) {
         success: function (response) {
             alert(response.message);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -357,7 +369,9 @@ function getSiteResultStatusAndClass(siteId) {
             }
             showSiteResultStatusNameAndClass(data);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -386,7 +400,9 @@ function addNewPackage(data) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -403,7 +419,9 @@ function getPackagesAssociatesWithSite(siteId) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -421,7 +439,9 @@ function associatePackageWithSite(data) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -437,7 +457,9 @@ function updatePackage(data, id) {
         success: function (response) {
             alert(response.message);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -451,7 +473,9 @@ function deletePackage(id) {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     return ret;
@@ -471,7 +495,9 @@ function getSitePackages(siteId) {
             showPackagesTabs(data);
             showPackagesTabsContent(data);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -559,7 +585,9 @@ function associatePredicitonsWithPackage(data) {
         success: function (response) {
             alert(response.message);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -574,7 +602,9 @@ function updateSitePredictionsNames(data, siteId) {
         success: function (response) {
             alert(response.message);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -591,7 +621,9 @@ function getSitePredictions(siteId) {
 
             showSitePredictionsNames(data);
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -614,7 +646,9 @@ function getPredictions() {
         success: function (response) {
             ret = response;
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
     return ret;
 }
