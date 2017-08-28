@@ -27,6 +27,12 @@ $(document).ready(function() {
         setControlFlow();
     }
 
+    // @return string with tocken from localStorage.
+    function getToken() {
+        var token = localStorage.getItem('core-app-identifier-x76') || '00000000';
+        return 'token=' + token;
+    }
+
     /*
      * This function will controll methods
      * executed by specific page
