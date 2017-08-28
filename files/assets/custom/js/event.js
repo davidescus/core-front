@@ -39,7 +39,9 @@ config.event.on('click', '.edit', function() {
 
             element.modal();
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -64,7 +66,9 @@ $('#event-modal-edit-result-status').on('click', '.save', function() {
                 element.modal('hide');
             }
         },
-         error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -89,7 +93,9 @@ function eventGetEvents() {
             var html = compiledTemplate(data);
             element.find('.table-content').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
