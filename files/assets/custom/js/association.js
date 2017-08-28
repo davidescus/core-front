@@ -50,7 +50,7 @@ $('.table-association').on('click', '.delete-event', function() {
     var id = $this.parents('tr').attr('data-id');
 
     $.ajax({
-        url: config.coreUrl + "/association/delete/" + id,
+        url: config.coreUrl + "/association/delete/" + id + "?" + getToken(),
         type: "get",
         success: function (response) {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
@@ -68,7 +68,7 @@ $('.table-association').on('click', '.delete-event', function() {
 // Launch modal for add new event
 config.association.on('click', '.add-manual-event', function() {
     $.ajax({
-        url: config.coreUrl + "/prediction",
+        url: config.coreUrl + "/prediction?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -140,7 +140,7 @@ $('#modal-add-manual-event .search-match').keyup(function() {
     }
 
     $.ajax({
-        url: config.coreUrl + "/match/filter/" + filterValue,
+        url: config.coreUrl + "/match/filter/" + filterValue + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -176,7 +176,7 @@ $('#modal-add-manual-event .selectable-block').on('click', '.selectable-row', fu
 
     // get selected event and complete confirmation step with event details
     $.ajax({
-        url: config.coreUrl + "/match/" + matchId,
+        url: config.coreUrl + "/match/" + matchId + "?" + getToken(),
         type: "get",
         success: function (response) {
             var element = $('#modal-add-manual-event .confirm-event');
@@ -198,7 +198,7 @@ $('#modal-add-manual-event').on('click', '.button-submit', function() {
 
     if (eventType === 'noTip') {
         $.ajax({
-            url: config.coreUrl + "/association/no-tip",
+            url: config.coreUrl + "/association/no-tip" + "?" + getToken(),
             type: "post",
             dataType: "json",
             data: {
@@ -228,7 +228,7 @@ $('#modal-add-manual-event').on('click', '.button-submit', function() {
         var matchId = $('#modal-add-manual-event').find('.match-id').val();
 
         $.ajax({
-            url: config.coreUrl + "/event/create-from-match",
+            url: config.coreUrl + "/event/create-from-match" + "?" + getToken(),
             type: "post",
             dataType: "json",
             data: {
@@ -288,7 +288,7 @@ $('.table-association').on('click', '.modal-get-event', function() {
     };
 
     $.ajax({
-        url: config.coreUrl + "/event/available?" + $.param(filters),
+        url: config.coreUrl + "/event/available?" + $.param(filters) + "&" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -321,7 +321,7 @@ $('#modal-available-events').on('click', '.import', function() {
     });
 
     $.ajax({
-        url: config.coreUrl + "/association",
+        url: config.coreUrl + "/association" + "?" + getToken(),
         type: "post",
         dataType: "json",
         data: {
@@ -351,7 +351,7 @@ $('.table-association').on('click', '.modal-available-packages', function() {
     var table = $(this).parents('.table-association').attr('data-table');
 
     $.ajax({
-        url: config.coreUrl + "/association/package/available/" + table + "/" + associateEventId,
+        url: config.coreUrl + "/association/package/available/" + table + "/" + associateEventId + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -387,7 +387,7 @@ $('#modal-associate-events').on('click', '.associate-event', function() {
     });
 
     $.ajax({
-        url: config.coreUrl + "/distribution",
+        url: config.coreUrl + "/distribution" + "?" + getToken(),
         type: "post",
         dataType: "json",
         data: {
@@ -415,7 +415,7 @@ $('#modal-associate-events').on('click', '.associate-event', function() {
 //  - league select
 function getTableAvailableFiltersValues(tableIdentifier) {
     $.ajax({
-        url: config.coreUrl + "/event/available-filters-values/" + tableIdentifier,
+        url: config.coreUrl + "/event/available-filters-values/" + tableIdentifier + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -440,7 +440,7 @@ function getTableAvailableFiltersValues(tableIdentifier) {
 // show in table available events number based on filters
 function getAvailableEventsNumber(filters) {
     $.ajax({
-        url: config.coreUrl + "/event/available/number?" + $.param(filters),
+        url: config.coreUrl + "/event/available/number?" + $.param(filters) + "&" + getToken(),
         type: "get",
         success: function (response) {
             var data = {number: response};
@@ -462,7 +462,7 @@ function getAvailableEventsNumber(filters) {
 // first clear DataTable, after repopulate it add row by row.
 function getEventsAssociations(argTable, date = '0') {
     $.ajax({
-        url: config.coreUrl + "/association/event/" + argTable + '/' + date,
+        url: config.coreUrl + "/association/event/" + argTable + '/' + date + "?" + getToken(),
         type: "get",
         success: function (response) {
 
