@@ -27,10 +27,13 @@ $(document).ready(function() {
         setControlFlow();
     }
 
-    // @return string with tocken from localStorage.
-    function getToken() {
-        var token = localStorage.getItem('core-app-identifier-x76') || '00000000';
-        return 'token=' + token;
+    // check if response server is ok,
+    // if not redirect to login
+    function loginCheck() {
+
+        var href = document.location.href.split("?")[0];
+        window.location.replace(href);
+        return;
     }
 
     /*
