@@ -28,7 +28,7 @@ config.distribution.on('change', '.table-content .select-group-site', function()
 // Publish events in archive
 config.distribution.on('click', '.actions .publish', function() {
     $.ajax({
-        url: config.coreUrl + "/archive/publish",
+        url: config.coreUrl + "/archive/publish" + "?" + getToken(),
         type: "post",
         data: {
             ids: getCheckedEventsIds(),
@@ -45,7 +45,7 @@ config.distribution.on('click', '.actions .publish', function() {
 // Delete events from distribution
 config.distribution.on('click', '.actions .delete', function() {
     $.ajax({
-        url: config.coreUrl + "/distribution/delete",
+        url: config.coreUrl + "/distribution/delete" + "?" + getToken(),
         type: "post",
         data: {
             ids: getCheckedEventsIds(),
@@ -78,7 +78,7 @@ function getCheckedEventsIds() {
 // get all distributed events and put it on table
 function getDistributedEvents(date = '0') {
     $.ajax({
-        url: config.coreUrl + "/distribution/" + date,
+        url: config.coreUrl + "/distribution/" + date + "?" + getToken(),
         type: "get",
         success: function (response) {
             var data = {sites: response};
