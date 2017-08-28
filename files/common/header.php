@@ -69,7 +69,16 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- js general configuration -->
         <script src="../config.js"></script>
 
-        <!-- END HEAD -->
+        <script>
+            // @return string with tocken from localStorage.
+            function getToken() {
+                var token = localStorage.getItem('core-app-identifier-x76') || '00000000';
+                return 'token=' + token;
+            }
+        </script>
+
+    </head>
+    <!-- END HEAD -->
 
     <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
         <div class="page-wrapper">
