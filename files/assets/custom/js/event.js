@@ -14,7 +14,7 @@ config.event = $('.page-content-wrapper.event');
 config.event.on('click', '.edit', function() {
     var $this = $(this);
     $.ajax({
-        url: config.coreUrl + "/event/by-id/" + $this.closest('tr').attr('data-id'),
+        url: config.coreUrl + "/event/by-id/" + $this.closest('tr').attr('data-id') + "?" + getToken(),
         type: "get",
         success: function (response) {
 
@@ -49,7 +49,7 @@ $('#event-modal-edit-result-status').on('click', '.save', function() {
     var element = $('#event-modal-edit-result-status');
 
     $.ajax({
-        url: config.coreUrl + "/event/update-result-status/" + element.find('.event-id').val(),
+        url: config.coreUrl + "/event/update-result-status/" + element.find('.event-id').val() + "?" + getToken(),
         type: "post",
         data: {
             result: element.find('.result').val(),
@@ -77,7 +77,7 @@ $('#event-modal-edit-result-status').on('click', '.save', function() {
 // get all distributed events and show in table
 function eventGetEvents() {
     $.ajax({
-        url: config.coreUrl + "/event/associated-events",
+        url: config.coreUrl + "/event/associated-events" + "?" + getToken(),
         type: "get",
         success: function (response) {
 
