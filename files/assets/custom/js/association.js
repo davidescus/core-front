@@ -56,7 +56,9 @@ $('.table-association').on('click', '.delete-event', function() {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             getEventsAssociations($this.parents('.table-association').attr('data-table'), $('#association-system-date').val());
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -81,7 +83,9 @@ config.association.on('click', '.add-manual-event', function() {
 
             element.find('.select-prediction').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 
     showContentBasedOnEventType($('#modal-add-manual-event [name="association-modal-event-type"]:checked').val());
@@ -152,7 +156,9 @@ $('#modal-add-manual-event .search-match').keyup(function() {
             var html = compiledTemplate(data);
             element.find('.selectable-block').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -184,7 +190,9 @@ $('#modal-add-manual-event .selectable-block').on('click', '.selectable-row', fu
             element.find('.league').html(response.league);
             element.find('.teams').html(response.homeTeam + ' - ' + response.awayTeam);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -212,7 +220,9 @@ $('#modal-add-manual-event').on('click', '.button-submit', function() {
                 getEventsAssociations(table, currentDate);
                 $('#modal-add-manual-event').modal('hide');
             },
-            error: function () {}
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
         });
 
         return;
@@ -260,10 +270,14 @@ $('#modal-add-manual-event').on('click', '.button-submit', function() {
 
                         // TODO clean inputs
                     },
-                    error: function () {}
+                    error: function (xhr, textStatus, errorTrown) {
+                        manageError(xhr, textStatus, errorTrown);
+                    }
                 });
             },
-            error: function () {}
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
         });
         return;
     }
@@ -305,7 +319,9 @@ $('.table-association').on('click', '.modal-get-event', function() {
             element.find('.modal-content').html(html);
             element.modal();
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -336,7 +352,9 @@ $('#modal-available-events').on('click', '.import', function() {
             $('#modal-available-events').modal('hide');
             getEventsAssociations(table, $('#association-system-date').val());
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -372,7 +390,9 @@ $('.table-association').on('click', '.modal-available-packages', function() {
 
             element.modal();
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -400,7 +420,9 @@ $('#modal-associate-events').on('click', '.associate-event', function() {
             if (response.type == "success")
                 $('#modal-associate-events').modal('hide');
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 });
 
@@ -431,7 +453,9 @@ function getTableAvailableFiltersValues(tableIdentifier) {
             var html = compiledTemplate(response);
             table.find('.select-league').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -451,7 +475,9 @@ function getAvailableEventsNumber(filters) {
             var html = compiledTemplate(data);
             element.find('.events-number').html(html);
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
@@ -493,7 +519,9 @@ function getEventsAssociations(argTable, date = '0') {
                 $(node).attr('data-id', e.id);
             });
         },
-        error: function () {}
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
     });
 }
 
