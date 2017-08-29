@@ -16,27 +16,30 @@
                 window.location.replace(href);
 
              </script>';
+        die();
     }
 
     // user was logged in , so serve dashboard
     if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
         include "common/header.php";
 
-            echo '<div class="page-container">';
+        echo '<div class="page-container">';
 
-            include "common/menu.php";
+        include "common/menu.php";
 
-            include "pages/site.php";
-            include "pages/event.php";
-            include "pages/association.php";
-            include "pages/distribution.php";
-            include "pages/archive-big.php";
+        include "pages/site.php";
+        include "pages/event.php";
+        include "pages/association.php";
+        include "pages/distribution.php";
+        include "pages/archive-big.php";
 
-            include "common/sidebar.php";
+        include "common/sidebar.php";
 
-            echo '</div>';
+        echo '</div>';
 
         include "common/footer.php";
+
+        die();
     }
 
     // perform login action
