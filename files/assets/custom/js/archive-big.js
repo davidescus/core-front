@@ -245,7 +245,7 @@ function showMonthAvailableEventsInBigArchive() {
         return;
 
     $.ajax({
-        url: config.coreUrl + "/archive-big/month-events?" + $.param(param) + "?" + getToken(),
+        url: config.coreUrl + "/archive-big/month-events?" + $.param(param) + "&" + getToken(),
         type: "get",
         success: function (response) {
 
