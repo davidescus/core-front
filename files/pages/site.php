@@ -44,7 +44,7 @@
                         <script class="template-site-token" type="text/template7">
                             Token: <span>{{token}}</span> &nbsp;&nbsp;
                             {{#js_compare "this.isConnect === 0"}}
-                            <button class="btn blue connection-update">Connect</button>
+                            <button class="btn red connection-update">Connect</button>
                             {{/js_compare}}
                             {{#js_compare "this.isConnect === 1"}}
                             <button class="btn green connection-update">Update</button>
