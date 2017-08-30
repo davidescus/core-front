@@ -12,6 +12,24 @@ config.site.on('change', '.site-selection', function(){
     getSiteResultStatusAndClass($(this).val());
 });
 
+// click on connect or update button
+// this will send connection request to site
+// or update request to site
+config.site.on('click', '.site-token .connection-update', function() {
+    var siteId = config.site.find('.site-selection').val();
+
+    $.ajax({
+        url: config.coreUrl + "/site/update-client/" + siteId + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+            alert('Type: ' + response.type . ' - Message: ' + response.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
 // Add New Site button click
 config.site.on('click', '.add-new-site', function(){
     config.site.find('.site-selection').val('new').change();
@@ -301,6 +319,7 @@ function getSiteInfo(siteId) {
 
             // show site name in front;
             showSiteName(response);
+            showSiteToken(response);
             showSiteGeneralConfiguration(response);
         },
         error: function (xhr, textStatus, errorTrown) {
@@ -312,19 +331,28 @@ function getSiteInfo(siteId) {
 // show site name in h1
 function showSiteName(data) {
     var element = config.site;
-    var template = element.find('.template-site-general').html();
+    var template = element.find('.template-site-name').html();
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
-    element.find('.site-general').html(html);
+    element.find('.site-name').html(html);
+}
+
+// show site name in h1
+function showSiteToken(data) {
+    var element = config.site;
+    var template = element.find('.template-site-token').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.site-token').html(html);
 }
 
 // show site general configuration
 function showSiteGeneralConfiguration(data) {
     var element = config.site;
-    var template = element.find('.template-site-name').html();
+    var template = element.find('.template-site-general').html();
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
-    element.find('.site-name').html(html);
+    element.find('.site-general').html(html);
 }
 
 /*

@@ -40,6 +40,16 @@
                             <i class="icon-speech"></i>
                             <span class="caption-subject bold uppercase"> General Settings</span>
                         </div>
+                        <div class="actions site-token"></div>
+                        <script class="template-site-token" type="text/template7">
+                            Token: <span>{{token}}</span> &nbsp;&nbsp;
+                            {{#js_compare "this.isConnect === 0"}}
+                            <button class="btn blue connection-update">Connect</button>
+                            {{/js_compare}}
+                            {{#js_compare "this.isConnect === 1"}}
+                            <button class="btn green connection-update">Update</button>
+                            {{/js_compare}}
+                        </script>
                     </div>
                     <div class="portlet-body">
 
