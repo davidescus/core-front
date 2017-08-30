@@ -80,7 +80,23 @@ config.archiveBig.on('click', '.publishMonth', function() {
 // publish allbig archive changes in site
 // - for all tables
 config.archiveBig.on('click', '.publishInSite', function() {
-    alert('Not implementd yet');
+    var siteId = config.archiveBig.find('.select-site').val();
+
+    if (siteId ==  '-') {
+        alert('You must select a site.');
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/site/update-archive-big/" + siteId  + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
 });
 
 // Clickable - show / hide event
