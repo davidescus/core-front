@@ -22,7 +22,7 @@ config.site.on('click', '.site-token .connection-update', function() {
         url: config.coreUrl + "/site/update-client/" + siteId + "?" + getToken(),
         type: "get",
         success: function (response) {
-            alert('Type: ' + response.type . ' - Message: ' + response.message);
+            alert('Type: ' + response.type + ' - Message: ' + response.message);
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
