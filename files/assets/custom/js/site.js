@@ -23,6 +23,8 @@ config.site.on('click', '.site-token .connection-update', function() {
         type: "get",
         success: function (response) {
             alert('Type: ' + response.type + ' - Message: ' + response.message);
+            // refresh all site info hard for machine fastter for dev.
+            config.site.find('.site-selection').val(siteId).change();
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
