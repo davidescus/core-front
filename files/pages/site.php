@@ -65,7 +65,7 @@
 
                             <div class="form-group">
                                 <label>Website URL</label>
-                                <input type="text" class="form-control" readonly="readonly">
+                                <input type="text" class="form-control url" value="{{url}}">
                             </div>
 
                             <div class="form-group">

@@ -78,6 +78,7 @@ config.site.on('click', '.save-site', function(){
         site : {
             siteId: config.site.find('.site-selection').val(),
             name: config.site.find('.site-general .name').val(),
+            url: config.site.find('.site-general .url').val(),
         },
         status: [],
         prediction: [],
