@@ -253,7 +253,7 @@ $('#modal-add-manual-event').on('click', '.button-submit', function() {
 
                 // start seccond ajax to create association event - table
                 $.ajax({
-                    url: config.coreUrl + "/association",
+                    url: config.coreUrl + "/association" + "?" + getToken(),
                     type: "post",
                     dataType: "json",
                     data: {
