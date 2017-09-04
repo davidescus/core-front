@@ -128,10 +128,10 @@
                                 <select class="form-control smtp-encryption">
                                     <option value=""> - None -</option>
                                     <option value="ssl"
-                                    {{#js_compare "this.dateFormat === 'ssl'"}}selected="selected"{{/js_compare}}>
+                                    {{#js_compare "this.smtpEncryption === 'ssl'"}}selected="selected"{{/js_compare}}>
                                     SSL</option>
                                     <option value="tls"
-                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    {{#js_compare "this.smtpEncryption === 'tls'"}}selected="selected"{{/js_compare}}>
                                     TLS</option>
                                 </select>
                             </div>
@@ -164,10 +164,10 @@
                                 <select class="form-control imap-encryption">
                                     <option value=""> - None -</option>
                                     <option value="ssl"
-                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    {{#js_compare "this.imapEncryption === 'ssl'"}}selected="selected"{{/js_compare}}>
                                     SSL</option>
                                     <option value="tls"
-                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    {{#js_compare "this.imapEncryption === 'tls'"}}selected="selected"{{/js_compare}}>
                                     TLS</option>
                                 </select>
                             </div>
