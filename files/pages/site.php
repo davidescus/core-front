@@ -56,11 +56,16 @@
                         <!-- div and script for populate site general configuration -->
                         <div class="row site-general"></div>
                         <script class="template-site-general" type="text/template7">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h4>General</h4>
                             <div class="form-group">
                                 <label>Website name</label>
                                 <input type="text" class="form-control name" value="{{name}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Website email</label>
+                                <input type="text" class="form-control email" value="{{email}}">
                             </div>
 
                             <div class="form-group">
@@ -69,13 +74,24 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Default Date</label>
-                                <select class="form-control" readonly="readonly">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
+                                <label>Date Format</label>
+                                <select class="form-control date-format">
+                                    <option value="">- Select -</option>
+                                    <option value="Y-m-d"
+                                    {{#js_compare "this.dateFormat === 'Y-m-d'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('Y-m-d'); ?></option>
+                                    <option value="Y/m/d"
+                                    {{#js_compare "this.dateFormat === 'Y/m/d'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('Y/m/d'); ?></option>
+                                    <option value="Y:m:d"
+                                    {{#js_compare "this.dateFormat === 'Y:m:d'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('Y:m:d'); ?></option>
+                                    <option value="Y|m|d"
+                                    {{#js_compare "this.dateFormat === 'Y|m|d'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('Y|m|d'); ?></option>
+                                    <option value="Y-:m-:d"
+                                    {{#js_compare "this.dateFormat === 'Y-:m-:d'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('Y-:m-:d'); ?></option>
                                 </select>
                             </div>
 
@@ -85,31 +101,74 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <h4>SMTP</h4>
                             <div class="form-group">
                                 <label>Host</label>
-                                <input type="text" class="form-control" readonly="readonly">
+                                <input type="text" class="form-control smtp-host" value="{{smtpHost}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Port</label>
+                                <input type="text" class="form-control smtp-port" value="{{smtpPort}}">
                             </div>
 
                             <div class="form-group">
                                 <label>User</label>
-                                <input type="text" class="form-control" readonly="readonly">
+                                <input type="text" class="form-control smtp-user" value="{{smtpUser}}">
                             </div>
 
                             <div class="form-group">
                                 <label>Password</label>
-                                <input type="text" class="form-control" readonly="readonly">
+                                <input type="text" class="form-control smtp-password" value="{{smtpPassword}}">
                             </div>
 
                             <div class="form-group">
                                 <label>Encryption</label>
-                                <select class="form-control" readonly="readonly">
-                                    <option>Option 1</option>
-                                    <option>Option 2</option>
-                                    <option>Option 3</option>
-                                    <option>Option 4</option>
-                                    <option>Option 5</option>
+                                <select class="form-control smtp-encryption">
+                                    <option value=""> - None -</option>
+                                    <option value="ssl"
+                                    {{#js_compare "this.dateFormat === 'ssl'"}}selected="selected"{{/js_compare}}>
+                                    SSL</option>
+                                    <option value="tls"
+                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    TLS</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <h4>IMAP</h4>
+                            <div class="form-group">
+                                <label>Host</label>
+                                <input type="text" class="form-control imap-host" value="{{imapHost}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Port</label>
+                                <input type="text" class="form-control imap-port" value="{{imapPort}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>User</label>
+                                <input type="text" class="form-control imap-user" value="{{imapUser}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="text" class="form-control imap-password" value="{{imapPassword}}">
+                            </div>
+
+                            <div class="form-group">
+                                <label>Encryption</label>
+                                <select class="form-control imap-encryption">
+                                    <option value=""> - None -</option>
+                                    <option value="ssl"
+                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    SSL</option>
+                                    <option value="tls"
+                                    {{#js_compare "this.dateFormat === 'tls'"}}selected="selected"{{/js_compare}}>
+                                    TLS</option>
                                 </select>
                             </div>
                         </div>

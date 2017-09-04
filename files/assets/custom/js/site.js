@@ -80,7 +80,21 @@ config.site.on('click', '.save-site', function(){
         site : {
             siteId: config.site.find('.site-selection').val(),
             name: config.site.find('.site-general .name').val(),
+            email: config.site.find('.site-general .email').val(),
             url: config.site.find('.site-general .url').val(),
+            dateFormat: config.site.find('.site-general .date-format').val(),
+
+            smtpHost: config.site.find('.site-general .smtp-host').val(),
+            smtpPort: config.site.find('.site-general .smtp-port').val(),
+            smtpUser: config.site.find('.site-general .smtp-user').val(),
+            smtpPassword: config.site.find('.site-general .smtp-password').val(),
+            smtpEncryption: config.site.find('.site-general .smtp-encryption').val(),
+
+            imapHost: config.site.find('.site-general .imap-host').val(),
+            imapPort: config.site.find('.site-general .imap-port').val(),
+            imapUser: config.site.find('.site-general .imap-user').val(),
+            imapPassword: config.site.find('.site-general .imap-password').val(),
+            imapEncryption: config.site.find('.site-general .imap-encryption').val(),
         },
         status: [],
         prediction: [],
