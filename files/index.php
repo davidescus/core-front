@@ -47,7 +47,7 @@
 
         // perform login operation by curl
         $config = require_once 'config.php';
-        $url = $config['coreUrl'] . '/login';
+        $url = $config['coreUrl'] . '/admin/login';
         $data = [
             'email' => $_POST['email'],
             'password' => $_POST['password'],
