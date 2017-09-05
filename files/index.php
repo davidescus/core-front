@@ -46,7 +46,8 @@
     if (isset($_POST['login'])) {
 
         // perform login operation by curl
-        $url = "http://51.15.78.71/login";
+        $config = require_once 'config.php';
+        $url = $config['coreUrl'] . '/login';
         $data = [
             'email' => $_POST['email'],
             'password' => $_POST['password'],
