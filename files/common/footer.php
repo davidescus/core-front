@@ -96,6 +96,8 @@
 
         <!--  site.js    -->
         <script src="../assets/custom/js/site.js"></script>
+        <!--  subscription.js    -->
+        <script src="../assets/custom/js/subscription.js"></script>
         <!--  event.js    -->
         <script src="../assets/custom/js/event.js"></script>
         <!--  association.js    -->
