@@ -26,13 +26,13 @@
                     <li>
                         <div class="form-group">
                             <label class="control-label">Table</label>
-                            <select class="form-control select-table select2 table_import_filter_select">
+                            <select class="form-control select-package select2 table_import_filter_select">
                                <option value="-"> -- select -- </option>
                             </select>
-                            <script class="template-select-table" type="text/template7">
+                            <script class="template-select-package" type="text/template7">
                                <option value="-"> -- select -- </option>
-                               {{#each tables}}
-                               <option value="{{tableIdentifier}}">{{tableIdentifier}} </option>
+                               {{#each packages}}
+                               <option value="{{id}}">{{name}} </option>
                                {{/each}}
                             </script>
                         </div>
@@ -48,8 +48,8 @@
             <div class="portlet-body">
 
                 <!-- month table -->
-                <div class="table-content-month"></div>
-                <script class="template-table-content-month" type="text/template7">
+                <div class="table-subscription"></div>
+                <script class="template-table-subscription" type="text/template7">
                     <div class="table-scrollable">
                         <table class="table table-hover table-bordered">
                             <thead>
