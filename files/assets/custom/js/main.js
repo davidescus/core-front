@@ -37,6 +37,10 @@ $(document).ready(function() {
             getAllSitesIdsAndNames();
         }
 
+        if (config.activePage == 'subscription') {
+            console.log('Subscription Page');
+        }
+
         if (config.activePage == 'event') {
             eventGetEvents();
         }

@@ -48,6 +48,13 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
+                            <li class="nav-item" target="subscription">
+                                <a class="nav-link">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Subscriptions</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
                             <li class="nav-item" target="event">
                                 <a class="nav-link">
                                     <i class="icon-home"></i>

@@ -28,6 +28,7 @@
         include "common/menu.php";
 
         include "pages/site.php";
+        include "pages/subscription.php";
         include "pages/event.php";
         include "pages/association.php";
         include "pages/distribution.php";
