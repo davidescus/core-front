@@ -62,6 +62,15 @@ config.subscription.on('keyup', '.search-customer' , function() {
     });
 });
 
+// Clickable --- click on customer selctable-row
+// when select customer make autocomplete for customer email.
+// add class hidden to selectable-block
+config.subscription.on('click', '.new-subscription .selectable-row', function() {
+    var element = config.subscription.find('.new-subscription');
+    element.find('.search-customer').val($(this).attr('data-email'));
+    element.find('.selectable-block').addClass('hidden');
+});
+
     /*
      *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
