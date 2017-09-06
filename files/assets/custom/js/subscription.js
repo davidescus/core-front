@@ -29,8 +29,8 @@ config.subscription.on('change', '.select-site', function() {
     });
 });
 
-// Clickable --- search for user
-// live search for existing user
+// Clickable --- search for customer
+// live search for existing customer
 // every keyup means a new search
 config.subscription.on('keyup', '.search-customer' , function() {
     var element = config.subscription.find('.new-subscription');
