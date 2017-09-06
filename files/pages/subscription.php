@@ -45,7 +45,7 @@
                                 <div class="selectable-block"></div>
                                 <script class="template-selectable-block" type="text/template7">
                                    {{#each customers}}
-                                   <div class="selectable-row">{{email}}</div>
+                                   <div class="selectable-row" data-email="{{email}}">{{email}}</div>
                                    {{/each}}
                                 </script>
                             </div>
