@@ -1,5 +1,9 @@
-config.archiveBig = $('.page-content-wrapper.subscription');
+config.subscription = $('.page-content-wrapper.subscription');
 
     /*
      *  ----- CLICKABLE ACTIONS -----
+    ----------------------------------------------------------------------*/
+
+    /*
+     *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
