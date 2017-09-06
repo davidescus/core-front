@@ -29,6 +29,39 @@ config.subscription.on('change', '.select-site', function() {
     });
 });
 
+// Clickable --- search for user
+// live search for existing user
+// every keyup means a new search
+config.subscription.on('keyup', '.search-customer' , function() {
+    var element = config.subscription.find('.new-subscription');
+    var siteId = element.find('.select-site').val();
+    if (siteId === '-')
+        return
+
+    var filterValue = $(this).val();
+    if (filterValue.length < 2) {
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/customer/search/" + siteId+ "/" + filterValue + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = {customers: response};
+            element.find('.selectable-block').removeClass('hidden');
+
+            var template = element.find('.template-selectable-block').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.selectable-block').html(html);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
     /*
      *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
