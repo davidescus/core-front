@@ -128,57 +128,39 @@
 <!-- end content -->
 
 <!-- START MODAL EDIT -->
-<div class="modal fade" id="archive-big-modal-edit" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-subscription-create-customer" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Change Prediction and Status</h4>
+                <h4 class="modal-title">Create new customer</h4>
             </div>
             <div class="modal-body">
 
-                <div class="event-info row"></div>
-                <script class="template-event-info" type="text/template7">
-                    <input type="hidden" class="event-id" value="{{id}}"/>
-                    <h4>
-                        {{country}}
-                        {{league}}
-                        {{homeTeam}} - {{awayTeam}}
-                        {{systemDate}}
-                    </h4>
-                </script>
-
-                <!-- status and prediction -->
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label">Prediction</label>
-                            <select class="form-control prediction select2"></select>
-                            <script class="template-prediction" type="text/template7">
-                               {{#each groups}}
-                                   {{#each predictions}}
-                                       <option value="{{identifier}}">{{name}} </option>
-                                   {{/each}}
-                               {{/each}}
-                            </script>
+                            <label class="control-label">Name</label>
+                            <input class="form-control name" type="text"></select>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="form-group">
-                            <label class="control-label">Status</label>
-                            <select class="form-control status select2">
-                               <option value="1">Win</option>
-                               <option value="2">Loss</option>
-                               <option value="3">Draw</option>
-                               <option value="4">PostP.</option>
-                            </select>
+                            <label class="control-label">Email</label>
+                            <input class="form-control email" type="text"></select>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Email</label>
+                            <input class="form-control active-email" type="text"></select>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                <button type="button" class="btn green save">Save</button>
+                <button type="button" class="btn green save">Create Customer</button>
             </div>
         </div>
     </div>

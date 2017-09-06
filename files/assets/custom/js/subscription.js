@@ -72,6 +72,17 @@ config.subscription.on('click', '.new-subscription .selectable-row', function() 
 });
 
     /*
+     *  ----- Modal Create New Customer -----
+    ----------------------------------------------------------------------*/
+
+// Modal --- Create New Customer
+// launch modal
+config.subscription.on('click', '.new-subscription .create-customer', function() {
+    var element = $('#modal-subscription-create-customer');
+    element.modal();
+});
+
+    /*
      *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
 
