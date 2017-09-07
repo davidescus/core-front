@@ -126,7 +126,7 @@ $('#modal-subscription-create-customer').on('click', '.save', function() {
             }
         },
         error: function (xhr, textStatus, errorTrown) {
-            //manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 
