@@ -96,6 +96,43 @@ config.subscription.on('click', '.new-subscription .create-customer', function()
     element.modal();
 });
 
+// Modal --- Create New Customer
+// Click on Save buttonfrom modal.
+$('#modal-subscription-create-customer').on('click', '.save', function() {
+    var element = $('#modal-subscription-create-customer');
+    var siteId = config.subscription.find('.new-subscription .select-site').val();
+    if (siteId === '-') {
+        alert('Press Close button, and then first select a site.');
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/customer/create/" + siteId + "?" + getToken(),
+        type: "post",
+        dataType: "json",
+        data: {
+            name : element.find('.name').val(),
+            email: element.find('.email').val(),
+            activeEmail: element.find('.active-email').val(),
+        },
+        success: function (r) {
+
+            alert("Type: --- " + r.type + " --- \r\n" + r.message);
+
+            if (r.type === 'success') {
+                config.subscription.find('.new-subscription .search-customer').val(r.data.email);
+                config.subscription.find('.new-subscription .li-create-customer').addClass('hidden');
+                element.modal('hide');
+            }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+
+});
+
+
     /*
      *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
