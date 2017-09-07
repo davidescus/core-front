@@ -44,10 +44,10 @@
                             <input class="form-control search-customer" type="text">
                             <div class="selectable-block"></div>
                             <script class="template-selectable-block" type="text/template7">
-                                   {{#each customers}}
+                               {{#each customers}}
                                    <div class="selectable-row" data-email="{{email}}">{{email}}</div>
-                                   {{/each}}
-                                </script>
+                               {{/each}}
+                            </script>
                             </div>
                         </li>
                         <li class="li-create-customer hidden">
