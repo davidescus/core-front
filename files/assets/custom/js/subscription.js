@@ -35,11 +35,16 @@ config.subscription.on('change', '.select-site', function() {
 config.subscription.on('keyup', '.search-customer' , function() {
     var element = config.subscription.find('.new-subscription');
     var siteId = element.find('.select-site').val();
-    if (siteId === '-')
+    if (siteId === '-') {
+        element.find('.selectable-block').addClass('hidden');
+        element.find('.li-create-customer').addClass('hidden');
         return
+    }
 
     var filterValue = $(this).val();
     if (filterValue.length < 2) {
+        element.find('.selectable-block').addClass('hidden');
+        element.find('.li-create-customer').addClass('hidden');
         return;
     }
 
@@ -48,8 +53,15 @@ config.subscription.on('keyup', '.search-customer' , function() {
         type: "get",
         success: function (response) {
 
+            if ($.isEmptyObject(response)) {
+                element.find('.selectable-block').addClass('hidden');
+                element.find('.li-create-customer').removeClass('hidden');
+                return;
+            }
+
             var data = {customers: response};
             element.find('.selectable-block').removeClass('hidden');
+            element.find('.li-create-customer').addClass('hidden');
 
             var template = element.find('.template-selectable-block').html();
             var compiledTemplate = Template7.compile(template);
