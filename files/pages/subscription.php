@@ -3,63 +3,81 @@
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
 
-    <!-- BEGIN TABLE TITLE-->
-    <h1 class="page-title">Subscriptions</h1>
-    <!-- END TABLE TITLE-->
+        <!-- BEGIN TABLE TITLE-->
+        <h1 class="page-title">Subscriptions</h1>
+        <!-- END TABLE TITLE-->
 
-    <!-- BEGIN MONTH TABLE PORTLET-->
-    <div class="portlet light bordered">
-        <div class="portlet-title">
-            <div class="new-subscription">
-                <ul class="table_import_filters_container">
-                    <li>
-                        <div class="form-group">
-                            <label class="control-label">Site</label>
-                            <select class="form-control select-site select2 table_import_filter_select"></select>
-                            <script class="template-select-site" type="text/template7">
-                               <option value="-"> -- select -- </option>
-                               {{#each sites}}
-                               <option value="{{id}}">{{name}} </option>
-                               {{/each}}
-                            </script>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-group">
-                            <label class="control-label">Package</label>
-                            <select class="form-control select-package select2 table_import_filter_select">
-                               <option value="-"> -- select -- </option>
-                            </select>
-                            <script class="template-select-package" type="text/template7">
-                               <option value="-"> -- select -- </option>
-                               {{#each packages}}
-                               <option value="{{id}}">{{name}} </option>
-                               {{/each}}
-                            </script>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="form-group">
-                            <label class="control-label">Customer Email</label>
-                            <input class="form-control search-customer" type="text">
-                            <div class="selectable-block"></div>
-                            <script class="template-selectable-block" type="text/template7">
-                               {{#each customers}}
-                                   <div class="selectable-row" data-email="{{email}}">{{email}}</div>
-                               {{/each}}
-                            </script>
+        <!-- BEGIN MONTH TABLE PORTLET-->
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="new-subscription">
+                    <ul class="table_import_filters_container">
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label">Site</label>
+                                <select class="form-control select-site select2 table_import_filter_select"></select>
+                                <script class="template-select-site" type="text/template7">
+                                   <option value="-"> -- select -- </option>
+                                   {{#each sites}}
+                                   <option value="{{id}}">{{name}} </option>
+                                   {{/each}}
+                                </script>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label">Package</label>
+                                <select class="form-control select-package select2 table_import_filter_select"></select>
+                                <script class="template-select-package" type="text/template7">
+                                   <option value="-"> -- select -- </option>
+                                   {{#each packages}}
+                                   <option value="{{id}}">{{name}} </option>
+                                   {{/each}}
+                                </script>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label">Customer Email</label>
+                                <input class="form-control search-customer" type="text">
+                                <div class="selectable-block"></div>
+                                <script class="template-selectable-block" type="text/template7">
+                                   {{#each customers}}
+                                       <div class="selectable-row" data-email="{{email}}">{{email}}</div>
+                                   {{/each}}
+                                </script>
                             </div>
                         </li>
                         <li class="li-create-customer hidden">
                             <button type="button" class="btn green create-customer">Create Customer</button>
                         </li>
                     </ul>
+
+                    <div class="subscription-info">
+                        <h2>Subscription Info</h2>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="control-label">Package Name</label>
+                                    <input class="form-control search-customer" type="text">
+                                    <div class="selectable-block"></div>
+                                    <script class="template-selectable-block" type="text/template7">
+                                       {{#each customers}}
+                                           <div class="selectable-row" data-email="{{email}}">{{email}}</div>
+                                       {{/each}}
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="portlet-body">
 
                 <!-- month table -->
                 <div class="table-subscription"></div>
+                <!--
                 <script class="template-table-subscription" type="text/template7">
                     <div class="table-scrollable">
                         <table class="table table-hover table-bordered">
@@ -118,6 +136,7 @@
                         </table>
                     </div>
                 </script>
+                -->
 
             </div>
         </div>
