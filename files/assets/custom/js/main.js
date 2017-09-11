@@ -38,7 +38,7 @@ $(document).ready(function() {
         }
 
         if (config.activePage == 'subscription') {
-            console.log('Subscription Page');
+            subscriptionShowAvailableSites()
         }
 
         if (config.activePage == 'event') {
