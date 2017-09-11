@@ -29,6 +29,30 @@ config.subscription.on('change', '.select-site', function() {
     });
 });
 
+// Clickable - package selection
+// change package selection
+// shw general information about package.
+config.subscription.on('change', '.select-package', function() {
+    $.ajax({
+        url: config.coreUrl + "/package/" + $(this).val() + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = response;
+            var element = config.subscription;
+
+            var template = element.find('.template-subscription-values').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.subscription-values').html(html).change();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+
 // Clickable --- search for customer
 // live search for existing customer
 // every keyup means a new search

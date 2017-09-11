@@ -53,23 +53,63 @@
                         </li>
                     </ul>
 
-                    <div class="subscription-info">
+                    <div class="subscription-values"></div>
+                    <script class="template-subscription-values" type="text/template7">
+                        {{#if this}}
                         <h2>Subscription Info</h2>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-3">
                                 <div class="form-group">
-                                    <label class="control-label">Package Name</label>
-                                    <input class="form-control search-customer" type="text">
-                                    <div class="selectable-block"></div>
-                                    <script class="template-selectable-block" type="text/template7">
-                                       {{#each customers}}
-                                           <div class="selectable-row" data-email="{{email}}">{{email}}</div>
-                                       {{/each}}
-                                    </script>
+                                    <label class="control-label">Subscription Name</label>
+                                    <input class="form-control name" type="text" value="{{name}}">
                                 </div>
                             </div>
+                            <div class="col-md-1">
+                                <div class="form-group">
+                                    <label class="control-label">Price</label>
+                                    <input class="form-control name" type="text" value="{{price}}">
+                                </div>
+                            </div>
+
+                            <!-- tips subscription -->
+                            {{#js_compare "this.subscriptionType === 'tips'"}}
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Tips Number</label>
+                                        <input class="form-control name" type="text" value="{{subscription}}">
+                                    </div>
+                                </div>
+                            {{/js_compare}}
+
+                            <!-- days subscription -->
+                            {{#js_compare "this.subscriptionType === 'days'"}}
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="control-label">Days Number</label>
+                                        <input class="form-control name" type="text" value="{{subscription}}">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">Start</label>
+                                        <input class="form-control name" type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="control-label">End</label>
+                                        <input class="form-control name" type="text">
+                                    </div>
+                                </div>
+                            {{/js_compare}}
+
+                            <div class="col-md-2">
+                                <label class="control-label">&nbsp;</label>
+                                <button class="btn blue btn-block save">Create Subscription</button>
+                            </div>
                         </div>
-                    </div>
+                        {{/if}}
+                    </script>
 
                 </div>
             </div>
