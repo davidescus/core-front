@@ -77,6 +77,9 @@
                                 <label>Date Format</label>
                                 <select class="form-control date-format">
                                     <option value="">- Select -</option>
+                                    <option value="d-m-Y"
+                                    {{#js_compare "this.dateFormat === 'd-m-Y'"}}selected="selected"{{/js_compare}}>
+                                    <?php echo gmDate('d-m-Y'); ?></option>
                                     <option value="Y-m-d"
                                     {{#js_compare "this.dateFormat === 'Y-m-d'"}}selected="selected"{{/js_compare}}>
                                     <?php echo gmDate('Y-m-d'); ?></option>
