@@ -91,8 +91,8 @@ config.subscription.on('click', '.new-subscription .selectable-row', function() 
 // launch modal
 config.subscription.on('click', '.new-subscription .create-customer', function() {
     var element = $('#modal-subscription-create-customer');
-    var name = config.subscription.find('.new-subscription .search-customer').val();
-    element.find('.name').val(name);
+    var email = config.subscription.find('.new-subscription .search-customer').val();
+    element.find('.email').val(email);
     element.modal();
 });
 
