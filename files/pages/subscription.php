@@ -67,7 +67,7 @@
                             <div class="col-md-1">
                                 <div class="form-group">
                                     <label class="control-label">Price</label>
-                                    <input class="form-control name" type="text" value="{{price}}">
+                                    <input class="form-control price" type="text" value="{{price}}">
                                 </div>
                             </div>
 
@@ -76,7 +76,9 @@
                                 <div class="col-md-1">
                                     <div class="form-group">
                                         <label class="control-label">Tips Number</label>
-                                        <input class="form-control name" type="text" value="{{subscription}}">
+                                        <input class="form-control subscription" type="text" value="{{subscription}}">
+                                        <input class="form-control dateStart hidden" type="text">
+                                        <input class="form-control dateEnd hidden" type="text">
                                     </div>
                                 </div>
                             {{/js_compare}}
@@ -86,25 +88,26 @@
                                 <div class="col-md-1">
                                     <div class="form-group">
                                         <label class="control-label">Days Number</label>
-                                        <input class="form-control name" type="text" value="{{subscription}}">
+                                        <input class="form-control subscription" type="text" value="{{subscription}}">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Start</label>
-                                        <input class="form-control name" type="text">
+                                        <input class="form-control dateStart" type="text">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">End</label>
-                                        <input class="form-control name" type="text">
+                                        <input class="form-control dateEnd" type="text">
                                     </div>
                                 </div>
                             {{/js_compare}}
 
                             <div class="col-md-2">
                                 <label class="control-label">&nbsp;</label>
+                                <input type="hidden" class="type" value="{{subscriptionType}}">
                                 <button class="btn blue btn-block save">Create Subscription</button>
                             </div>
                         </div>

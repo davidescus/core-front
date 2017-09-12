@@ -107,6 +107,34 @@ config.subscription.on('click', '.new-subscription .selectable-row', function() 
     element.find('.selectable-block').addClass('hidden');
 });
 
+// Clickable --- save new subscription
+// save new subscription
+config.subscription.on('click', '.new-subscription .save', function() {
+    var element = config.subscription.find('.new-subscription');
+
+    $.ajax({
+        url: config.coreUrl + "/subscription/create" + "?" + getToken(),
+        type: "post",
+        dataType: "json",
+        data: {
+            packageId : element.find('.select-package').val(),
+            type: element.find('.type').val(),
+            name: element.find('.name').val(),
+            subscription: element.find('.subscription').val(),
+            price: element.find('.price').val(),
+            dateStart: element.find('.dateStart').val(),
+            dateEnd: element.find('.dateEnd').val(),
+            customerEmail: element.find('.search-customer').val(),
+        },
+        success: function (r) {
+            alert("Type: --- " + r.type + " --- \r\n" + r.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
     /*
      *  ----- Modal Create New Customer -----
     ----------------------------------------------------------------------*/
