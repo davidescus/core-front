@@ -128,6 +128,12 @@ config.subscription.on('click', '.new-subscription .save', function() {
         },
         success: function (r) {
             alert("Type: --- " + r.type + " --- \r\n" + r.message);
+
+            if (r.type === 'success') {
+                subscriptionShowAllSubscriptions();
+                element.find('.select-site').val('-').change();
+                element.find('.search-customer').val('');
+            }
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
