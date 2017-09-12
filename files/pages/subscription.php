@@ -126,8 +126,8 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Name</th>
                                     <th>Customer</th>
-                                    <th>Package</th>
                                     <th>Site</th>
                                     <th>Type</th>
                                     <th>Tips / Days</th>
@@ -143,8 +143,8 @@
                                 {{#each subscriptions}}
                                 <tr data-id="{{id}}">
                                     <td>{{id}}</td>
+                                    <td>{{name}}</td>
                                     <td>{{customerId}}</td>
-                                    <td>{{packageId}}</td>
                                     <td>{{siteId}}</td>
                                     <td>{{type}}</td>
                                     <td>{{subscription}}</td>
