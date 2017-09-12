@@ -134,6 +134,7 @@
                                     <th>Tips Left</th>
                                     <th>Date Start</th>
                                     <th>Date End</th>
+                                    <th>Is Custom</th>
                                     <th>Status</th>
                                     <th>Actions</th>
                                 </tr>
@@ -150,6 +151,7 @@
                                     <td>{{tipsLeft}}</td>
                                     <td>{{dateStart}}</td>
                                     <td>{{dateEnd}}</td>
+                                    <td>{{isCustom}}</td>
                                     <td>{{status}}</td>
                                     <td>
                                         <button class="btn blue edit">Edit</button>
