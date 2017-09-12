@@ -38,7 +38,8 @@ $(document).ready(function() {
         }
 
         if (config.activePage == 'subscription') {
-            subscriptionShowAvailableSites()
+            subscriptionShowAvailableSites();
+            subscriptionShowAllSubscriptions();
         }
 
         if (config.activePage == 'event') {

@@ -120,66 +120,46 @@
 
                 <!-- month table -->
                 <div class="table-subscription"></div>
-                <!--
                 <script class="template-table-subscription" type="text/template7">
                     <div class="table-scrollable">
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
+                                    <th>Customer</th>
+                                    <th>Package</th>
+                                    <th>Site</th>
+                                    <th>Type</th>
+                                    <th>Tips / Days</th>
+                                    <th>Tips Left</th>
+                                    <th>Date Start</th>
+                                    <th>Date End</th>
                                     <th>Status</th>
-                                    <th> System Date </th>
-                                    <th> Country </th>
-                                    <th> League </th>
-                                    <th> Event </th>
-                                    <th> Prediction </th>
-                                    <th> Odd </th>
-                                    <th> Score </th>
-                                    <th> Status </th>
-                                    <th> Actions </th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                {{#each events}}
+                                {{#each subscriptions}}
                                 <tr data-id="{{id}}">
-                                    {{#if isPublishInSite}}
-                                        <td><span class="label label-sm label-success">Publish</span></td>
-                                    {{else}}
-                                        <td><span class="label label-sm label-danger">UnPub</span></td>
-                                    {{/if}}
-                                    <td>{{systemDate}}</td>
-                                    {{#if isNoTip}}
-                                        <td colspan="7">NO TIP</td>
-                                    {{else}}
-                                        <td>{{country}}</td>
-                                        <td>{{league}}</td>
-                                        <td>{{homeTeam}} - {{awayTeam}}</td>
-                                        <td>{{predictionName}}</td>
-                                        <td>{{odd}}</td>
-                                        <td>{{result}}</td>
-                                        <td>{{statusId}}</td>
-                                    {{/if}}
+                                    <td>{{id}}</td>
+                                    <td>{{customerId}}</td>
+                                    <td>{{packageId}}</td>
+                                    <td>{{siteId}}</td>
+                                    <td>{{type}}</td>
+                                    <td>{{subscription}}</td>
+                                    <td>{{tipsLeft}}</td>
+                                    <td>{{dateStart}}</td>
+                                    <td>{{dateEnd}}</td>
+                                    <td>{{status}}</td>
                                     <td>
-                                        {{#if isVisible}}
-                                        <button class="btn red show-hide">Hide</button>
-                                        {{else}}
-                                        <button class="btn green show-hide">Show</button>
-                                        {{/if}}
-                                        {{#if isNoTip}}
-                                        {{else}}
                                         <button class="btn blue edit">Edit</button>
-                                        {{/if}}
                                     </td>
-                                </tr>
-                                {{else}}
-                                <tr>
-                                    <td colspan="9">--- No events in this table ---</td>
                                 </tr>
                                 {{/each}}
                             </tbody>
                         </table>
                     </div>
                 </script>
-                -->
 
             </div>
         </div>

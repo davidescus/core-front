@@ -214,3 +214,26 @@ function subscriptionShowAvailableSites() {
     });
 }
 
+// Functions
+// show all subscriptions in front
+function subscriptionShowAllSubscriptions() {
+    $.ajax({
+        url: config.coreUrl + "/subscription" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                subscriptions: response,
+            }
+            var element = config.subscription;
+
+            var template = element.find('.template-table-subscription').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.table-subscription').html(html);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
