@@ -166,6 +166,7 @@ config.site.on('click', '.save-site', function(){
 
         var g = $(this).find('.general-info');
         var id = g.attr('data-package-id');
+        var template = $(this).find('.package-summernote').summernote('code');
 
         var package = {
             siteId: data.site.siteId,
@@ -185,6 +186,9 @@ config.site.on('click', '.save-site', function(){
             aliasSubscriptionType: g.find('.aliasSubscriptionType').val(),
             aliasTipsPerDay: g.find('.aliasTipsPerDay').val(),
             discount: g.find('.discount').val(),
+            template: template,
+            fromName: $(this).find('.fromName').val(),
+            subject: $(this).find('.subject').val(),
         };
 
         // new package
@@ -591,6 +595,9 @@ function addNewPackageTabContent(id) {
 
     element.find('.package-tab-content .tab-pane').removeClass('active in');
     element.find('.package-tab-content .tab-pane#package-tab_' + id).addClass('active in');
+
+    // make editor summernote
+    $('.package-summernote').summernote();
 }
 
 // show packages tabs
@@ -613,6 +620,8 @@ function showPackagesTabsContent(data) {
     element.find('.package-tab-content').html(html);
 
     element.find('.package-tab-content .tab-pane').first().addClass('active in');
+    // make editor summernote
+    $('.package-summernote').summernote();
 }
 
 /*

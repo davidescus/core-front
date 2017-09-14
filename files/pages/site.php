@@ -490,18 +490,16 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>From</label>
-                                                <input type="text" class="form-control" readonly="readonly">
+                                                <input type="text" class="form-control fromName" value="{{fromName}}">
                                             </div>
                                             <div class="form-group">
                                                 <label>Subject</label>
-                                                <input type="text" class="form-control" readonly="readonly">
+                                                <input type="text" class="form-control subject" value="{{subject}}">
                                             </div>
                                         </div>
                                         <div class="col-md-8">
-                                            <div class="form-group">
-                                                <label>Template</label>
-                                                <textarea class="form-control" rows="5" readonly="readonly">Not use for moment</textarea>
-                                            </div>
+                                            <label>Template</label>
+                                            <div class="package-summernote">{{template}}</div>
                                         </div>
                                     </div>
                                 </div>
