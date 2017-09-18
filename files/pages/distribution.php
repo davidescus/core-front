@@ -180,7 +180,7 @@
                 <h4 class="modal-title">Preview and Send</h4>
             </div>
             <div class="modal-body">
-                <label class="control-label">Pack: Payfortips - 2 Tips</label>
+                <label class="control-label">Pack: {{siteName}} - {{packageName}}</label>
                 <div class="form-group">
                     <div class="summernote">{{template}}</div>
                 </div>
