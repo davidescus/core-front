@@ -172,7 +172,7 @@
 
 <!-- START PREVIEW AND SEND -->
 <div class="modal fade" id="modal-distribution-preview-and-send" tabindex="-1" role="basic" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content"></div>
         <script class="template-modal-content" type="text/template7">
             <div class="modal-header">
