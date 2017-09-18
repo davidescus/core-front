@@ -43,7 +43,7 @@
                         <i class="fa fa-angle-down"></i>
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
-                        <li><a href="#preview_and_send" data-toggle="modal"> Preview and Send </a></li>
+                        <li><a class="preview-and-send"> Preview and Send </a></li>
                         <li><a href="javascript:;"> Send </a></li>
                         <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
                         <li><a class="publish"> Publish </a></li>
@@ -171,9 +171,10 @@
 <!-- END EDIT SEND HOUR -->
 
 <!-- START PREVIEW AND SEND -->
-<div class="modal fade" id="preview_and_send" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-distribution-preview-and-send" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content"></div>
+        <script class="template-modal-content" type="text/template7">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                 <h4 class="modal-title">Preview and Send</h4>
@@ -181,14 +182,14 @@
             <div class="modal-body">
                 <label class="control-label">Pack: Payfortips - 2 Tips</label>
                 <div class="form-group">
-                    <div name="summernote" id="summernote_1"> </div>
+                    <div class="summernote">{{template}}</div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                 <button type="button" class="btn green">Send</button>
             </div>
-        </div>
+        </script>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->

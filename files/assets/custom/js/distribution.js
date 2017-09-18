@@ -25,6 +25,41 @@ config.distribution.on('change', '.table-content .select-group-site', function()
     ----------------------------------------------------------------------*/
 
 // Actions
+// check if events selected
+// launch modal for preview and send
+config.distribution.on('click', '.actions .preview-and-send', function() {
+
+    $.ajax({
+        url: config.coreUrl + "/distribution/preview-and-send/preview" + "?" + getToken(),
+        type: "post",
+        data: {
+            ids: getCheckedEventsIds(),
+        },
+        success: function (response) {
+
+            if (response.type !== 'success') {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                return;
+            }
+
+            var element = $('#modal-distribution-preview-and-send');
+            var data = response;
+
+            var template = element.find('.template-modal-content').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.modal-content').html(html);
+            element.find('.summernote').summernote();
+            element.modal();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+
+// Actions
 // Publish events in archive
 config.distribution.on('click', '.actions .publish', function() {
     $.ajax({
