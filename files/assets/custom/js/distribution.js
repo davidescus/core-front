@@ -58,6 +58,12 @@ config.distribution.on('click', '.actions .preview-and-send', function() {
     });
 });
 
+// Actions
+// trigger procedure to send emails.
+config.distribution.on('click', '.actions .send', function() {
+    distributionSendEmails();
+});
+
 
 // Actions
 // Publish events in archive
@@ -98,6 +104,21 @@ config.distribution.on('click', '.actions .delete', function() {
 });
 
     /*
+     *  ----- Modals -----
+    ----------------------------------------------------------------------*/
+
+// Modals --- modal preview-and-send
+// Click on send emails.
+// trigger send emails procedure
+// close modal.
+$('#modal-distribution-preview-and-send').on('click', '.send', function() {
+    var element = $('#modal-distribution-preview-and-send');
+    var template = element.find('.summernote').summernote('code');
+    distributionSendEmails(template);
+    element.modal('hide');
+});
+
+    /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
 
@@ -130,6 +151,30 @@ function getDistributedEvents(date = '0') {
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
+
+// Functions
+// trigger procedure to send emails.
+function distributionSendEmails(template = null) {
+    var data = {
+        ids: getCheckedEventsIds(),
+    };
+
+    if (template !== null)
+        data['template'] = template;
+
+    $.ajax({
+        url: config.coreUrl + "/distribution/preview-and-send/send" + "?" + getToken(),
+        type: "post",
+        data: data,
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            getDistributedEvents(config.distribution.find('.select-system-date').val());
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
         }
     });
 }

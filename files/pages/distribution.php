@@ -44,7 +44,7 @@
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
                         <li><a class="preview-and-send"> Preview and Send </a></li>
-                        <li><a href="javascript:;"> Send </a></li>
+                        <li><a class="send"> Send </a></li>
                         <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
                         <li><a class="publish"> Publish </a></li>
                         <li><a class="delete"> Delete </a></li>
@@ -187,7 +187,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                <button type="button" class="btn green">Send</button>
+                <button type="button" class="btn green send">Send</button>
             </div>
         </script>
         <!-- /.modal-content -->
