@@ -111,6 +111,35 @@ config.distribution.on('click', '.actions .delete', function() {
 // Click on send emails.
 // trigger send emails procedure
 // close modal.
+$('#modal-distribution-preview-and-send').on('click', '.show-preview-template', function() {
+    var element = $('#modal-distribution-preview-and-send');
+
+    $.ajax({
+        url: config.coreUrl + "/distribution/preview-and-send/preview-template" + "?" + getToken(),
+        type: "post",
+        data: {
+            ids: getCheckedEventsIds(),
+            template: element.find('.summernote').summernote('code'),
+        },
+        success: function (response) {
+
+            if (response.type !== 'success') {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                return;
+            }
+
+            element.find('.preview-template').html(response.template);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Modals --- modal preview-and-send
+// Click on send emails.
+// trigger send emails procedure
+// close modal.
 $('#modal-distribution-preview-and-send').on('click', '.send', function() {
     var element = $('#modal-distribution-preview-and-send');
     var template = element.find('.summernote').summernote('code');

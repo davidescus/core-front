@@ -184,9 +184,12 @@
                 <div class="form-group">
                     <div class="summernote">{{template}}</div>
                 </div>
+                <br/>
+                <div class="preview-template"></div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green show-preview-template">Preview Template</button>
                 <button type="button" class="btn green send">Send</button>
             </div>
         </script>
