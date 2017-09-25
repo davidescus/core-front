@@ -99,7 +99,12 @@
                                     {{#each packages}}
                                         <tr class="pack_tr">
                                             <td></td>
-                                            <td colspan="9">{{name}} - {{eventsNumber}}/{{tipsPerDay}}</td>
+                                            <td>{{name}} - {{eventsNumber}}/{{tipsPerDay}}</td>
+                                            <td colspan="8">
+                                            {{#if customerNotEnoughTips}}
+                                                Manage users: <strong>{{customerNotEnoughTips}}</strong>
+                                            {{/if}}
+                                            </td>
                                         </tr>
                                         {{#each events}}
                                             <tr>
