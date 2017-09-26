@@ -179,6 +179,48 @@ $('#modal-distribution-preview-and-send').on('click', '.send', function() {
     element.modal('hide');
 });
 
+// Modals --- modal subscription-restricted-tip
+// Click on save.
+// will delete restricted tips, and add again according to selection
+$('#modal-distribution-subscription-restricted-tips').on('click', '.save', function() {
+    var element = $('#modal-distribution-subscription-restricted-tips');
+    var data = [];
+
+    // collect all checked events according to subscription.
+    $.each(element.find('.subscription-events'), function(ind, elem) {
+        var $this = $(this);
+        $.each($this.find('.use:checked'), function() {
+            data.push({
+                "subscriptionId": $this.attr('data-subscription-id'),
+                "distributionId": $(this).val(),
+            });
+        });
+    });
+
+    $.ajax({
+        url: config.coreUrl + "/distribution/subscription-restricted-tips" + "?" + getToken(),
+        type: "post",
+        data: {
+            systemDate: element.find('.systemDate').attr('date'),
+            restrictions: data,
+        },
+        success: function (response) {
+
+            if (response.type !== 'success') {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                return;
+            }
+
+            element.modal('hide');
+            getDistributedEvents(config.distribution.find('.select-system-date').val());
+
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
     /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/

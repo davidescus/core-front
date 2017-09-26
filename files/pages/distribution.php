@@ -233,7 +233,7 @@
                                 </h4>
                             </div>
                             <div id="collapse_3_{{id}}" class="panel-collapse collapse">
-                                <div class="table-scrollable">
+                                <div class="table-scrollable subscription-events" data-subscription-id="{{id}}">
                                     <table class="table table-hover table-bordered">
                                         <thead>
                                             <tr>
@@ -248,7 +248,7 @@
                                         <tbody>
                                             {{#each events}}
                                             <tr>
-                                                <td> <input type="checkbox"> </td>
+                                                <td> <input type="checkbox" class="use" value="{{id}}"> </td>
                                                 <td>{{country}}</td>
                                                 <td>{{league}}</td>
                                                 <td>{{homeTeam}} - {{awayTeam}}</td>
