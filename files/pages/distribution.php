@@ -48,7 +48,7 @@
                         <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
                         <li><a class="publish"> Publish </a></li>
                         <li><a class="delete"> Delete </a></li>
-                        <li><a href="#manage_users" data-toggle="modal"> Manage Users </a></li>
+                        <li><a class="subscription-restricted-tips"> Manage Users </a></li>
                     </ul>
                 </div>
             </div>
@@ -206,191 +206,71 @@
 
 
 <!-- START MANAGE USERS -->
-<div class="modal fade" id="manage_users" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-distribution-subscription-restricted-tips" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content">
+        <div class="modal-content"></div>
+        <script class="template-modal-content" type="text/template7">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Manage Users</h4>
+                <h4 class="modal-title">Manage Users - <span class="systemDate" date="{{date}}">{{date}}</span></h4>
             </div>
             <div class="modal-body">
                 <div class="panel-group accordion" id="accordion3">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1"> User 1 - <span class="label label-danger">3/2</span> </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_1" class="panel-collapse in">
-                            <div class="table-scrollable">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th> # </th>
-                                            <th> Country </th>
-                                            <th> League </th>
-                                            <th> Event </th>
-                                            <th> Prediction </th>
-                                            <th> Odd </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_2"> User 1 - <span class="label label-success">2/2</span> </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_2" class="panel-collapse collapse">
-                            <div class="table-scrollable">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th> # </th>
-                                            <th> Country </th>
-                                            <th> League </th>
-                                            <th> Event </th>
-                                            <th> Prediction </th>
-                                            <th> Odd </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
 
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                    {{#each data}}
+                        {{#each subscriptions}}
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse"
+                                        data-parent="#accordion3" href="#collapse_3_{{id}}">
+                                        {{siteName}} | {{subscriptionName}} |
+                                        {{customerEmail}} -
+                                        <span class="label label-danger">
+                                            Total tips: {{totalTips}} Events: {{totalEvents}}
+                                        </span>
+                                    </a>
+                                </h4>
                             </div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_3"> User 1 - <span class="label label-success">2/2</span> </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_3" class="panel-collapse collapse">
-                            <div class="panel-body">
+                            <div id="collapse_3_{{id}}" class="panel-collapse collapse">
                                 <div class="table-scrollable">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th> # </th>
-                                            <th> Country </th>
-                                            <th> League </th>
-                                            <th> Event </th>
-                                            <th> Prediction </th>
-                                            <th> Odd </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                       <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th> # </th>
+                                                <th> Country </th>
+                                                <th> League </th>
+                                                <th> Event </th>
+                                                <th> Prediction </th>
+                                                <th> Odd </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{#each events}}
+                                            <tr>
+                                                <td> <input type="checkbox"> </td>
+                                                <td>{{country}}</td>
+                                                <td>{{league}}</td>
+                                                <td>{{homeTeam}} - {{awayTeam}}</td>
+                                                <td>{{predictionName}}</td>
+                                                <td>{{odd}}</td>
+                                            </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_4"> User 1 - <span class="label label-success">2/2</span> </a>
-                            </h4>
-                        </div>
-                        <div id="collapse_3_4" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <div class="table-scrollable">
-                                <table class="table table-hover table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th> # </th>
-                                            <th> Country </th>
-                                            <th> League </th>
-                                            <th> Event </th>
-                                            <th> Prediction </th>
-                                            <th> Odd </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                        <tr>
-                                            <td> <input type="checkbox"> </td>
-                                            <td> Romania </td>
-                                            <td> Liga 1 </td>
-                                            <td> Steaua - Dinamo </td>
-                                            <td> Over 2.5 </td>
-                                            <td> 1.85 </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
+                        {{/each}}
+                    {{/each}}
+
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                 <button type="button" class="btn green">Save</button>
             </div>
-        </div>
+        </script>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->

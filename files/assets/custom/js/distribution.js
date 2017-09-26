@@ -53,7 +53,7 @@ config.distribution.on('click', '.actions .preview-and-send', function() {
             element.modal();
         },
         error: function (xhr, textStatus, errorTrown) {
-            //manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 });
@@ -99,6 +99,38 @@ config.distribution.on('click', '.actions .delete', function() {
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Actions
+// manage users
+// launch modal for manage users.
+config.distribution.on('click', '.actions .subscription-restricted-tips', function() {
+
+    $.ajax({
+        url: config.coreUrl + "/distribution/subscription-restricted-tips" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            console.log(response);
+
+            if (response.type !== 'success') {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                return;
+            }
+
+            var element = $('#modal-distribution-subscription-restricted-tips');
+            var data = response;
+
+            var template = element.find('.template-modal-content').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.modal-content').html(html);
+            element.modal();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
         }
     });
 });
