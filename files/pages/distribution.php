@@ -248,7 +248,11 @@
                                         <tbody>
                                             {{#each events}}
                                             <tr>
-                                                <td> <input type="checkbox" class="use" value="{{id}}"> </td>
+                                                <td>
+                                                    <input type="checkbox"
+                                                        {{#if restricted}} checked="checked" {{/if}}
+                                                        class="use" value="{{id}}">
+                                                </td>
                                                 <td>{{country}}</td>
                                                 <td>{{league}}</td>
                                                 <td>{{homeTeam}} - {{awayTeam}}</td>
