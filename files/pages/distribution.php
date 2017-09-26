@@ -268,7 +268,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                <button type="button" class="btn green">Save</button>
+                <button type="button" class="btn green save">Save</button>
             </div>
         </script>
         <!-- /.modal-content -->
