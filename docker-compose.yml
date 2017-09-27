@@ -1,6 +1,6 @@
 php:
   image: php:7.1-fpm
-  container_name: frontPhp
+  container_name: core-front-php-fpm
   volumes:
     - ./files:/var/www/core-front-app
   ports:
@@ -8,7 +8,7 @@ php:
 
 nginx:
   image: nginx:1.10.3
-  container_name: frontNginx
+  container_name: core-front-nginx
   volumes_from:
     - php
   volumes:
@@ -16,4 +16,4 @@ nginx:
   links:
     - php
   ports:
-    -  8080:80
+    -  8081:80
