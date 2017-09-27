@@ -128,7 +128,7 @@ config.distribution.on('click', '.actions .subscription-restricted-tips', functi
             element.modal();
         },
         error: function (xhr, textStatus, errorTrown) {
-            //manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 });
