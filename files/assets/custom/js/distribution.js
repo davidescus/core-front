@@ -113,8 +113,6 @@ config.distribution.on('click', '.actions .subscription-restricted-tips', functi
         type: "get",
         success: function (response) {
 
-            console.log(response);
-
             if (response.type !== 'success') {
                 alert("Type: --- " + response.type + " --- \r\n" + response.message);
                 return;
