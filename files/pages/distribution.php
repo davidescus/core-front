@@ -122,7 +122,11 @@
                                                     <td>{{result}}</td>
                                                     <td>{{statusId}}</td>
                                                 {{/if}}
-                                                <td>{{mailingDate}}</td>
+                                                {{#if isEmailSend}}
+                                                    <td><span class="label label-sm label-success">{{mailingDate}}</span></td>
+                                                {{else}}
+                                                    <td><span class="label label-sm label-danger">{{mailingDate}}</span></td>
+                                                {{/if}}
                                                 {{#if isPublish}}
                                                     <td><span class="label label-sm label-success"> Published </span></td>
                                                 {{else}}
@@ -251,6 +255,7 @@
                                                 <td>
                                                     <input type="checkbox"
                                                         {{#if restricted}} checked="checked" {{/if}}
+                                                        {{#if isEmailSend}} disabled="disabled" {{/if}}
                                                         class="use" value="{{id}}">
                                                 </td>
                                                 <td>{{country}}</td>
