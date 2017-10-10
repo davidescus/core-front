@@ -94,13 +94,15 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">Start</label>
-                                        <input class="form-control dateStart" type="text">
+                                        <input class="form-control dateStart date-picker">
+
+
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="control-label">End</label>
-                                        <input class="form-control dateEnd" type="text">
+                                        <input class="form-control dateEnd date-picker" type="text">
                                     </div>
                                 </div>
                             {{/js_compare}}
