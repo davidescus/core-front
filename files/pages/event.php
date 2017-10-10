@@ -45,7 +45,7 @@
                                     <td>{{predictionId}}</td>
                                     <td>{{odd}}</td>
                                     <td>{{result}}</td>
-                                    <td>{{statusId}}</td>
+                                    <td>{{#if status}}{{status.name}}{{/if}}</td>
                                     <td>
                                         <button class="btn blue edit">Edit</button>
                                     </td>
