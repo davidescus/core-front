@@ -144,8 +144,8 @@
                                 <tr data-id="{{id}}">
                                     <td>{{id}}</td>
                                     <td>{{name}}</td>
-                                    <td>{{customerId}}</td>
-                                    <td>{{siteId}}</td>
+                                    <td>{{customerEmail}}</td>
+                                    <td>{{siteName}}</td>
                                     <td>{{type}}</td>
                                     <td>{{subscription}}</td>
                                     <td>{{tipsLeft}}</td>
