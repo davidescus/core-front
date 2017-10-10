@@ -120,7 +120,7 @@
                                                     <td>{{predictionName}}</td>
                                                     <td>{{odd}}</td>
                                                     <td>{{result}}</td>
-                                                    <td>{{statusId}}</td>
+                                                    <td>{{#if status}}{{status.name}}{{else}}???{{/if}}</td>
                                                 {{/if}}
                                                 {{#if isEmailSend}}
                                                     <td><span class="label label-sm label-success">{{mailingDate}}</span></td>
