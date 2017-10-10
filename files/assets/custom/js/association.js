@@ -509,7 +509,7 @@ function getEventsAssociations(argTable, date = '0') {
                     e.odd,
                     e.predictionId,
                     e.result,
-                    e.statusId,
+                    (e.status) ? e.status.name: '???',
                     e.eventDate,
                     e.systemDate,
                     buttons,
