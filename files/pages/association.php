@@ -626,8 +626,6 @@
                         <div class="form-group row">
                             <label class="col-md-3 control-label">
                                 <span class="assoc_website_name">{{siteName}}</span>
-                                <br>
-                                <span class="assoc_website_tips_remaining"> 1/3 </span>
                             </label>
                             <div class="col-md-9">
                                 <div class="mt-checkbox-list">
