@@ -367,9 +367,10 @@ $('#modal-available-events').on('click', '.import', function() {
 $('.table-association').on('click', '.modal-available-packages', function() {
     var associateEventId = $(this).parents('tr').attr('data-id');
     var table = $(this).parents('.table-association').attr('data-table');
+    var date = $('#association-system-date').val();
 
     $.ajax({
-        url: config.coreUrl + "/association/package/available/" + table + "/" + associateEventId + "?" + getToken(),
+        url: config.coreUrl + "/association/package/available/" + table + "/" + associateEventId  +"/" + date + "?" + getToken(),
         type: "get",
         success: function (response) {
 
