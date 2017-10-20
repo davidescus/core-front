@@ -145,6 +145,36 @@ config.subscription.on('click', '.new-subscription .save', function() {
     });
 });
 
+// Clickable --- delete an existing subscription
+// delete subscription
+config.subscription.on('click', '.table-subscription .delete', function() {
+    var id = $(this).closest('tr').attr('data-id');
+
+    if (confirm("Operatin can not undo, you will delete forever subscription and tips history of it.")) {
+        $.ajax({
+            url: config.coreUrl + "/subscription/delete/" + id + "?" + getToken(),
+            type: "get",
+            dataType: "json",
+            success: function (r) {
+                alert("Type: --- " + r.type + " --- \r\n" + r.message);
+                subscriptionShowAllSubscriptions();
+            },
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
+        });
+    }
+});
+
+// Clickable --- edit subscription
+// edit subscription
+config.subscription.on('click', '.table-subscription .edit', function() {
+    var id = $(this).closest('tr').attr('data-id');
+
+    alert('This function is not implementd yet!');
+    return;
+});
+
     /*
      *  ----- Modal Create New Customer -----
     ----------------------------------------------------------------------*/
