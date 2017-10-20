@@ -630,13 +630,15 @@
                             <div class="col-md-9">
                                 <div class="mt-checkbox-list">
 
-                                    {{#each packages}}
-                                    <label class="mt-checkbox mt-checkbox-outline">
-                                        <input class="use" type="checkbox" {{#if eventIsAssociated}}checked="checked"{{/if}} data-id="{{id}}"/> {{name}}
-                                        {{packageAssociatedEventsNumber}} / {{tipsPerDay}}
-                                        <span></span>
-                                    </label>
-                                    {{/each}}
+                                    <div class="tip-identifier" data-tip-identifier="{{tipIdentifier}}">
+                                        {{tipIdentifier}}
+                                        {{#each packages}}
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input class="use" type="checkbox" {{#if eventIsAssociated}}checked="checked"{{/if}} data-id="{{id}}"/> {{name}}
+                                            {{packageAssociatedEventsNumber}} / {{tipsPerDay}}                                          <span></span>
+                                        </label>
+                                        {{/each}}
+                                    </div>
 
                                 </div>
                             </div>

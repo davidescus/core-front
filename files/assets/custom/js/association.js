@@ -427,6 +427,14 @@ $('#modal-associate-events').on('click', '.associate-event', function() {
     });
 });
 
+// Modal Associate Event-Packages
+// check / uncheck all events with same tip
+$('#modal-associate-events').on('click', '.use', function() {
+    var c = $(this).closest('.tip-identifier').find('.use');
+    var val = $(this).is(':checked') ? true : false;
+    c.prop('checked', val);
+});
+
     /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
