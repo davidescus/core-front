@@ -157,7 +157,7 @@
                                     <td>{{status}}</td>
                                     <td>
                                         <button class="btn blue edit">Edit</button>
-                                        <button class="btn red delete">Edit</button>
+                                        <button class="btn red delete">Delete</button>
                                     </td>
                                 </tr>
                                 {{/each}}
