@@ -160,6 +160,27 @@
                                         <button class="btn red delete">Delete</button>
                                     </td>
                                 </tr>
+                                    {{#if childrens}}
+                                        {{#each childrens}}
+                                        <tr data-id="{{id}}">
+                                            <td>{{id}}</td>
+                                            <td>ParentId: {{parentId}}<br/>{{name}}</td>
+                                            <td>{{customerEmail}}</td>
+                                            <td>{{siteName}}</td>
+                                            <td>{{type}}</td>
+                                            <td>{{subscription}}</td>
+                                            <td>{{tipsLeft}}</td>
+                                            <td>{{dateStart}}</td>
+                                            <td>{{dateEnd}}</td>
+                                            <td>{{isCustom}}</td>
+                                            <td>{{status}}</td>
+                                            <td>
+                                                <button class="btn blue edit">Edit</button>
+                                                <button class="btn red delete">Delete</button>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    {{/if}}
                                 {{/each}}
                             </tbody>
                         </table>
