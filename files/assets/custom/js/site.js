@@ -44,6 +44,14 @@ config.site.on('click', '.add-new-package', function(){
     addNewPackageTabContent(id);
 });
 
+// Check a bettype group for a package
+// Select all bets for this group
+config.site.on('click', '.package-tab-content .associated-predictions .use', function(){
+    var identifier = $(this).attr('data-group-id');
+    var bets = $(this).closest('.associated-predictions').find('[data-group="' + identifier + '"]');
+    ($(this).is(':checked')) ? bets.prop('checked', true) : bets.prop('checked', false);
+});
+
 // Delete a package for front
 config.site.on('click', '.delete-package', function(){
     if (confirm("Are you sure? You will delete active package!")) {

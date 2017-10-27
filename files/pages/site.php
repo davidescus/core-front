@@ -387,19 +387,44 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Package Identifier</label>
-                                                    <input type="text" class="form-control identifier" value="{{identifier}}">
+                                                    <select class="form-control identifier">
+                                                        <option value="normal_1" {{#js_compare "this.identifier === 'normal_1'"}} selected="selected"{{/js_compare}}>normal_1</option>
+                                                        <option value="normal_2" {{#js_compare "this.identifier === 'normal_2'"}} selected="selected"{{/js_compare}}>normal_2</optioh>
+                                                        <option value="normal_3" {{#js_compare "this.identifier === 'normal_3'"}} selected="selected"{{/js_compare}}>normal_3</optioh>
+                                                        <option value="normal_4" {{#js_compare "this.identifier === 'normal_4'"}} selected="selected"{{/js_compare}}>normal_4</optioh>
+                                                        <option value="normal_5" {{#js_compare "this.identifier === 'normal_5'"}} selected="selected"{{/js_compare}}>normal_5</optioh>
+                                                        <option value="normal_6" {{#js_compare "this.identifier === 'normal_6'"}} selected="selected"{{/js_compare}}>normal_6</optioh>
+                                                        <option value="normal_7" {{#js_compare "this.identifier === 'normal_7'"}} selected="selected"{{/js_compare}}>normal_7</optioh>
+                                                        <option value="normal_8" {{#js_compare "this.identifier === 'normal_8'"}} selected="selected"{{/js_compare}}>normal_8</optioh>
+                                                        <option value="normal_9" {{#js_compare "this.identifier === 'normal_9'"}} selected="selected"{{/js_compare}}>normal_9</optioh>
+                                                        <option value="normal_10" {{#js_compare "this.identifier === 'normal_10'"}} selected="selected"{{/js_compare}}>normal_10</optioh>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Tip Identifier</label>
-                                                    <input type="text" class="form-control tipIdentifier" value="{{tipIdentifier}}">
+                                                    <select type="text" class="form-control tipIdentifier">
+                                                        <option value="tip_1" {{#js_compare "this.tipIdentifier === 'tip_1'"}} selected="selected"{{/js_compare}}>tip_1</option>
+                                                        <option value="tip_2" {{#js_compare "this.tipIdentifier === 'tip_2'"}} selected="selected"{{/js_compare}}>tip_2</optioh>
+                                                        <option value="tip_3" {{#js_compare "this.tipIdentifier === 'tip_3'"}} selected="selected"{{/js_compare}}>tip_3</optioh>
+                                                        <option value="tip_4" {{#js_compare "this.tipIdentifier === 'tip_4'"}} selected="selected"{{/js_compare}}>tip_4</optioh>
+                                                        <option value="tip_5" {{#js_compare "this.tipIdentifier === 'tip_5'"}} selected="selected"{{/js_compare}}>tip_5</optioh>
+                                                        <option value="tip_6" {{#js_compare "this.tipIdentifier === 'tip_6'"}} selected="selected"{{/js_compare}}>tip_6</optioh>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Table Identifier</label>
-                                                    <input type="text" class="form-control tableIdentifier" value="{{tableIdentifier}}">
+                                                    <select type="text" class="form-control tableIdentifier">
+                                                        <option value="table_1" {{#js_compare "this.tableIdentifier === 'table_1'"}} selected="selected"{{/js_compare}}>table_1</option>
+                                                        <option value="table_2" {{#js_compare "this.tableIdentifier === 'table_2'"}} selected="selected"{{/js_compare}}>table_2</optioh>
+                                                        <option value="table_3" {{#js_compare "this.tableIdentifier === 'table_3'"}} selected="selected"{{/js_compare}}>table_3</optioh>
+                                                        <option value="table_4" {{#js_compare "this.tableIdentifier === 'table_4'"}} selected="selected"{{/js_compare}}>table_4</optioh>
+                                                        <option value="table_5" {{#js_compare "this.tableIdentifier === 'table_5'"}} selected="selected"{{/js_compare}}>table_5</optioh>
+                                                        <option value="table_6" {{#js_compare "this.tableIdentifier === 'table_6'"}} selected="selected"{{/js_compare}}>table_6</optioh>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -416,13 +441,13 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Days/Tips</label>
+                                                    <label>Total Tips(Days)</label>
                                                     <input type="text" class="form-control subscription" value="{{subscription}}">
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="form-group">
-                                                    <label>Tips/day</label>
+                                                    <label>Tips per day</label>
                                                     <input type="text" class="form-control tipsPerDay" value="{{tipsPerDay}}">
                                                 </div>
                                             </div>
@@ -467,7 +492,7 @@
                                         <!-- bet group checkbox -->
                                         <div class="col-md-12">
                                             <label class="mt-checkbox mt-checkbox-outline">{{@key}} - Group
-                                                <input type="checkbox" value="1" name="test">
+                                                <input type="checkbox" class="use" data-group-id="{{@key}}">
                                                 <span></span>
                                             </label>
                                         </div>
@@ -476,7 +501,7 @@
                                         {{#each predictions}}
                                         <div class="col-md-3">
                                             <label class="mt-checkbox"> {{name}}
-                                                <input type="checkbox" class="prediction" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
+                                                <input type="checkbox" class="prediction" data-group="{{group}}" value="{{identifier}}" {{#if isAssociated}}checked="checked"{{/if}}>
                                                 <span></span>
                                             </label>
                                         </div>
