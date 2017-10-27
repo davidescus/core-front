@@ -136,6 +136,7 @@ $('#modal-add-manual-event .odd').keyup(function() {
 // every keyup means a new search
 $('#modal-add-manual-event .search-match').keyup(function() {
     var element = $('#modal-add-manual-event');
+    var table = element.find('.select-table').val();
     var filterValue = $(this).val();
 
     if (filterValue.length < 2) {
@@ -144,7 +145,7 @@ $('#modal-add-manual-event .search-match').keyup(function() {
     }
 
     $.ajax({
-        url: config.coreUrl + "/match/filter/" + filterValue + "?" + getToken(),
+        url: config.coreUrl + "/match/filter/" + table + "/" + filterValue + "?" + getToken(),
         type: "get",
         success: function (response) {
 
