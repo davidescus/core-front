@@ -184,7 +184,9 @@ config.subscription.on('click', '.table-subscription .edit', function() {
 config.subscription.on('click', '.new-subscription .create-customer', function() {
     var element = $('#modal-subscription-create-customer');
     var email = config.subscription.find('.new-subscription .search-customer').val();
+    element.find('.name').val('');
     element.find('.email').val(email);
+    element.find('.active-email').val(email);
     element.modal();
 });
 
