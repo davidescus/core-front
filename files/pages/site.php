@@ -393,11 +393,16 @@
                                                         <option value="normal_3" {{#js_compare "this.identifier === 'normal_3'"}} selected="selected"{{/js_compare}}>normal_3</optioh>
                                                         <option value="normal_4" {{#js_compare "this.identifier === 'normal_4'"}} selected="selected"{{/js_compare}}>normal_4</optioh>
                                                         <option value="normal_5" {{#js_compare "this.identifier === 'normal_5'"}} selected="selected"{{/js_compare}}>normal_5</optioh>
-                                                        <option value="normal_6" {{#js_compare "this.identifier === 'normal_6'"}} selected="selected"{{/js_compare}}>normal_6</optioh>
-                                                        <option value="normal_7" {{#js_compare "this.identifier === 'normal_7'"}} selected="selected"{{/js_compare}}>normal_7</optioh>
-                                                        <option value="normal_8" {{#js_compare "this.identifier === 'normal_8'"}} selected="selected"{{/js_compare}}>normal_8</optioh>
-                                                        <option value="normal_9" {{#js_compare "this.identifier === 'normal_9'"}} selected="selected"{{/js_compare}}>normal_9</optioh>
-                                                        <option value="normal_10" {{#js_compare "this.identifier === 'normal_10'"}} selected="selected"{{/js_compare}}>normal_10</optioh>
+                                                        <option value="vip_1" {{#js_compare "this.identifier === 'vip_1'"}} selected="selected"{{/js_compare}}>vip_1</optioh>
+                                                        <option value="vip_2" {{#js_compare "this.identifier === 'vip_2'"}} selected="selected"{{/js_compare}}>vip_2</optioh>
+                                                        <option value="vip_3" {{#js_compare "this.identifier === 'vip_3'"}} selected="selected"{{/js_compare}}>vip_3</optioh>
+                                                        <option value="vip_4" {{#js_compare "this.identifier === 'vip_4'"}} selected="selected"{{/js_compare}}>vip_4</optioh>
+                                                        <option value="vip_5" {{#js_compare "this.identifier === 'vip_5'"}} selected="selected"{{/js_compare}}>vip_5</optioh>
+                                                        <option value="special_1" {{#js_compare "this.identifier === 'special_1'"}} selected="selected"{{/js_compare}}>special_1</optioh>
+                                                        <option value="special_2" {{#js_compare "this.identifier === 'special_2'"}} selected="selected"{{/js_compare}}>special_2</optioh>
+                                                        <option value="special_3" {{#js_compare "this.identifier === 'special_3'"}} selected="selected"{{/js_compare}}>special_3</optioh>
+                                                        <option value="special_4" {{#js_compare "this.identifier === 'special_4'"}} selected="selected"{{/js_compare}}>special_4</optioh>
+                                                        <option value="special_5" {{#js_compare "this.identifier === 'special_5'"}} selected="selected"{{/js_compare}}>special_5</optioh>
                                                     </select>
                                                 </div>
                                             </div>
