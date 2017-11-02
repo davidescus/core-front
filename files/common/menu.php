@@ -83,6 +83,13 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
+                            <li class="nav-item" target="archive-home">
+                                <a class="nav-link">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Home Archive</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
                             <!--
                             <li class="nav-item start ">
                                 <a href="javascript:;" class="nav-link nav-toggle">

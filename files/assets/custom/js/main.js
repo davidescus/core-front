@@ -76,5 +76,9 @@ $(document).ready(function() {
             showAvailableSites();
             bigArchiveShowAllPredictions();
         }
+
+        if (config.activePage == 'archive-home') {
+            archiveHomeShowAvailableSites();
+        }
     }
 });

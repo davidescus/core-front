@@ -106,6 +106,8 @@
         <script src="../assets/custom/js/distribution.js"></script>
         <!--  archive-big.js    -->
         <script src="../assets/custom/js/archive-big.js"></script>
+        <!--  archive-home.js    -->
+        <script src="../assets/custom/js/archive-home.js"></script>
         <!--  main js    -->
         <script src="../assets/custom/js/main.js"></script>
 

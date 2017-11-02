@@ -33,6 +33,7 @@
         include "pages/association.php";
         include "pages/distribution.php";
         include "pages/archive-big.php";
+        include "pages/archive-home.php";
 
         include "common/sidebar.php";
 
