@@ -45,13 +45,54 @@
                     <li>
                         <button type="button" class="btn green btn-outline publishInSite">Update in site</button>
                     </li>
+                    <li>
+                        <button type="button" class="btn green btn-outline save-configuration">Save configuration.</button>
+                    </li>
                 </ul>
             </div>
             <div class="portlet-body">
 
+
+
                 <!-- month table -->
-                <div class="table-content-month"></div>
-                <script class="template-table-content-month" type="text/template7">
+                <div class="table-content"></div>
+                <script class="template-table-content" type="text/template7">
+                    <div class="row">
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Events Number</label>
+                            <input type="text" class="form-control events-number" value="{{conf.eventsNumber}}">
+                        </div>
+                        <div class="form-group col-sm-6">
+                            <label class="control-label">Start Date</label>
+                            <input type="text" class="form-control date-start" value="{{conf.dateStart}}">
+                        </div>
+                    </div>
+                    <ul class="sortable">
+                        {{#each events}}
+                        <li data-id="{{id}}">
+                            {{systemDate}}
+                            {{#if isNoTip}}
+                                NO TIP
+                            {{else}}
+                                {{country}}
+                                {{league}}
+                                {{homeTeam}} - {{awayTeam}}
+                                {{predictionName}}
+                                {{odd}}
+                                {{result}}
+                                {{statusId}}
+                            {{/if}}
+                            {{#if isVisible}}
+                                <button class="btn red show-hide">Hide</button>
+                            {{else}}
+                                <button class="btn green show-hide">Show</button>
+                            {{/if}}
+                        </li>
+                        {{else}}
+                            <li>No events available</li>
+                        {{/each}}
+                    </ul>
+                    <!--
                     <div class="table-scrollable">
                         <table class="table table-hover table-bordered">
                             <thead>
@@ -94,10 +135,6 @@
                                         {{else}}
                                         <button class="btn green show-hide">Show</button>
                                         {{/if}}
-                                        {{#if isNoTip}}
-                                        {{else}}
-                                        <button class="btn blue edit">Edit</button>
-                                        {{/if}}
                                     </td>
                                 </tr>
                                 {{else}}
@@ -108,6 +145,7 @@
                             </tbody>
                         </table>
                     </div>
+                    -->
                 </script>
 
             </div>
