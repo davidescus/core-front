@@ -127,11 +127,7 @@ config.archiveHome.on('click', '.table-content .show-hide', function() {
         url: config.coreUrl + "/archive-home/show-hide/" + $this.closest('li').attr('data-id') + "?" + getToken(),
         type: "get",
         success: function (response) {
-
-            console.log(response);
-
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
-
             if (response.type === 'success') {
                 if ($this.hasClass('red'))
                     $this.removeClass('red').addClass('green').text('Show');
