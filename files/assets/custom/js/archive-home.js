@@ -65,31 +65,28 @@ config.archiveHome.on('change', '.select-table', function() {
     });
 });
 
-
-
 // Clickable - publish changes in site
 // publish allbig archive changes in site
 // - for all tables
-//config.archiveHome.on('click', '.publishInSite', function() {
-//    return;
-//    var siteId = config.archiveHome.find('.select-site').val();
-//
-//    if (siteId ==  '-') {
-//        alert('You must select a site.');
-//        return;
-//    }
-//
-//    $.ajax({
-//        url: config.coreUrl + "/site/update-archive-big/" + siteId  + "?" + getToken(),
-//        type: "get",
-//        success: function (response) {
-//            alert("Type: --- " + response.type + " --- \r\n" + response.message);
-//        },
-//        error: function (xhr, textStatus, errorTrown) {
-//            manageError(xhr, textStatus, errorTrown);
-//        }
-//    });
-//});
+config.archiveHome.on('click', '.publishInSite', function() {
+    var siteId = config.archiveHome.find('.select-site').val();
+
+    if (siteId ==  '-') {
+        alert('You must select a site.');
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/site/update-archive-home/" + siteId  + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
 
 // Clickable - save configuration
 // save home archive configuration.
