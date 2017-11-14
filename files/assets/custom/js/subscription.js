@@ -47,7 +47,7 @@ config.subscription.on('change', '.select-package', function() {
             element.find('.subscription-values').html(html).change();
 
             element.find('.date-picker').datepicker({
-                "format": "yyyy-mm-dd",
+                dateFormat: "yy-mm-dd",
             });
         },
         error: function (xhr, textStatus, errorTrown) {
@@ -180,12 +180,12 @@ config.subscription.on('click', '.table-subscription .edit', function() {
             var element = $('#modal-subscription-edit');
 
             element.find('.subscription-id').val(s.id);
-            element.find('.value').removeClass('date-picker').val(s.tipsLeft);
+            element.find('.value').removeClass('date-picker').datepicker("destroy").val(s.tipsLeft);
             if (s.type == 'days') {
                 element.find('.value').addClass('date-picker').val(s.dateEnd);
-              element.find('.date-picker').datepicker({
-                  "format": "yyyy-mm-dd",
-              });
+                element.find('.date-picker').datepicker({
+                    dateFormat: "yy-mm-dd",
+                });
             }
             element.modal();
         },
@@ -265,10 +265,7 @@ $('#modal-subscription-edit').on('click', '.save', function() {
             value : value,
         },
         success: function (r) {
-
-            console.log(r)
             alert("Type: --- " + r.type + " --- \r\n" + r.message);
-
             if (r.type == 'success') {
                 subscriptionShowAllSubscriptions();
             }
