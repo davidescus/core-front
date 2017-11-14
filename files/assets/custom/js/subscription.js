@@ -171,8 +171,28 @@ config.subscription.on('click', '.table-subscription .delete', function() {
 config.subscription.on('click', '.table-subscription .edit', function() {
     var id = $(this).closest('tr').attr('data-id');
 
-    alert('This function is not implementd yet!');
-    return;
+    $.ajax({
+        url: config.coreUrl + "/subscription/" + id + "?" + getToken(),
+        type: "get",
+        dataType: "json",
+        success: function (response) {
+            var s = response;
+            var element = $('#modal-subscription-edit');
+
+            element.find('.subscription-id').val(s.id);
+            element.find('.value').removeClass('date-picker').val(s.tipsLeft);
+            if (s.type == 'days') {
+                element.find('.value').addClass('date-picker').val(s.dateEnd);
+              element.find('.date-picker').datepicker({
+                  "format": "yyyy-mm-dd",
+              });
+            }
+            element.modal();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            // manageError(xhr, textStatus, errorTrown);
+        }
+    });
 });
 
     /*

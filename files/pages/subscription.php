@@ -195,7 +195,7 @@
 </div>
 <!-- end content -->
 
-<!-- START MODAL EDIT -->
+<!-- START MODAL CREATE CUSTOMER -->
 <div class="modal fade" id="modal-subscription-create-customer" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -234,8 +234,38 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
-<!-- END MODAL EDIT -->
+<!-- END MODAL CREATE CUSTOMER -->
 
+<!-- START MODAL EDIT SUBSCRIPTION -->
+<div class="modal fade" id="modal-subscription-edit" tabindex="-1" role="basic" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Edit Subscription</h4>
+            </div>
+            <div class="modal-body">
+                    <input type="hidden" class="subscription-id"/>
+
+                <!-- tips number or end date -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">Tips Number / End Date</label>
+                            <input type="text" class="form-control value"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
+                <button type="button" class="btn green save">Save</button>
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- END MODAL EDIT SUBSCRIPTION -->
 
 
 
