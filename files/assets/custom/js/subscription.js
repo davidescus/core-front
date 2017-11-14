@@ -190,7 +190,7 @@ config.subscription.on('click', '.table-subscription .edit', function() {
             element.modal();
         },
         error: function (xhr, textStatus, errorTrown) {
-            // manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 });
@@ -246,7 +246,40 @@ $('#modal-subscription-create-customer').on('click', '.save', function() {
 
 });
 
+    /*
+     *  ----- Modal Edit Subscriptions -----
+    ----------------------------------------------------------------------*/
 
+// Modal --- Edit Subscription
+// Click on Save button from modal.
+$('#modal-subscription-edit').on('click', '.save', function() {
+    var element = $('#modal-subscription-edit');
+    var subscriptionId = element.find('.subscription-id').val();
+    var value = element.find('.value').val()
+
+    $.ajax({
+        url: config.coreUrl + "/subscription/edit/" + subscriptionId + "?" + getToken(),
+        type: "post",
+        dataType: "json",
+        data: {
+            value : value,
+        },
+        success: function (r) {
+
+            console.log(r)
+            alert("Type: --- " + r.type + " --- \r\n" + r.message);
+
+            if (r.type == 'success') {
+                subscriptionShowAllSubscriptions();
+            }
+            element.modal('hide');
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+
+});
     /*
      *  ----- FUNCTIONS -----
     ----------------------------------------------------------------------*/
