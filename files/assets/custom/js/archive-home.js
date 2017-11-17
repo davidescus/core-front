@@ -33,36 +33,7 @@ config.archiveHome.on('change', '.select-site', function() {
 // change table selection
 // get archive events for selected: site, table
 config.archiveHome.on('change', '.select-table', function() {
-    var param = {
-        siteId: config.archiveHome.find('.select-site').val(),
-        tableIdentifier: config.archiveHome.find('.select-table').val(),
-    };
-
-    if (param.siteId == '-' || param.tableIdentifier == '-')
-        return;
-
-    $.ajax({
-        url: config.coreUrl + "/archive-home/table-events?" + $.param(param) + "&" + getToken(),
-        type: "get",
-        success: function (response) {
-
-            var data = response;
-            var element = config.archiveHome;
-
-            var template = element.find('.template-table-content').html();
-            var compiledTemplate = Template7.compile(template);
-            var html = compiledTemplate(data);
-            element.find('.table-content').html(html);
-            element.find('.table-content .sortable').sortable({
-                update: function(event, ui) {
-                    archiveHomeUpdateOrder();
-                },
-            });
-        },
-        error: function (xhr, textStatus, errorTrown) {
-            manageError(xhr, textStatus, errorTrown);
-        }
-    });
+    archiveHomeGetTableEvents();
 });
 
 // Clickable - publish changes in site
@@ -139,6 +110,78 @@ config.archiveHome.on('click', '.table-content .show-hide', function() {
 });
 
     /*
+     *  ----- Modal Edit -----
+    ----------------------------------------------------------------------*/
+
+// Modal - Edit
+// get selected event
+// get all predictions
+// launch modal
+config.archiveHome.on('click', '.table-content .edit', function() {
+    var $this = $(this);
+    $.ajax({
+        url: config.coreUrl + "/archive-home/event/" + $this.closest('li').attr('data-id') + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            if (!response) {
+                alert('Maybe this event will not exists anymore.');
+                return;
+            }
+
+            var data = response;
+            var element = $('#archive-home-modal-edit');
+
+            var template = element.find('.template-event').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.event').html(html);
+
+            // set status selected
+            element.find('.status option[value="' + data.statusId + '"]').prop('selected', true).change();
+
+            // set prediction selected
+            element.find('.prediction option[value="' + data.predictionId + '"]').prop('selected', true).change();
+
+            element.modal();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Modal - Edit
+// save edit prediction and status
+$('#archive-home-modal-edit').on('click', '.save', function() {
+    var element = $('#archive-home-modal-edit');
+
+    $.ajax({
+        url: config.coreUrl + "/archive-home/update/" + element.find('.event-id').val() + "?" + getToken(),
+        type: "post",
+        data: {
+            siteId: config.archiveHome.find('.select-site').val(),
+            country: element.find('.country').val(),
+            league: element.find('.league').val(),
+            stringEventDate: element.find('.string-event-date').val(),
+            homeTeam: element.find('.home-team').val(),
+            awayTeam: element.find('.away-team').val(),
+            predictionId: element.find('.prediction').val(),
+            statusId: element.find('.status').val(),
+        },
+        success: function (response) {
+
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            archiveHomeGetTableEvents();
+            element.modal('hide');
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+    /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
 
@@ -160,6 +203,41 @@ function archiveHomeShowAvailableSites() {
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
             element.find('.select-site').html(html);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
+
+// Functions
+// This will get events according to current site selection and tabele selection
+function archiveHomeGetTableEvents() {
+    var param = {
+        siteId: config.archiveHome.find('.select-site').val(),
+        tableIdentifier: config.archiveHome.find('.select-table').val(),
+    };
+
+    if (param.siteId == '-' || param.tableIdentifier == '-')
+        return;
+
+    $.ajax({
+        url: config.coreUrl + "/archive-home/table-events?" + $.param(param) + "&" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = response;
+            var element = config.archiveHome;
+
+            var template = element.find('.template-table-content').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.table-content').html(html);
+            element.find('.table-content .sortable').sortable({
+                update: function(event, ui) {
+                    archiveHomeUpdateOrder();
+                },
+            });
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -192,6 +270,29 @@ function archiveHomeUpdateOrder() {
             if (response.type == 'error') {
                 alert("Type: --- " + response.type + " --- \r\n" + response.message);
             }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
+
+// Functions
+// get and complete predictions in edit modal events
+function archiveHomeShowAllPredictions() {
+    $.ajax({
+        url: config.coreUrl + "/prediction" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+            var data = {
+                groups: response,
+            }
+            var element = $('#archive-home-modal-edit');
+
+            var template = element.find('.template-prediction').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.prediction').html(html);
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);

@@ -70,6 +70,7 @@
                     <ul class="sortable">
                         {{#each events}}
                         <li data-id="{{id}}">
+                            {{#if stringEventDate}} {{stringEventDate}} {{else}} No Custom Date {{/if}}
                             {{systemDate}}
                             {{#if isNoTip}}
                                 NO TIP
@@ -82,6 +83,10 @@
                                 {{result}}
                                 {{statusId}}
                             {{/if}}
+                            {{#if isNoTip}}
+                            {{else}}
+                            <button class="btn blue edit">Edit</button>
+                            {{/if}}
                             {{#if isVisible}}
                                 <button class="btn red show-hide">Hide</button>
                             {{else}}
@@ -92,60 +97,6 @@
                             <li>No events available</li>
                         {{/each}}
                     </ul>
-                    <!--
-                    <div class="table-scrollable">
-                        <table class="table table-hover table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Status</th>
-                                    <th> System Date </th>
-                                    <th> Country </th>
-                                    <th> League </th>
-                                    <th> Event </th>
-                                    <th> Prediction </th>
-                                    <th> Odd </th>
-                                    <th> Score </th>
-                                    <th> Status </th>
-                                    <th> Actions </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {{#each events}}
-                                <tr data-id="{{id}}">
-                                    {{#if isPublishInSite}}
-                                        <td><span class="label label-sm label-success">Publish</span></td>
-                                    {{else}}
-                                        <td><span class="label label-sm label-danger">UnPub</span></td>
-                                    {{/if}}
-                                    <td>{{systemDate}}</td>
-                                    {{#if isNoTip}}
-                                        <td colspan="7">NO TIP</td>
-                                    {{else}}
-                                        <td>{{country}}</td>
-                                        <td>{{league}}</td>
-                                        <td>{{homeTeam}} - {{awayTeam}}</td>
-                                        <td>{{predictionName}}</td>
-                                        <td>{{odd}}</td>
-                                        <td>{{result}}</td>
-                                        <td>{{statusId}}</td>
-                                    {{/if}}
-                                    <td>
-                                        {{#if isVisible}}
-                                        <button class="btn red show-hide">Hide</button>
-                                        {{else}}
-                                        <button class="btn green show-hide">Show</button>
-                                        {{/if}}
-                                    </td>
-                                </tr>
-                                {{else}}
-                                <tr>
-                                    <td colspan="9">--- No events in this table ---</td>
-                                </tr>
-                                {{/each}}
-                            </tbody>
-                        </table>
-                    </div>
-                    -->
                 </script>
 
             </div>
@@ -157,7 +108,7 @@
 <!-- end content -->
 
 <!-- START MODAL EDIT -->
-<div class="modal fade" id="archive-big-modal-edit" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="archive-home-modal-edit" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -166,15 +117,39 @@
             </div>
             <div class="modal-body">
 
-                <div class="event-info row"></div>
-                <script class="template-event-info" type="text/template7">
+                <div class="event row"></div>
+                <script class="template-event" type="text/template7">
                     <input type="hidden" class="event-id" value="{{id}}"/>
-                    <h4>
-                        {{country}}
-                        {{league}}
-                        {{homeTeam}} - {{awayTeam}}
-                        {{systemDate}}
-                    </h4>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">Country</label>
+                            <input class="form-control country" type="text" value="{{country}}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">League</label>
+                            <input class="form-control league" type="text" value="{{league}}">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label class="control-label">System Date: {{systemDate}}</label>
+                            <input class="form-control string-event-date" type="text" value="{{stringEventDate}}" placeholder="Custom date">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Home Team</label>
+                            <input class="form-control home-team" type="text" value="{{homeTeam}}">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="control-label">Away Team</label>
+                            <input class="form-control away-team" type="text" value="{{awayTeam}}">
+                        </div>
+                    </div>
                 </script>
 
                 <!-- status and prediction -->

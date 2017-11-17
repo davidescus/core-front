@@ -79,6 +79,7 @@ $(document).ready(function() {
 
         if (config.activePage == 'archive-home') {
             archiveHomeShowAvailableSites();
+            archiveHomeShowAllPredictions();
         }
     }
 });

@@ -288,9 +288,6 @@ function bigArchiveShowAllPredictions() {
         url: config.coreUrl + "/prediction" + "?" + getToken(),
         type: "get",
         success: function (response) {
-
-            console.log(response);
-
             var data = {
                 groups: response,
             }
