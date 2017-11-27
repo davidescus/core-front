@@ -160,6 +160,24 @@ config.distribution.on('click', '.actions .schedule .create', function() {
     });
 });
 
+// Modals --- Delete Email Schedule
+// Click on stop.
+config.distribution.on('click', '.actions .schedule .stop', function() {
+    $.ajax({
+        url: config.coreUrl + "/distribution/delete-email-schedule" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            if (response.type == 'success') {
+                getDistributedEvents(config.distribution.find('.select-system-date').val());
+            }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            //manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
 // Modals --- modal preview-and-send
 // Click on send emails.
 // trigger send emails procedure
