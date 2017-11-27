@@ -45,7 +45,7 @@
                     <ul class="dropdown-menu pull-right" role="menu">
                         <li><a class="preview-and-send"> Preview and Send </a></li>
                         <li><a class="send"> Send </a></li>
-                        <li><a href="#edit_send_hour" data-toggle="modal" > Edit </a></li>
+                        <li><a href="#modal-distribution-set-time" data-toggle="modal" > Edit </a></li>
                         <li><a class="publish"> Publish </a></li>
                         <li><a class="delete"> Delete </a></li>
                         <li><a class="subscription-restricted-tips"> Manage Users </a></li>
@@ -157,7 +157,7 @@
 <!-- END CONTENT -->
 
 <!-- START EDIT SEND HOUR -->
-<div class="modal fade" id="edit_send_hour" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-distribution-set-time" tabindex="-1" role="basic" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -166,11 +166,12 @@
             </div>
             <div class="modal-body">
                 <label class="control-label">Choose Date</label>
-                <input type="text" value="2:30 PM" data-format="hh:mm A" class="form-control clockface_1" />
+                <!--<input type="text" value="2:30 PM" data-format="hh:mm A" class="form-control clockface_1" />-->
+                <input type="text" class="form-control timepicker timepicker-24 time" />
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                <button type="button" class="btn green">Save changes</button>
+                <button type="button" class="btn green save">Save changes</button>
             </div>
         </div>
         <!-- /.modal-content -->

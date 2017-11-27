@@ -173,7 +173,31 @@ config.distribution.on('click', '.actions .schedule .stop', function() {
             }
         },
         error: function (xhr, textStatus, errorTrown) {
-            //manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Modals --- Delete Email Schedule
+// Click on stop.
+$('#modal-distribution-set-time').on('click', '.save', function() {
+    var element = $('#modal-distribution-set-time');
+    $.ajax({
+        url: config.coreUrl + "/distribution/set-time-email-schedule" + "?" + getToken(),
+        type: "post",
+        data: {
+          ids: getCheckedEventsIds(),
+          time: element.find('.time').val(),
+        },
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            element.modal('hide');
+            if (response.type == 'success') {
+                getDistributedEvents(config.distribution.find('.select-system-date').val());
+            }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 });
