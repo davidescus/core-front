@@ -137,6 +137,29 @@ config.distribution.on('click', '.actions .subscription-restricted-tips', functi
      *  ----- Modals -----
     ----------------------------------------------------------------------*/
 
+// Modals --- Start Email Scheduler
+// Click on Start.
+config.distribution.on('click', '.actions .schedule .create', function() {
+    var element = config.distribution.find('.actions .schedule');
+    $.ajax({
+        url: config.coreUrl + "/distribution/create-email-schedule" + "?" + getToken(),
+        type: "post",
+        data: {
+            timeStart: element.find('.start').val(),
+            timeEnd: element.find('.end').val(),
+        },
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            if (response.type == 'success') {
+                getDistributedEvents(config.distribution.find('.select-system-date').val());
+            }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
 // Modals --- modal preview-and-send
 // Click on send emails.
 // trigger send emails procedure
@@ -161,7 +184,7 @@ $('#modal-distribution-preview-and-send').on('click', '.show-preview-template', 
             element.find('.preview-template').html(response.template);
         },
         error: function (xhr, textStatus, errorTrown) {
-            //manageError(xhr, textStatus, errorTrown);
+            manageError(xhr, textStatus, errorTrown);
         }
     });
 });

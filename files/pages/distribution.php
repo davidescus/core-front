@@ -21,20 +21,20 @@
                     <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Schedule
                         <i class="fa fa-angle-down"></i>
                     </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
+                    <ul class="dropdown-menu pull-right schedule" role="menu">
                         <li>
                             <label class="control-label">Start Date</label>
-                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                            <input class="form-control form-control-inline input-medium timepicker timepicker-24 start"/>
                         </li>
                         <li>
                             <label class="control-label">End Date</label>
-                            <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                            <input class="form-control form-control-inline input-medium timepicker timepicker-24 end"/>
                         </li>
                         <li>
-                            <a href="javascript:;"> Stop </a>
+                            <button class="stop">Stop Schedule</button>
                         </li>
                         <li>
-                            <a href="javascript:;"> Start Schedule </a>
+                            <button class="create">Create Schedule</button>
                         </li>
                     </ul>
                 </div>
