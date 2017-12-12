@@ -190,6 +190,8 @@ config.site.on('click', '.save-site', function(){
             subscription: g.find('.subscription').val(),
             tipsPerDay: g.find('.tipsPerDay').val(),
             price: g.find('.price').val(),
+            paymentCodePaypal: g.find('.paymentCodePaypal').val(),
+            paymentCodeHipay: g.find('.paymentCodeHipay').val(),
             oldPrice: g.find('.oldPrice').val(),
             aliasSubscriptionType: g.find('.aliasSubscriptionType').val(),
             aliasTipsPerDay: g.find('.aliasTipsPerDay').val(),

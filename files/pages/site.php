@@ -486,6 +486,18 @@
                                                     <input type="text" class="form-control discount" value="{{discount}}">
                                                 </div>
                                             </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Payment Code Paypal</label>
+                                                    <input type="text" class="form-control paymentCodePaypal" value="{{paymentCodePaypal}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Payment Code Hipay</label>
+                                                    <input type="text" class="form-control paymentCodeHipay" value="{{paymentCodeHipay}}">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
