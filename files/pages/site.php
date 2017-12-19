@@ -73,31 +73,44 @@
                                 <input type="text" class="form-control url" value="{{url}}">
                             </div>
 
+                            <?php
+                                $dateFormats = [
+                                    'd/m/Y',
+                                    'd/m/y',
+                                    'd-m-Y',
+                                    'd-m-y',
+                                    'd.m.Y',
+                                    'd.m.y',
+                                    'd:m:Y',
+                                    'd:m:y',
+                                    'd m Y',
+                                    'd m y',
+                                    'd|m|Y',
+                                    'd|m|y',
+                                    'Y/m/d',
+                                    'y/m/d',
+                                    'Y-m-d',
+                                    'y-m-d',
+                                    'Y.m.d',
+                                    'y.m.d',
+                                    'Y:m:d',
+                                    'y:m:d',
+                                    'Y m d',
+                                    'y m d',
+                                    'Y|m|d',
+                                    'y|m|d',
+                                ];
+                            ?>
+
                             <div class="form-group">
                                 <label>Date Format</label>
                                 <select class="form-control date-format">
                                     <option value="">- Select -</option>
-                                    <option value="d.m.Y"
-                                    {{#js_compare "this.dateFormat === 'd.m.Y'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('d.m.Y'); ?></option>
-                                    <option value="d-m-Y"
-                                    {{#js_compare "this.dateFormat === 'd-m-Y'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('d-m-Y'); ?></option>
-                                    <option value="Y-m-d"
-                                    {{#js_compare "this.dateFormat === 'Y-m-d'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('Y-m-d'); ?></option>
-                                    <option value="Y/m/d"
-                                    {{#js_compare "this.dateFormat === 'Y/m/d'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('Y/m/d'); ?></option>
-                                    <option value="Y:m:d"
-                                    {{#js_compare "this.dateFormat === 'Y:m:d'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('Y:m:d'); ?></option>
-                                    <option value="Y|m|d"
-                                    {{#js_compare "this.dateFormat === 'Y|m|d'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('Y|m|d'); ?></option>
-                                    <option value="Y-:m-:d"
-                                    {{#js_compare "this.dateFormat === 'Y-:m-:d'"}}selected="selected"{{/js_compare}}>
-                                    <?php echo gmDate('Y-:m-:d'); ?></option>
+
+                                    <?php foreach($dateFormats as $format) { ?>
+                                    <option value="<?php echo $format; ?>"><?php echo gmdate($format); ?></option>
+                                    <?php } ?>
+
                                 </select>
                             </div>
 

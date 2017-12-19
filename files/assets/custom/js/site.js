@@ -384,6 +384,8 @@ function showSiteGeneralConfiguration(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.site-general').html(html);
+
+    config.site.find('.site-general .date-format').val(data.dateFormat).change();
 }
 
 /*
