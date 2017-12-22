@@ -46,6 +46,37 @@ config.event.on('click', '.edit', function() {
 });
 
 // Modal - edit result-status
+// get predeiction for specified result
+$('#event-modal-edit-result-status .result').keyup(function() {
+    var element = $('#event-modal-edit-result-status');
+    var result = $(this).val();
+    var eventId = element.find('.event-id').val();
+
+    if (result.length < 3) {
+        element.find('.status').val('').change();
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/prediction/status-by-result/" + eventId + "?" + getToken(),
+        type: "post",
+        data: {
+            result: result,
+        },
+        success: function (response) {
+            if (response.type == 'error') {
+                element.find('.status').val('').change();
+                return;
+            }
+            element.find('.status').val(response.statusId).change();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Modal - edit result-status
 // save edit result and status
 $('#event-modal-edit-result-status').on('click', '.save', function() {
     var element = $('#event-modal-edit-result-status');
