@@ -1,4 +1,4 @@
-<!-- BEGIN CONTENT -->
+!-- BEGIN CONTENT -->
 <div class="page-content-wrapper site hidden">
     <!-- BEGIN CONTENT BODY -->
     <div class="page-content">
@@ -75,6 +75,49 @@
 
                             <?php
                                 $dateFormats = [
+
+                                    'm/d',
+                                    'm-d',
+                                    'm.d',
+                                    'm:d',
+                                    'm d',
+                                    'm|d',
+
+                                    'M/d',
+                                    'M-d',
+                                    'M.d',
+                                    'M:d',
+                                    'M d',
+                                    'M|d',
+
+                                    'F/d',
+                                    'F-d',
+                                    'F.d',
+                                    'F:d',
+                                    'F d',
+                                    'F|d',
+
+                                    'd/m',
+                                    'd-m',
+                                    'd.m',
+                                    'd:m',
+                                    'd m',
+                                    'd|m',
+
+                                    'd/M',
+                                    'd-M',
+                                    'd.M',
+                                    'd:M',
+                                    'd M',
+                                    'd|M',
+
+                                    'd/F',
+                                    'd-F',
+                                    'd.F',
+                                    'd:F',
+                                    'd F',
+                                    'd|F',
+
                                     'd/m/Y',
                                     'd/m/y',
                                     'd-m-Y',
