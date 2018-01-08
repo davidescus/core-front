@@ -141,7 +141,7 @@
                     <!-- END EXAMPLE TABLE PORTLET-->
                 </div>
             </div>
-        </div> 
+        </div>
         <!-- END ASSOCIATION TABLE -->
 
 
@@ -630,8 +630,9 @@
                             <div class="col-md-9">
                                 <div class="mt-checkbox-list">
 
-                                    <div class="tip-identifier" data-tip-identifier="{{tipIdentifier}}">
-                                        {{tipIdentifier}}
+                                    {{#each tipIdentifier}}
+                                    <div class="tip-identifier" data-tip-identifier="{{@key}}">
+                                        {{@key}}
                                         {{#each packages}}
                                         <label class="mt-checkbox mt-checkbox-outline">
                                             <input class="use" type="checkbox" {{#if eventIsAssociated}}checked="checked"{{/if}} data-id="{{id}}"/> {{name}}
@@ -639,6 +640,7 @@
                                         </label>
                                         {{/each}}
                                     </div>
+                                    {{/each}}
 
                                 </div>
                             </div>
@@ -923,17 +925,3 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- END MODAL ADD EVENT -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
