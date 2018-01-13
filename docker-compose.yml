@@ -16,4 +16,4 @@ nginx:
   links:
     - php
   ports:
-    -  80:80
+    -  8081:80
