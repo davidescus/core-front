@@ -651,6 +651,7 @@
                 </div>
             </div>
             <div class="modal-footer">
+                <input type="hidden" class="table-identifier" value="{{table}}"/>
                 <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
                 <button type="button" class="btn green associate-event">Import</button>
             </div>

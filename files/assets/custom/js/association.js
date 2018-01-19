@@ -418,6 +418,11 @@ $('#modal-associate-events').on('click', '.associate-event', function() {
         },
         success: function (response) {
 
+            // refresh table to see new association numbers
+            var currentDate = $('#association-system-date').val();
+            var table = $('#modal-associate-events .table-identifier').val();
+            getEventsAssociations(table, currentDate);
+
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
             if (response.type == "success")
                 $('#modal-associate-events').modal('hide');
@@ -522,7 +527,7 @@ function getEventsAssociations(argTable, date = '0') {
                     (e.status) ? e.status.name: '???',
                     e.eventDate,
                     e.systemDate,
-                    buttons,
+                    buttons + ' ' + e.distributedNumber,
                 ] ).draw(false).node();
 
                 // add data-id attribute to inserted row
