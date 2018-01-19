@@ -250,6 +250,16 @@
                                     TLS</option>
                                 </select>
                             </div>
+
+                            <div class="form-group">
+                                <label>Send a test email at:</label>
+                                <input type="text" class="form-control test-email" value="">
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn green btn-block send-test-email">Send teest Email</button>
+                            </div>
+
                         </div>
 
                         <div class="col-md-4">

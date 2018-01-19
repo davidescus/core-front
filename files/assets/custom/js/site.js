@@ -32,6 +32,35 @@ config.site.on('click', '.site-token .connection-update', function() {
     });
 });
 
+// click on send test email at:
+// this will create a get request to send a test email for selected site
+config.site.on('click', '.site-general .send-test-email', function() {
+    var siteId = config.site.find('.site-selection').val();
+
+    if (siteId == 'new') {
+        alert("You must select a site.");
+        return;
+    }
+
+    var email = config.site.find('.site-general .test-email');
+
+    $.ajax({
+        url: config.coreUrl + "/test/send-test-email/" + siteId + "?" + getToken(),
+        type: "post",
+        data: {
+            email: email.val(),
+        },
+        success: function (response) {
+            alert('Type: ' + response.type + ' - Message: ' + response.message);
+            if (response.type == 'success')
+                email.val('');
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
 // Add New Site button click
 config.site.on('click', '.add-new-site', function(){
     config.site.find('.site-selection').val('new').change();
