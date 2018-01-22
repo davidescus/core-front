@@ -6,14 +6,14 @@
         <!-- BEGIN PAGE BAR-->
         <div class="page-bar">
             <div class="date-selector">
-                <select class="form-control input-small input-sm select-system-date">
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
+                <select class="form-control input-sm select-system-date">
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days: <?php echo gmdate('Y-m-d', strtotime('+3day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days: <?php echo gmdate('Y-m-d', strtotime('+2day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day: <?php echo gmdate('Y-m-d', strtotime('+1day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today: <?php echo gmdate('Y-m-d'); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day: <?php echo gmdate('Y-m-d', strtotime('-1day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days: <?php echo gmdate('Y-m-d', strtotime('-2day')); ?></option>
+                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days: <?php echo gmdate('Y-m-d', strtotime('-3day')); ?></option>
                 </select>
             </div>
             <div class="bar-buttons actions">
