@@ -7,15 +7,16 @@
         <div class="page-bar">
             <div class="date-selector">
                 <select class="form-control input-small input-sm select-system-date">
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
+                    <option class="+3day" value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
+                    <option class="+2day" value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
+                    <option class="+1day" value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
+                    <option class="today" value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
+                    <option class="-1day" value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
+                    <option class="-2day" value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
+                    <option class="-3day" value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
+            Current Date: <span class="current-date-time"></span>
             <div class="bar-buttons actions">
                 <div class="btn-group">
                     <button class="btn green dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"> Schedule

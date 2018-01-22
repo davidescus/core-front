@@ -1,5 +1,36 @@
 $(document).ready(function() {
 
+    // get server dates for systemDate
+    // each 30 seconds
+    // .current-date-time will always show current time and date
+    setInterval(function() {
+        if (config.activePage != 'association' && config.activePage != 'distribution')
+            return;
+
+        refreshTimeAndDates();
+
+    }, 1000 * 60);
+
+    function refreshTimeAndDates()
+    {
+        $.ajax({
+            url: config.coreUrl + "/info/dates" + "?" + getToken(),
+            type: "get",
+            success: function (response) {
+                $('.current-date-time').html(response.today + ' ' + response.time);
+                delete response.time;
+
+                $.each(response, function(i, e) {
+                    $('.association .date-selector option[class="' + i+ '"]').val(e);
+                    $('.distribution .date-selector option[class="' + i+ '"]').val(e);
+                });
+            },
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
+        });
+    }
+
     // app start flow
     setActivePage();
 
@@ -25,6 +56,9 @@ $(document).ready(function() {
 
         // trigger setControlFlow() method
         setControlFlow();
+
+        // refresh time and dates
+        refreshTimeAndDates();
     }
 
     /*

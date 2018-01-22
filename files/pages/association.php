@@ -8,15 +8,16 @@
         <div class="page-bar">
             <div class="date-selector">
                 <select id="association-system-date" class="form-control input-small input-sm">
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
-                    <option value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
+                    <option class="+3day" value="<?php echo gmdate('Y-m-d', strtotime('+3day')); ?>">+3 Days</option>
+                    <option class="+2day" value="<?php echo gmdate('Y-m-d', strtotime('+2day')); ?>">+2 Days</option>
+                    <option class="+1day" value="<?php echo gmdate('Y-m-d', strtotime('+1day')); ?>">+1 Day</option>
+                    <option class="today" value="<?php echo gmdate('Y-m-d'); ?>" selected="selected">Today</option>
+                    <option class="-1day" value="<?php echo gmdate('Y-m-d', strtotime('-1day')); ?>">-1 Day</option>
+                    <option class="-2day" value="<?php echo gmdate('Y-m-d', strtotime('-2day')); ?>">-2 Days</option>
+                    <option class="-3day" value="<?php echo gmdate('Y-m-d', strtotime('-3day')); ?>">-3 Days</option>
                 </select>
             </div>
+            Current Date: <span class="current-date-time"></span>
             <a class="btn green btn-outline add-event-btn add-manual-event">Add Event</a>
         </div>
         <!-- END PAGE BAR-->
