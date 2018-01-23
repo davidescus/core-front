@@ -137,7 +137,7 @@ $('#modal-add-manual-event .odd').keyup(function() {
 $('#modal-add-manual-event .search-match').keyup(function() {
     var element = $('#modal-add-manual-event');
     var table = element.find('.select-table').val();
-    var filterValue = $(this).val();
+    var filterValue = $(this).val().trim();
 
     if (filterValue.length < 2) {
         element.find('.selectable-block').addClass('hidden');
