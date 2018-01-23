@@ -211,7 +211,7 @@ function showAvailableSites() {
             var template = element.find('.template-select-site').html();
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
-            element.find('.select-site').html(html);
+            element.find('.select-site').html(html).change();
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -256,9 +256,12 @@ function showMonthAvailableEventsInBigArchive() {
         tableIdentifier: config.archiveBig.find('.select-table').val(),
         date: config.archiveBig.find('.select-date').val(),
     };
+    var element = config.archiveBig;
 
-    if (param.siteId == '-' || param.tableIdentifier == '-' || param.date == '-')
+    if (param.siteId == '-' || param.tableIdentifier == '-' || param.date == '-') {
+        element.find('.table-content-month').html('');
         return;
+    }
 
     $.ajax({
         url: config.coreUrl + "/archive-big/month-events?" + $.param(param) + "&" + getToken(),
@@ -268,7 +271,6 @@ function showMonthAvailableEventsInBigArchive() {
             var data = {
                 events: response,
             }
-            var element = config.archiveBig;
 
             var template = element.find('.template-table-content-month').html();
             var compiledTemplate = Template7.compile(template);
