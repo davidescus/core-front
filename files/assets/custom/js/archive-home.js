@@ -202,7 +202,7 @@ function archiveHomeShowAvailableSites() {
             var template = element.find('.template-select-site').html();
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
-            element.find('.select-site').html(html);
+            element.find('.select-site').html(html).change();
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -218,8 +218,12 @@ function archiveHomeGetTableEvents() {
         tableIdentifier: config.archiveHome.find('.select-table').val(),
     };
 
-    if (param.siteId == '-' || param.tableIdentifier == '-')
+    var element = config.archiveHome;
+
+    if (param.siteId == '-' || param.tableIdentifier == '-') {
+        element.find('.table-content').html('');
         return;
+    }
 
     $.ajax({
         url: config.coreUrl + "/archive-home/table-events?" + $.param(param) + "&" + getToken(),
@@ -227,7 +231,6 @@ function archiveHomeGetTableEvents() {
         success: function (response) {
 
             var data = response;
-            var element = config.archiveHome;
 
             var template = element.find('.template-table-content').html();
             var compiledTemplate = Template7.compile(template);
