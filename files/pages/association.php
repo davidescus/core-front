@@ -767,7 +767,7 @@
                                                         <div class="selectable-block"></div>
                                                         <script class="template-selectable-block" type="text/template7">
                                                             {{#each matches}}
-                                                            <div class="selectable-row" data-id="{{id}}">{{country}}:{{league}}{{homeTeam}} vs {{awayTeam}} {{eventDate}}</div>
+                                                            <div class="selectable-row" data-id="{{id}}">{{country}}: {{league}} {{homeTeam}} --- {{awayTeam}} {{result}} {{eventDate}}</div>
                                                             {{else}}
                                                             <div class="selectable">No Events Available</div>
                                                             {{/each}}
