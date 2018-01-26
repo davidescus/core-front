@@ -87,15 +87,37 @@ config.distribution.on('click', '.actions .publish', function() {
 // Actions
 // Delete events from distribution
 config.distribution.on('click', '.actions .delete', function() {
+    var ids = getCheckedEventsIds();
     $.ajax({
         url: config.coreUrl + "/distribution/delete" + "?" + getToken(),
         type: "post",
         data: {
-            ids: getCheckedEventsIds(),
+            ids: ids,
         },
         success: function (response) {
-            alert("Type: --- " + response.type + " --- \r\n" + response.message);
-            getDistributedEvents(config.distribution.find('.select-system-date').val());
+
+            if (response.forceDestroy) {
+                if (confirm(response.message)) {
+                    $.ajax({
+                        url: config.coreUrl + "/distribution/force-delete" + "?" + getToken(),
+                        type: "post",
+                        data: {
+                            ids: ids,
+                        },
+                        success: function (response) {
+                            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                            getDistributedEvents(config.distribution.find('.select-system-date').val());
+                        },
+                        error: function (xhr, textStatus, errorTrown) {
+                            manageError(xhr, textStatus, errorTrown);
+                        }
+                    });
+                    return;
+                }
+            } else {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                getDistributedEvents(config.distribution.find('.select-system-date').val());
+            }
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
