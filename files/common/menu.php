@@ -90,6 +90,13 @@
                                     <span class="selected"></span>
                                 </a>
                             </li>
+                            <li class="nav-item" target="auto-unit">
+                                <a class="nav-link">
+                                    <i class="icon-home"></i>
+                                    <span class="title">Auto Unit</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
                             <!--
                             <li class="nav-item start ">
                                 <a href="javascript:;" class="nav-link nav-toggle">

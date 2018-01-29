@@ -81,5 +81,9 @@ $(document).ready(function() {
             archiveHomeShowAvailableSites();
             archiveHomeShowAllPredictions();
         }
+
+        if (config.activePage == 'auto-unit') {
+            autoUnitShowAvailableSites();
+        }
     }
 });

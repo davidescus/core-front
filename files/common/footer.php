@@ -109,6 +109,8 @@
         <script src="../assets/custom/js/archive-big.js"></script>
         <!--  archive-home.js    -->
         <script src="../assets/custom/js/archive-home.js"></script>
+        <!--  auto-unit.js    -->
+        <script src="../assets/custom/js/auto-unit.js"></script>
         <!--  main js    -->
         <script src="../assets/custom/js/main.js"></script>
 

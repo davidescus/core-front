@@ -34,6 +34,7 @@
         include "pages/distribution.php";
         include "pages/archive-big.php";
         include "pages/archive-home.php";
+        include "pages/auto-unit.php";
 
         include "common/sidebar.php";
 
