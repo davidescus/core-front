@@ -75,3 +75,13 @@
 .pack_tr{
 	background: #fcfcfc;
 }
+.inline-list li{
+	display: inline-block;
+}
+.nostyle-list{
+	list-style: none;
+	padding: 0;
+}
+.subscription-entry td{
+	background: #ffe5c7;
+}

@@ -71,6 +71,7 @@
         <script src="../assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+        <script src="../assets/global/plugins/bootstrap-multiselect/js/bootstrap-multiselect.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/clockface/js/clockface.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
         <script src="../assets/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
@@ -85,6 +86,7 @@
         <script src="../assets/pages/scripts/form-wizard.min.js" type="text/javascript"></script>
         <script src="../assets/pages/scripts/components-date-time-pickers.min.js" type="text/javascript"></script>
         <script src="../assets/pages/scripts/components-editors.js" type="text/javascript"></script>
+        <script src="../assets/pages/scripts/components-bootstrap-multiselect.min.js" type="text/javascript"></script>
         <script src="../assets/pages/scripts/custom.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
 

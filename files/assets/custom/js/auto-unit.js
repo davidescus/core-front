@@ -8,33 +8,142 @@ config.autoUnit = $('.page-content-wrapper.auto-unit');
 // change date selection
 // trigger function to get available events in selected date.
 // config.archiveBig.on('change', '.select-date', function() {
-//     showMonthAvailableEventsInBigArchive();
+//    autoUnitGetSchedulerForTable();
 // });
 
 // Clickable - site selection
 // change site selection
 // show available tables for selected site.
-// config.archiveBig.on('change', '.select-site', function() {
-//     $.ajax({
-//         url: config.coreUrl + "/site/available-table/" + $(this).val() + "?" + getToken(),
-//         type: "get",
-//         success: function (response) {
+config.autoUnit.on('change', '.select-site', function() {
+    $.ajax({
+        url: config.coreUrl + "/site/available-table/" + $(this).val() + "?" + getToken(),
+        type: "get",
+        success: function (response) {
 
-//             var data = {
-//                 tables: response,
-//             }
-//             var element = config.archiveBig;
+            var data = {
+                tables: response,
+            }
+            var element = config.autoUnit;
 
-//             var template = element.find('.template-select-table').html();
-//             var compiledTemplate = Template7.compile(template);
-//             var html = compiledTemplate(data);
-//             element.find('.select-table').html(html).change();
-//         },
-//         error: function (xhr, textStatus, errorTrown) {
-//             manageError(xhr, textStatus, errorTrown);
-//         }
-//     });
-// });
+            var template = element.find('.template-select-table').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.select-table').html(html).change();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+// Clickable - site selection
+// change table selection
+// show scheduler for selected table.
+config.autoUnit.on('change', '.select-table', function() {
+    autoUnitGetSchedulerForTable();
+});
+
+// Clickable - save tip settings
+// save current settings for selected tip
+config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
+    var elem = config.autoUnit;
+    var tipSection = $(this).closest('.panel.panel-default');
+    var data = {
+        siteId: elem.find('.select-site').val(),
+        tableIdentifier: elem.find('.select-table').val(),
+        date: elem.find('.select-date').val(),
+        tipIdentifier: tipSection.find('.tip-identifier').val(),
+        leagues: tipSection.find('.leagues').val(),
+        minOdd: tipSection.find('.min-odd').val(),
+        maxOdd: tipSection.find('.max-odd').val(),
+        win: tipSection.find('.win').val(),
+        loss: tipSection.find('.loss').val(),
+        draw: tipSection.find('.draw').val(),
+        winrate: tipSection.find('.winrate').val(),
+        predictions: {
+            "1x2": tipSection.find('.group-1x2').val(),
+            ou: tipSection.find('.group-ou').val(),
+            ah: tipSection.find('.group-ah').val(),
+            gg: tipSection.find('.group-gg').val(),
+        },
+    };
+
+    $.ajax({
+        url: config.coreUrl + "/auto-unit/save-tip-settings/" + "?" + getToken(),
+        type: "post",
+        data: data,
+        success: function (response) {
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+});
+
+    /*
+     *  ----- Functions -----
+    ----------------------------------------------------------------------*/
+
+// Functions
+// this will be exectuted on page loading.
+// will populate site selector
+function autoUnitShowAvailableSites() {
+    $.ajax({
+        url: config.coreUrl + "/site/ids-and-names" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                sites: response,
+            }
+            var element = config.autoUnit;
+
+            var template = element.find('.template-select-site').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.select-site').html(html).change();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
+
+// Functions
+// this will populate mounth table with events
+// it use: select-date, select-site, select-table
+function autoUnitGetSchedulerForTable() {
+    var param = {
+        siteId: config.autoUnit.find('.select-site').val(),
+        tableIdentifier: config.autoUnit.find('.select-table').val(),
+        date: config.autoUnit.find('.select-date').val(),
+    };
+    var element = config.autoUnit;
+
+    if (param.siteId == '-' || param.tableIdentifier == '-') {
+        element.find('.table-content-month').html('');
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/auto-unit/get-schedule?" + $.param(param) + "&" + getToken(),
+        type: "get",
+        success: function (response) {
+            var data = {
+                tips: response,
+            }
+
+            var template = element.find('.template-content-tip').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.content-tip').html(html);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
 
 
     /*
@@ -65,32 +174,3 @@ config.autoUnit = $('.page-content-wrapper.auto-unit');
 //         }
 //     });
 // });
-
-    /*
-     *  ----- Functions -----
-    ----------------------------------------------------------------------*/
-
-// Functions
-// this will be exectuted on page loading.
-// will populate site selector
-function autoUnitShowAvailableSites() {
-    $.ajax({
-        url: config.coreUrl + "/site/ids-and-names" + "?" + getToken(),
-        type: "get",
-        success: function (response) {
-
-            var data = {
-                sites: response,
-            }
-            var element = config.autoUnit;
-
-            var template = element.find('.template-select-site').html();
-            var compiledTemplate = Template7.compile(template);
-            var html = compiledTemplate(data);
-            element.find('.select-site').html(html).change();
-        },
-        error: function (xhr, textStatus, errorTrown) {
-            manageError(xhr, textStatus, errorTrown);
-        }
-    });
-}
