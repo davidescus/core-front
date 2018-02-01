@@ -36,10 +36,10 @@ config.autoUnit.on('change', '.select-site', function() {
     });
 });
 
-// Clickable - site selection
-// change table selection
-// show scheduler for selected table.
-config.autoUnit.on('change', '.select-table', function() {
+// Clickable - select table | select date
+// change table or date selection
+// show scheduler for selected site, date and table.
+config.autoUnit.on('change', '.select-table , .select-date', function() {
     autoUnitGetSchedulerForTable();
 });
 
@@ -110,7 +110,7 @@ function autoUnitShowAvailableSites() {
     });
 }
 
-// Functions
+// functions
 // this will populate mounth table with events
 // it use: select-date, select-site, select-table
 function autoUnitGetSchedulerForTable() {
@@ -119,10 +119,10 @@ function autoUnitGetSchedulerForTable() {
         tableIdentifier: config.autoUnit.find('.select-table').val(),
         date: config.autoUnit.find('.select-date').val(),
     };
-    var element = config.autoUnit;
 
     if (param.siteId == '-' || param.tableIdentifier == '-') {
-        element.find('.table-content-month').html('');
+        config.autoUnit.find('.table-content-month').html('');
+        autoUnitPopulateTipsInTemplate({});
         return;
     }
 
@@ -133,11 +133,7 @@ function autoUnitGetSchedulerForTable() {
             var data = {
                 tips: response,
             }
-
-            var template = element.find('.template-content-tip').html();
-            var compiledTemplate = Template7.compile(template);
-            var html = compiledTemplate(data);
-            element.find('.content-tip').html(html);
+            autoUnitPopulateTipsInTemplate(data);
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -145,6 +141,15 @@ function autoUnitGetSchedulerForTable() {
     });
 }
 
+// functions
+// this will populate content-tip with data
+function autoUnitPopulateTipsInTemplate(data) {
+    var element = config.autoUnit;
+    var template = element.find('.template-content-tip').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.content-tip').html(html);
+}
 
     /*
      *  ----- Modal Edit -----

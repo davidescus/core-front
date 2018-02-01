@@ -27,14 +27,13 @@
                         <div class="form-group">
                             <label class="control-label">Month</label>
                             <select class="form-control select-date select2 table_import_filter_select">
-                               <option value="default"> -- default config -- </option>
-                            </select>
-                            <script class="template-select-date" type="text/template7">
                                <option value="default"> -- default-config -- </option>
-                               {{#each tables}}
-                               <option value="{{tableIdentifier}}">{{tableIdentifier}} </option>
-                               {{/each}}
-                            </script>
+                               <option value="<?php echo gmdate('Y-m'); ?>"> <?php echo gmdate('M Y'); ?></option>
+                               <?php $dates = [1, 2, 3, 4, 5, 6] ?>
+                               <?php foreach ($dates as $v) { ?>
+                               <option value="<?php echo gmdate('Y-m', strtotime('+ ' . $v . ' month')); ?>"> <?php echo gmdate('M Y', strtotime('+ ' . $v . ' month')); ?></option>
+                               <?php } ?>
+                            </select>
                         </div>
                     </li>
                     <li>
@@ -69,7 +68,7 @@
                         <input type="hidden" class="tip-identifier" value="{{tipIdentifier}}">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" href="#collapse_3_{{@index}}"> {{tipIdentifier}} </a>
+                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" href="#collapse_3_{{@index}}"> {{tipIdentifier}} | {{configType}} configuration</a>
                             </h4>
                         </div>
                         <div id="collapse_3_{{@index}}" class="panel-collapse collapse">
@@ -88,18 +87,18 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Min Odd</label>
-                                            <input type="text" class="form-control min-odd" placeholder="">
+                                            <input type="text" class="form-control min-odd" value="{{minOdd}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Max Odd</label>
-                                            <input type="text" class="form-control max-odd" placeholder="">
+                                            <input type="text" class="form-control max-odd" value="{{maxOdd}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>No. of Events</label>
+                                            <label>No. of Events IN PROGRESS</label>
                                             <input type="text" class="form-control" placeholder="">
                                         </div>
                                     </div>
@@ -225,25 +224,25 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Wins</label>
-                                            <input type="text" class="form-control win" placeholder="">
+                                            <input type="text" class="form-control win" value="{{win}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Loss</label>
-                                            <input type="text" class="form-control loss" placeholder="">
+                                            <input type="text" class="form-control loss" value="{{loss}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Draw</label>
-                                            <input type="text" class="form-control draw" placeholder="">
+                                            <input type="text" class="form-control draw" value="{{draw}}">
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Win Rate</label>
-                                            <input type="text" class="form-control winrate" placeholder="">
+                                            <input type="text" class="form-control winrate" value="{{winrate}}">
                                         </div>
                                     </div>
                                 </div>
