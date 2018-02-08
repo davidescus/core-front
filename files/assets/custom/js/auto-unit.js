@@ -41,6 +41,7 @@ config.autoUnit.on('change', '.select-site', function() {
 // show scheduler for selected site, date and table.
 config.autoUnit.on('change', '.select-table , .select-date', function() {
     autoUnitGetSchedulerForTable();
+    autoUnitGetScheduledEventsForTable();
 });
 
 // Clickable - save tip settings
@@ -60,12 +61,10 @@ config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
         loss: tipSection.find('.loss').val(),
         draw: tipSection.find('.draw').val(),
         winrate: tipSection.find('.winrate').val(),
-        predictions: {
-            "1x2": tipSection.find('.group-1x2').val(),
-            ou: tipSection.find('.group-ou').val(),
-            ah: tipSection.find('.group-ah').val(),
-            gg: tipSection.find('.group-gg').val(),
-        },
+        prediction1x2: tipSection.find('.group-1x2').val(),
+        predictionOU: tipSection.find('.group-ou').val(),
+        predictionAH: tipSection.find('.group-ah').val(),
+        predictionGG: tipSection.find('.group-gg').val(),
     };
 
     $.ajax({
@@ -74,6 +73,8 @@ config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
         data: data,
         success: function (response) {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
+            autoUnitGetSchedulerForTable();
+            autoUnitGetScheduledEventsForTable();
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -139,6 +140,48 @@ function autoUnitGetSchedulerForTable() {
             manageError(xhr, textStatus, errorTrown);
         }
     });
+}
+
+// functions
+// this will get all events for selected month
+// will bring past event from archive and new sheduled type of events
+function autoUnitGetScheduledEventsForTable() {
+    var param = {
+        siteId: config.autoUnit.find('.select-site').val(),
+        tableIdentifier: config.autoUnit.find('.select-table').val(),
+        date: config.autoUnit.find('.select-date').val(),
+    };
+
+    if (param.siteId == '-' || param.tableIdentifier == '-' || param.date == 'default') {
+        config.autoUnit.find('.table-content-month').html('');
+        autoUnitPopulateTipsInTemplate({});
+        autoUnitShowAssociatedEventsWithTable({});
+        return;
+    }
+
+    $.ajax({
+        url: config.coreUrl + "/auto-unit/get-scheduled-events?" + $.param(param) + "&" + getToken(),
+        type: "get",
+        success: function (response) {
+            var data = {
+                events: response,
+            }
+            autoUnitShowAssociatedEventsWithTable(data);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
+
+// functions
+// this will show all events accordind to selected table
+function autoUnitShowAssociatedEventsWithTable(data) {
+    var element = config.autoUnit;
+    var template = element.find('.template-table-schedule').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.table-schedule').html(html);
 }
 
 // functions

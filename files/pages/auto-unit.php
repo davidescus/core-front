@@ -78,9 +78,9 @@
                                         <div class="form-group">
                                             <label>Ligi</label>
                                             <select class="mt-multiselect btn btn-default leagues" multiple="multiple" data-filter="true" data-width="100%">
-                                                <option value="1-1">Option 1.1</option>
-                                                <option value="1-2" selected="selected">Option 1.2</option>
-                                                <option value="1-3" selected="selected">Option 1.3</option>
+                                                {{#each leagues}}
+                                                <option value="{{id}}" {{#if isAssociated}} selected="selected" {{/if}}>{{name}}</option>
+                                                {{/each}}
                                             </select>
                                         </div>
                                     </div>
@@ -108,27 +108,9 @@
                                         <div class="form-group">
                                             <label>1x2</label>
                                             <select class="form-control group-1x2">
-                                                <option>0%</option>
-                                                <option>5%</option>
-                                                <option>10%</option>
-                                                <option>15%</option>
-                                                <option>20%</option>
-                                                <option>25%</option>
-                                                <option>30%</option>
-                                                <option>35%</option>
-                                                <option>40%</option>
-                                                <option>45%</option>
-                                                <option>50%</option>
-                                                <option>55%</option>
-                                                <option>60%</option>
-                                                <option>65%</option>
-                                                <option>70%</option>
-                                                <option>75%</option>
-                                                <option>80%</option>
-                                                <option>85%</option>
-                                                <option>90%</option>
-                                                <option>95%</option>
-                                                <option>100%</option>
+                                                <?php for ($i = 0; $i <= 100; $i += 5) { ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <?php  } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -136,27 +118,9 @@
                                         <div class="form-group">
                                             <label>Over/Under</label>
                                             <select class="form-control group-ou">
-                                                <option>0%</option>
-                                                <option>5%</option>
-                                                <option>10%</option>
-                                                <option>15%</option>
-                                                <option>20%</option>
-                                                <option>25%</option>
-                                                <option>30%</option>
-                                                <option>35%</option>
-                                                <option>40%</option>
-                                                <option>45%</option>
-                                                <option>50%</option>
-                                                <option>55%</option>
-                                                <option>60%</option>
-                                                <option>65%</option>
-                                                <option>70%</option>
-                                                <option>75%</option>
-                                                <option>80%</option>
-                                                <option>85%</option>
-                                                <option>90%</option>
-                                                <option>95%</option>
-                                                <option>100%</option>
+                                                <?php for ($i = 0; $i <= 100; $i += 5) { ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <?php  } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -164,27 +128,9 @@
                                         <div class="form-group">
                                             <label>AH</label>
                                             <select class="form-control group-ah">
-                                                <option>0%</option>
-                                                <option>5%</option>
-                                                <option>10%</option>
-                                                <option>15%</option>
-                                                <option>20%</option>
-                                                <option>25%</option>
-                                                <option>30%</option>
-                                                <option>35%</option>
-                                                <option>40%</option>
-                                                <option>45%</option>
-                                                <option>50%</option>
-                                                <option>55%</option>
-                                                <option>60%</option>
-                                                <option>65%</option>
-                                                <option>70%</option>
-                                                <option>75%</option>
-                                                <option>80%</option>
-                                                <option>85%</option>
-                                                <option>90%</option>
-                                                <option>95%</option>
-                                                <option>100%</option>
+                                                <?php for ($i = 0; $i <= 100; $i += 5) { ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <?php  } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -192,27 +138,9 @@
                                         <div class="form-group">
                                             <label>BTS</label>
                                             <select class="form-control group-gg">
-                                                <option>0%</option>
-                                                <option>5%</option>
-                                                <option>10%</option>
-                                                <option>15%</option>
-                                                <option>20%</option>
-                                                <option>25%</option>
-                                                <option>30%</option>
-                                                <option>35%</option>
-                                                <option>40%</option>
-                                                <option>45%</option>
-                                                <option>50%</option>
-                                                <option>55%</option>
-                                                <option>60%</option>
-                                                <option>65%</option>
-                                                <option>70%</option>
-                                                <option>75%</option>
-                                                <option>80%</option>
-                                                <option>85%</option>
-                                                <option>90%</option>
-                                                <option>95%</option>
-                                                <option>100%</option>
+                                                <?php for ($i = 0; $i <= 100; $i += 5) { ?>
+                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <?php  } ?>
                                             </select>
                                         </div>
                                     </div>
@@ -270,7 +198,8 @@
                         </div>
                     </div>
                     <hr>
-                    <div class="table-responsive">
+                    <div class="table-responsive table-schedule"></div>
+                        <script class="template-table-schedule" type="text/template7">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -286,42 +215,45 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td> 1 </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> <span class="label bg-green-jungle"> WIN </span> </td>
-                                    <td> Scheduled </td>
-                                    <td> Auto Units </td>
-                                    <td> <button type="button" class="btn red btn-xs">Delete</button> </td>
-                                </tr>
-                                <tr>
-                                    <td> 2 </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> <span class="label bg-red-thunderbird"> LOSS </span> </td>
-                                    <td> Scheduled </td>
-                                    <td> Auto Units </td>
-                                    <td> <button type="button" class="btn red btn-xs">Delete</button> </td>
-                                </tr>
-                                <tr class="subscription-entry">
-                                    <td> 3 </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> Table cell </td>
-                                    <td> <span class="label bg-yellow-gold"> DRAW </span> </td>
-                                    <td> <span class="font-green-jungle">Posted</span> </td>
-                                    <td> Subscription </td>
-                                    <td> <button type="button" class="btn red btn-xs">Delete</button> </td>
-                                </tr>
+                                {{#each events}}
+                                    <tr {{#if isRealUser}} class="subscription-entry" {{/if}}>
+                                        <td> {{systemDate}} </td>
+                                        <td>{{league}}</td>
+                                        <td>{{homeTeam}} vs {{awayTeam}}</td>
+                                        <td>
+                                            {{#if isPosted}} {{predictionName}} {{/if}}
+                                            {{#if isScheduled}} {{predictionGroup}} {{/if}}
+                                        <td>{{odd}}</td>
+                                        <td>
+                                            {{#js_compare "this.statusId == 1"}}
+                                            <span class="label bg-green-jungle"> WIN </span>
+                                            {{/js_compare}}
+                                            {{#js_compare "this.statusId == 2"}}
+                                            <span class="label bg-red-thunderbird"> LOSS </span>
+                                            {{/js_compare}}
+                                            {{#js_compare "this.statusId == 3"}}
+                                            <span class="label bg-yellow-gold"> DRAW </span>
+                                            {{/js_compare}}
+                                            {{#js_compare "this.statusId == 4"}}
+                                            <span class="label bg-yellow-gold"> POSTP. </span>
+                                            {{/js_compare}}
+                                        </td>
+                                        <td>
+                                            {{#if isPosted}} <span class="font-green-jungle">Posted</span> {{/if}}
+                                            {{#if isScheduled}} Scheduled {{/if}}
+                                        </td>
+                                        <td>
+                                            {{#if isAutoUnit}} Auto Unit {{/if}}
+                                            {{#if isRealUser}} Subscription {{/if}}
+                                            {{#if isNoUser}} Manual {{/if}}
+                                        </td>
+                                        <td> <button type="button" class="btn red btn-xs">Delete</button> </td>
+                                    </tr>
+                                {{/each}}
+
                             </tbody>
                         </table>
-                    </div>
+                        </script>
                 </div>
 
             </div>
