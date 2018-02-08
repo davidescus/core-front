@@ -44,6 +44,15 @@ config.autoUnit.on('change', '.select-table , .select-date', function() {
     autoUnitGetScheduledEventsForTable();
 });
 
+// Clickable - change prediction percentage
+// calculate sum of total percentage
+config.autoUnit.on(
+  'change',
+  '.content-tip .group-1x2 ,.content-tip .group-ou ,.content-tip .group-ah ,.content-tip .group-gg',
+  function() {
+    autoUnitCalculatePredictionPercentage();
+});
+
 // Clickable - save tip settings
 // save current settings for selected tip
 config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
@@ -135,11 +144,24 @@ function autoUnitGetSchedulerForTable() {
                 tips: response,
             }
             autoUnitPopulateTipsInTemplate(data);
+            autoUnitCalculatePredictionPercentage();
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
         }
     });
+}
+// functions
+// this will show sum percentage for all prediction groups
+function autoUnitCalculatePredictionPercentage() {
+    var element = config.autoUnit.find('.content-tip');
+    var group1x2 = parseInt(element.find('.group-1x2').val());
+    var groupOU = parseInt(element.find('.group-ou').val());
+    var groupAH = parseInt(element.find('.group-ah').val());
+    var groupGG = parseInt(element.find('.group-gg').val());
+
+    var total = group1x2 + groupOU + groupAH + groupGG;
+    element.find('.prediction-percentage').html(total);
 }
 
 // functions
@@ -163,10 +185,7 @@ function autoUnitGetScheduledEventsForTable() {
         url: config.coreUrl + "/auto-unit/get-scheduled-events?" + $.param(param) + "&" + getToken(),
         type: "get",
         success: function (response) {
-            var data = {
-                events: response,
-            }
-            autoUnitShowAssociatedEventsWithTable(data);
+            autoUnitShowAssociatedEventsWithTable(response);
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);

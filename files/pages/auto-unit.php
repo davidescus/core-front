@@ -109,7 +109,11 @@
                                             <label>1x2</label>
                                             <select class="form-control group-1x2">
                                                 <?php for ($i = 0; $i <= 100; $i += 5) { ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <option value="<?php echo $i; ?>"
+                                                {{#js_compare "this.prediction1x2 == <?php echo $i; ?>"}}
+                                                    selected="selected"
+                                                {{/js_compare}}
+                                                ><?php echo $i; ?>%</option>
                                                 <?php  } ?>
                                             </select>
                                         </div>
@@ -119,7 +123,11 @@
                                             <label>Over/Under</label>
                                             <select class="form-control group-ou">
                                                 <?php for ($i = 0; $i <= 100; $i += 5) { ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <option value="<?php echo $i; ?>"
+                                                {{#js_compare "this.predictionOU == <?php echo $i; ?>"}}
+                                                    selected="selected"
+                                                {{/js_compare}}
+                                                ><?php echo $i; ?>%</option>
                                                 <?php  } ?>
                                             </select>
                                         </div>
@@ -129,7 +137,11 @@
                                             <label>AH</label>
                                             <select class="form-control group-ah">
                                                 <?php for ($i = 0; $i <= 100; $i += 5) { ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <option value="<?php echo $i; ?>"
+                                                {{#js_compare "this.predictionAH == <?php echo $i; ?>"}}
+                                                    selected="selected"
+                                                {{/js_compare}}
+                                                ><?php echo $i; ?>%</option>
                                                 <?php  } ?>
                                             </select>
                                         </div>
@@ -139,13 +151,17 @@
                                             <label>BTS</label>
                                             <select class="form-control group-gg">
                                                 <?php for ($i = 0; $i <= 100; $i += 5) { ?>
-                                                <option value="<?php echo $i; ?>"><?php echo $i; ?>%</option>
+                                                <option value="<?php echo $i; ?>"
+                                                {{#js_compare "this.predictionGG == <?php echo $i; ?>"}}
+                                                    selected="selected"
+                                                {{/js_compare}}
+                                                ><?php echo $i; ?>%</option>
                                                 <?php  } ?>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-md-offset-4 text-center">
-                                            <label>Total: 100%</label>
+                                        <label>Total: <span class="prediction-percentage"></span>%</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -185,21 +201,21 @@
                     {{/each}}
                 </script>
 
-                <div class="panel panel-default">
+                <div class="panel panel-default table-schedule"></div>
+                <script class="template-table-schedule" type="text/template7">
                     <hr>
                     <div class="row">
                         <div class="col-md-6 col-md-offset-3">
                             <ul class="text-center inline-list nostyle-list">
-                                <li class="text-center"><span class="label bg-blue"> WIN RATE: 78.87% </span></li>
-                                <li class="text-center"><span class="label bg-green-jungle"> WINS: 26 </span></li>
-                                <li class="text-center"><span class="label bg-red-thunderbird"> LOSS: 8 </span></li>
-                                <li class="text-center"><span class="label bg-yellow-gold"> DRAW: 2 </span></li>
+                                <li class="text-center"><span class="label bg-blue"> WIN RATE: {{winrate}}% </span></li>
+                                <li class="text-center"><span class="label bg-green-jungle"> WINS: {{win}} </span></li>
+                                <li class="text-center"><span class="label bg-red-thunderbird"> LOSS: {{loss}} </span></li>
+                                <li class="text-center"><span class="label bg-yellow-gold"> DRAW: {{draw}} </span></li>
                             </ul>
                         </div>
                     </div>
                     <hr>
-                    <div class="table-responsive table-schedule"></div>
-                        <script class="template-table-schedule" type="text/template7">
+                    <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
@@ -253,9 +269,8 @@
 
                             </tbody>
                         </table>
-                        </script>
-                </div>
-
+                     </div>
+                 </script>
             </div>
         </div>
         <!-- END SELECT SITE AND TABLE PORTLET-->
