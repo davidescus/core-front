@@ -51,10 +51,7 @@
                         </div>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-success">Load</button>
-                    </li>
-                    <li>
-                        <button type="button" class="btn btn-success" data-toggle="modal" href="#add-new-entry-modal">Add New Entry</button>
+                        <button type="button" class="btn btn-success new-schedule-event">Add New Entry</button>
                     </li>
                 </ul>
             </div>
@@ -280,59 +277,63 @@
             </div>
         </div>
         <!-- END SELECT SITE AND TABLE PORTLET-->
-        <div class="modal fade" id="add-new-entry-modal" tabindex="-1" role="add-new-entry-modal" aria-hidden="true">
+        <div class="modal fade" id="auto-unit-new-schedule-event" tabindex="-1" role="auto-unit-new-schedule-event" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                         <h4 class="modal-title">Add New Entry</h4>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body new-event"></div>
+                    <script class="template-new-event" type="text/template7">
                         <ul class="inline-list nostyle-list">
                             <li>
                                 <div class="form-group">
                                     <label class="control-label">Date</label>
-                                    <input class="form-control input-medium date-picker" size="16" type="text" value="" />
+                                    <input class="form-control input-medium system-date" type="text" value="" />
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <label>Tip</label>
-                                    <select class="form-control">
-                                        <option>Option 1</option>
-                                        <option>Option 2</option>
-                                        <option>Option 3</option>
-                                        <option>Option 4</option>
-                                        <option>Option 5</option>
+                                    <select class="form-control tip-identifier">
+                                        <option value=""> -- select -- </option>
+                                        {{#each tips}}
+                                        <option value="{{this}}">{{this}}</option>
+                                        {{/each}}
                                     </select>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <label for="single" class="control-label">Prediction</label>
-                                    <select id="single" class="form-control select2">
-                                        <option></option>
-                                        <option value="AK">Alaska</option>
-                                        <option value="HI">Hawaii</option>
+                                    <select id="single" class="form-control prediction-group">
+                                        <option value=""> -- select -- </option>
+                                        <option value="1x2">1x2</option>
+                                        <option value="ah">AH</option>
+                                        <option value="gg">GG</option>
+                                        <option value="o/u">O/U</option>
+                                        <option value="ah">AH</option>
                                     </select>
                                 </div>
                             </li>
                             <li>
                                 <div class="form-group">
                                     <label>Result</label>
-                                    <select class="form-control">
-                                        <option>WIN</option>
-                                        <option>LOSS</option>
-                                        <option>DRAW</option>
-                                        <option>POSTP</option>
+                                    <select class="form-control status">
+                                        <option value=""> -- select -- </option>
+                                        <option value="1">WIN</option>
+                                        <option value="2">LOSS</option>
+                                        <option value="3">DRAW</option>
                                     </select>
                                 </div>
                             </li>
                         </ul>
-                    </div>
+                    </script>
+
                     <div class="modal-footer">
                         <button type="button" class="btn dark btn-outline" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn green">Save changes</button>
+                        <button type="button" class="btn green save">Save</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

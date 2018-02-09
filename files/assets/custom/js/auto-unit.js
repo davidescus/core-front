@@ -4,13 +4,6 @@ config.autoUnit = $('.page-content-wrapper.auto-unit');
      *  ----- CLICKABLE ACTIONS -----
     ----------------------------------------------------------------------*/
 
-// Clickable - date selection
-// change date selection
-// trigger function to get available events in selected date.
-// config.archiveBig.on('change', '.select-date', function() {
-//    autoUnitGetSchedulerForTable();
-// });
-
 // Clickable - site selection
 // change site selection
 // show available tables for selected site.
@@ -42,6 +35,38 @@ config.autoUnit.on('change', '.select-site', function() {
 config.autoUnit.on('change', '.select-table , .select-date', function() {
     autoUnitGetSchedulerForTable();
     autoUnitGetScheduledEventsForTable();
+});
+
+// Clickable - new schedule event
+// launch modal to add new schedule event
+config.autoUnit.on('click', '.new-schedule-event', function() {
+    var param = {
+        siteId: config.autoUnit.find('.select-site').val(),
+        tableIdentifier: config.autoUnit.find('.select-table').val(),
+        date: config.autoUnit.find('.select-date').val(),
+    };
+
+    if (param.siteId == '-' || param.tableIdentifier == '-' || param.date == 'default') {
+        alert('You must select site, table and other month than default');
+        return;
+    }
+    var element = config.autoUnit.find('#auto-unit-new-schedule-event');
+    element.modal();
+
+    var tips = [];
+    $.each(config.autoUnit.find('.content-tip .tip-identifier'), function(i, e) {
+        tips.push($(e).val());
+    });
+
+    data = {tips: tips};
+    var template = element.find('.template-new-event').html();
+    var compiledTemplate = Template7.compile(template);
+    var html = compiledTemplate(data);
+    element.find('.new-event').html(html).change();
+
+    element.find('.system-date').datepicker({
+        dateFormat: 'yy-mm-dd'
+    });
 });
 
 // Clickable - change prediction percentage
@@ -125,6 +150,41 @@ config.autoUnit.on('click', '.table-schedule .delete-event', function() {
             }
         });
     }
+});
+    /*
+     *  ----- Modal New Schedule Event -----
+    ----------------------------------------------------------------------*/
+
+// Modal - new schedule event
+// save new schedule event
+$('#auto-unit-new-schedule-event').on('click', '.save', function() {
+    var element = $('#auto-unit-new-schedule-event');
+
+    var data = {
+        siteId: config.autoUnit.find('.select-site').val(),
+        tableIdentifier: config.autoUnit.find('.select-table').val(),
+        date: config.autoUnit.find('.select-date').val(),
+        systemDate: element.find('.system-date').val(),
+        tipIdentifier: element.find('.tip-identifier').val(),
+        predictionGroup: element.find('.prediction-group').val(),
+        statusId: element.find('.status').val(),
+    };
+
+    $.ajax({
+        url: config.coreUrl + "/auto-unit/save-new-schedule-event?" + getToken(),
+        type: "post",
+        data: data,
+        success: function (response) {
+            if(response.type == 'success') {
+                element.modal('hide');
+                autoUnitGetScheduledEventsForTable();
+            }
+            alert("Type: --- " + response.type + " --- \r\n" + response.message);
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
 });
 
     /*
@@ -249,31 +309,3 @@ function autoUnitPopulateTipsInTemplate(data) {
     element.find('.content-tip').html(html);
 }
 
-    /*
-     *  ----- Modal Edit -----
-    ----------------------------------------------------------------------*/
-
-// Modal - Edit
-// save edit prediction and status
-// $('#archive-big-modal-edit').on('click', '.save', function() {
-//     var element = $('#archive-big-modal-edit');
-
-//     $.ajax({
-//         url: config.coreUrl + "/archive-big/update/prediction-and-status/" + element.find('.event-id').val() + "?" + getToken(),
-//         type: "post",
-//         data: {
-//             siteId: config.archiveBig.find('.select-site').val(),
-//             predictionId: element.find('.prediction').val(),
-//             statusId: element.find('.status').val(),
-//         },
-//         success: function (response) {
-
-//             alert("Type: --- " + response.type + " --- \r\n" + response.message);
-//             showMonthAvailableEventsInBigArchive();
-//             element.modal('hide');
-//         },
-//         error: function (xhr, textStatus, errorTrown) {
-//             manageError(xhr, textStatus, errorTrown);
-//         }
-//     });
-// });
