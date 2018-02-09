@@ -91,6 +91,42 @@ config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
     });
 });
 
+// Clickable - delete event
+// delete event from table schedule,
+//    - for archive events use distribution force delete procedure
+config.autoUnit.on('click', '.table-schedule .delete-event', function() {
+
+    var eventType = $(this).attr('data-type');
+
+    // default values for autoUnit
+    var message = "Event is part of AutoUnits schedule.";
+    var url = config.coreUrl + "/auto-unit/delete-event?" + getToken();
+
+
+    // values for archive-big
+    if (eventType == 'archive-big') {
+        message = "Event is part of Big Archive and it was published in site.";
+        url = config.coreUrl + "/distribution/force-delete" + "?" + getToken();
+    }
+
+    if(confirm(message + " Are you sure?")) {
+        $.ajax({
+            url: url,
+            type: "post",
+            data: {
+                ids: [$(this).attr('data-id')],
+            },
+            success: function (response) {
+                alert("Type: --- " + response.type + " --- \r\n" + response.message);
+                autoUnitGetScheduledEventsForTable();
+            },
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
+        });
+    }
+});
+
     /*
      *  ----- Functions -----
     ----------------------------------------------------------------------*/
