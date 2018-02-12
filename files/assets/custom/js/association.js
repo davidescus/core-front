@@ -116,7 +116,32 @@ $('#modal-add-manual-event').on('change', '[name="association-modal-event-type"]
 // Modal Add Event
 // when change prediction show text in confirm area
 $('#modal-add-manual-event').on('change', '.select-prediction', function() {
-    $('#modal-add-manual-event .confirm-event .prediction').html($(this).val());
+    var element = $('#modal-add-manual-event');
+
+    var matchId = element.find('.match-id').val();
+    var leagueId = element.find('.league-id').val();
+    var predictionId = $(this).val();
+
+    element.find('.confirm-event .prediction').html(predictionId);
+
+    $.ajax({
+        url: config.coreUrl + "/odd/get-value?" + getToken(),
+        type: "post",
+        data: {
+            matchId: matchId,
+            leagueId: leagueId,
+            predictionId: predictionId,
+        },
+        success: function (response) {
+            if (response.type == 'success'){
+                element.find('.odd').val(response.value);
+                element.find('.confirm-event .odd').html(response.value);
+            }
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
 });
 
 // Modal Add Event
@@ -167,9 +192,13 @@ $('#modal-add-manual-event .search-match').keyup(function() {
 // click on selectable-row to choose it
 $('#modal-add-manual-event .selectable-block').on('click', '.selectable-row', function() {
     var matchId = $(this).attr('data-id');
+    var leagueId = $(this).attr('data-league-id');
 
     // return if click on no available events
     if (typeof matchId === typeof undefined || matchId === false)
+        return;
+
+    if (typeof leagueId === typeof undefined || leagueId === false)
         return;
 
     var element = $('#modal-add-manual-event');
@@ -179,6 +208,7 @@ $('#modal-add-manual-event .selectable-block').on('click', '.selectable-row', fu
 
     // put id in hidden input .match-id
     element.find('.match-id').val(matchId);
+    element.find('.league-id').val(leagueId);
     element.find('.selectable-block').addClass('hidden');
 
     // get selected event and complete confirmation step with event details

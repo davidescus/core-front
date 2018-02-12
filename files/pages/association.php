@@ -737,6 +737,8 @@
 
                                         <!-- hidden inputt to persist matchId -->
                                         <input type="hidden" class="match-id">
+                                        <!-- hidden inputt to persist leagueId -->
+                                        <input type="hidden" class="league-id">
 
                                         <!-- content based on event type selection  noTip -->
 	                                    <div class="col-md-12">
@@ -767,7 +769,7 @@
                                                         <div class="selectable-block"></div>
                                                         <script class="template-selectable-block" type="text/template7">
                                                             {{#each matches}}
-                                                            <div class="selectable-row" data-id="{{id}}">{{country}}: {{league}} {{homeTeam}} --- {{awayTeam}} {{result}} {{eventDate}}</div>
+                                                            <div class="selectable-row" data-id="{{id}}"    data-league-id="{{leagueId}}">{{country}}: {{league}} {{homeTeam}} --- {{awayTeam}} {{result}} {{eventDate}}</div>
                                                             {{else}}
                                                             <div class="selectable">No Events Available</div>
                                                             {{/each}}
