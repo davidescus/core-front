@@ -10,7 +10,9 @@
             </div>
             <!-- END FOOTER -->
         </div>
+
         <!-- BEGIN QUICK NAV -->
+        <!--
         <nav class="quick-nav">
             <a class="quick-nav-trigger" href="#0">
                 <span aria-hidden="true"></span>
@@ -43,6 +45,8 @@
             </ul>
             <span aria-hidden="true" class="quick-nav-bg"></span>
         </nav>
+        -->
+
         <div class="quick-nav-overlay"></div>
         <!-- END QUICK NAV -->
         <!--[if lt IE 9]>
