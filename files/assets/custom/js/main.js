@@ -32,14 +32,10 @@ $(document).ready(function() {
 
     // this will show all notification in front.
     function showLogs() {
-        console.log('notification');
-
         $.ajax({
-            url: config.coreUrl + "/get-logs?" + getToken(),
+            url: config.coreUrl + "/log/all?" + getToken(),
             type: "get",
             success: function (response) {
-                console.log(response);
-
                 if (response.type == 'success') {
                     var data = response;
 

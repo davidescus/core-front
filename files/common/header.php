@@ -77,6 +77,21 @@ License: You must have a valid license purchased only from themeforest(the above
                 var token = localStorage.getItem('core-app-identifier-x76') || '00000000';
                 return 'token=' + token;
             }
+
+            // marks logs solved
+            function deleteLog(elem, id) {
+                $.ajax({
+                    url: config.coreUrl + "/log/mark-solved/" + id + "?" + getToken(),
+                    type: "get",
+                    success: function (response) {
+                        if (response.type == 'success')
+                            $(elem).closest('li').remove();
+                    },
+                    error: function (xhr, textStatus, errorTrown) {
+                        manageError(xhr, textStatus, errorTrown);
+                    }
+                });
+            }
         </script>
 
     </head>
@@ -138,6 +153,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                              {{@index}} - {{this}}
                                                         {{/each}}
                                                      </span>
+                                                     <button class="btn btn-default" onclick="event.stopPropagation(); deleteLog(this, '{{id}}');">Delete</button>
                                                 </a>
                                             </li>
                                             {{/each}}
@@ -178,6 +194,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                              {{@index}} - {{this}}
                                                         {{/each}}
                                                     </span>
+                                                    <button class="btn btn-default" onclick="event.stopPropagation(); deleteLog(this, '{{id}}');">Delete</button>
                                                 </a>
                                             </li>
                                             {{/each}}
