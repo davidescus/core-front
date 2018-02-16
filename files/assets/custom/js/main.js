@@ -9,6 +9,9 @@ $(document).ready(function() {
         setActivePage();
     });
 
+    // show notifications
+    setInterval(showLogs, 5000);
+
     /*
      * Make visible active page and trigger setControlFlow()
      * te retrive json with data for current page
@@ -25,6 +28,37 @@ $(document).ready(function() {
 
         // trigger setControlFlow() method
         setControlFlow();
+    }
+
+    // this will show all notification in front.
+    function showLogs() {
+        console.log('notification');
+
+        $.ajax({
+            url: config.coreUrl + "/get-logs?" + getToken(),
+            type: "get",
+            success: function (response) {
+                console.log(response);
+
+                if (response.type == 'success') {
+                    var data = response;
+
+                    var template = $('.template-notification-warning').html();
+                    var compiledTemplate = Template7.compile(template);
+                    var html = compiledTemplate(data);
+                    $('.notification-warning').html(html).change();
+
+                    var template = $('.template-notification-panic').html();
+                    var compiledTemplate = Template7.compile(template);
+                    var html = compiledTemplate(data);
+                    $('.notification-panic').html(html).change();
+
+                }
+            },
+            error: function (xhr, textStatus, errorTrown) {
+                manageError(xhr, textStatus, errorTrown);
+            }
+        });
     }
 
     /*
