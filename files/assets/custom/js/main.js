@@ -1,11 +1,21 @@
 $(document).ready(function() {
 
+    var activePage = localStorage.getItem('core-app-active-page');
+    if (activePage)
+        config.activePage = activePage;
+
     // app start flow
     setActivePage();
 
     $('.page-sidebar-menu .nav-item').on('click', function() {
+        var page = $(this).attr('target');
+
         // set active page in config
-        config.activePage = $(this).attr('target');
+        config.activePage = page;
+
+        // set active page in localStorage
+        localStorage.setItem("core-app-active-page", page);
+
         setActivePage();
     });
 
@@ -48,7 +58,6 @@ $(document).ready(function() {
                     var compiledTemplate = Template7.compile(template);
                     var html = compiledTemplate(data);
                     $('.notification-panic').html(html).change();
-
                 }
             },
             error: function (xhr, textStatus, errorTrown) {
