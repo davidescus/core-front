@@ -225,6 +225,7 @@
                                     <th> Status </th>
                                     <th> Source </th>
                                     <th> Action </th>
+                                    <th> Info </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -267,6 +268,7 @@
                                             {{#if isNoUser}}data-type="archive-big" data-id="{{distributionId}}"{{/if}}
                                             ">Delete</button>
                                         </td>
+                                        <td>{{status}} - {{info}}</td>
                                     </tr>
                                 {{/each}}
 
