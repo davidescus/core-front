@@ -195,18 +195,21 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Wins</label>
-                                            <input type="text" class="form-control win" value="{{win}}">
+                                    {{#if isDefaultConf}}
+                                    {{else}}
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Wins</label>
+                                                <input type="text" class="form-control win" value="{{win}}">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Loss</label>
-                                            <input type="text" class="form-control loss" value="{{loss}}">
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Loss</label>
+                                                <input type="text" class="form-control loss" value="{{loss}}">
+                                            </div>
                                         </div>
-                                    </div>
+                                    {{/if}}
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Draw</label>
@@ -214,10 +217,21 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>Win Rate</label>
-                                            <input type="text" class="form-control winrate" value="{{winrate}}">
-                                        </div>
+                                        {{#if isDefaultConf}}
+                                            <div class="form-group">
+                                                <label>Min Win Rate</label>
+                                                <input type="text" class="form-control min-winrate" value="{{minWinrate}}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Max Win Rate</label>
+                                                <input type="text" class="form-control max-winrate" value="{{maxWinrate}}">
+                                            </div>
+                                        {{else}}
+                                            <div class="form-group">
+                                                <label>Win Rate</label>
+                                                <input type="text" class="form-control winrate" value="{{winrate}}">
+                                            </div>
+                                        {{/if}}
                                     </div>
                                 </div>
                                 <div class="row">
