@@ -94,10 +94,43 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>No. of Events IN PROGRESS</label>
-                                            <input type="text" class="form-control" placeholder="">
-                                        </div>
+                                        {{#if isDefaultConf}}
+                                            <!-- default configuration -->
+                                            {{#if isTips}}
+                                                <div class="form-group">
+                                                    <label>Min Tips</label>
+                                                    <input type="text" class="form-control min-tips" value="{{minTips}}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Max Tips</label>
+                                                    <input type="text" class="form-control max-tips" value="{{maxTips}}">
+                                                </div>
+                                                <input type="hidden" class="config-type" value="tips">
+                                            {{/if}}
+                                            {{#if isDays}}
+                                                <div class="form-group">
+                                                    <label>Tips per Day</label>
+                                                    <input type="text" class="form-control tips-per-day" value="{{tipsPerDay}}">
+                                                </div>
+                                                <input type="hidden" class="config-type" value="days">
+                                            {{/if}}
+                                        {{else}}
+                                            <!-- monthly configuration -->
+                                            {{#if isTips}}
+                                                <div class="form-group">
+                                                    <label>Tips Number</label>
+                                                    <input type="text" class="form-control tips-number" value="{{tipsNumber}}">
+                                                </div>
+                                                <input type="hidden" class="config-type" value="tips">
+                                            {{/if}}
+                                            {{#if isDays}}
+                                                <div class="form-group">
+                                                    <label>Tips per Day</label>
+                                                    <input type="text" class="form-control tips-per-day" value="{{tipsPerDay}}">
+                                                </div>
+                                                <input type="hidden" class="config-type" value="days">
+                                            {{/if}}
+                                        {{/if}}
                                     </div>
                                 </div>
                                 <div class="row">

@@ -99,6 +99,11 @@ config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
         predictionOU: tipSection.find('.group-ou').val(),
         predictionAH: tipSection.find('.group-ah').val(),
         predictionGG: tipSection.find('.group-gg').val(),
+        configType: tipSection.find('.config-type').val(),
+        minTips: tipSection.find('.min-tips').length ? tipSection.find('.min-tips').val() : 0,
+        maxTips: tipSection.find('.max-tips').length ? tipSection.find('.max-tips').val() : 0,
+        tipsPerDay: tipSection.find('.tips-per-day').length ? tipSection.find('.tips-per-day').val() : 0,
+        tipsNumber: tipSection.find('.tips-number').length ? tipSection.find('.tips-number').val() : 0,
     };
 
     $.ajax({
