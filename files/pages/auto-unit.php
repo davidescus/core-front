@@ -65,7 +65,7 @@
                         <input type="hidden" class="tip-identifier" value="{{tipIdentifier}}">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" href="#collapse_3_{{@index}}"> {{tipIdentifier}} | {{configType}} configuration</a>
+                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" href="#collapse_3_{{@index}}"> {{tipIdentifier}} | {{scheduleType}} configuration</a>
                             </h4>
                         </div>
                         <div id="collapse_3_{{@index}}" class="panel-collapse collapse">
@@ -114,6 +114,7 @@
                                                 </div>
                                                 <input type="hidden" class="config-type" value="days">
                                             {{/if}}
+                                            <input type="hidden" class="configuration-type" value="default">
                                         {{else}}
                                             <!-- monthly configuration -->
                                             {{#if isTips}}
@@ -130,6 +131,7 @@
                                                 </div>
                                                 <input type="hidden" class="config-type" value="days">
                                             {{/if}}
+                                            <input type="hidden" class="configuration-type" value="monthly">
                                         {{/if}}
                                     </div>
                                 </div>
@@ -234,6 +236,10 @@
                                         {{/if}}
                                     </div>
                                 </div>
+
+                                <input type="hidden" class="tips-total" value="{{tipsNumber}}"/>
+                                <input type="hidden" class="days-in-month" value="{{daysInMonth}}"/>
+
                                 <div class="row">
                                     <div class="col-md-2 col-md-offset-5">
                                         <button type="button" class="btn btn-success save-tip-settings">Save</button>

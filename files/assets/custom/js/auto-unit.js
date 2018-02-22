@@ -78,6 +78,55 @@ config.autoUnit.on(
     autoUnitCalculatePredictionPercentage();
 });
 
+// change value of:
+//    tips total
+//    winrate
+//    draw number
+config.autoUnit.on(
+    'keyup', '.content-tip .tips-number, .content-tip .tips-per-day, .content-tip .winrate, .content-tip .draw',
+    function() {
+
+    var tipSection = $(this).closest('.panel.panel-default');
+
+    if (tipSection.find('.configuration-type').val() == 'default')
+        return;
+
+    var numberOfTips = 0;
+    if (tipSection.find('.config-type').val() == 'tips') {
+        // tips
+        var numberOfTips = tipSection.find('.tips-number').val();
+    } else {
+        // days
+        var daysInMonth = parseInt(tipSection.find('.days-in-month').val());
+        var tipsPerDay = parseInt(tipSection.find('.tips-per-day').val());
+        var numberOfTips = isNaN(tipsPerDay) ? '' : daysInMonth * tipsPerDay;
+    }
+
+    tipSection.find('.tips-total').val(numberOfTips);
+
+    calculateWinLoss(tipSection);
+});
+
+// change value of:
+//    wins
+//    losses
+config.autoUnit.on('keyup', '.content-tip .win, .content-tip .loss', function() {
+    var tipSection = $(this).closest('.panel.panel-default');
+
+    if (tipSection.find('.configuration-type').val() == 'default')
+        return;
+
+    var values = getWinLossDrawTotalWinrate(tipSection);
+
+    manageWinLossErrors(tipSection);
+
+    if (isNaN(values.win) || isNaN(values.loss))
+        return;
+
+    var winrate = (values.win * 100) / (values.win + values.loss);
+    tipSection.find('.winrate').val(winrate.toFixed(2));
+});
+
 // Clickable - save tip settings
 // save current settings for selected tip
 config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
@@ -114,8 +163,11 @@ config.autoUnit.on('click', '.content-tip .save-tip-settings', function() {
         data: data,
         success: function (response) {
             alert("Type: --- " + response.type + " --- \r\n" + response.message);
-            autoUnitGetSchedulerForTable();
-            autoUnitGetScheduledEventsForTable();
+
+            if (response.type == 'success') {
+                autoUnitGetSchedulerForTable();
+                autoUnitGetScheduledEventsForTable();
+            }
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
@@ -314,5 +366,71 @@ function autoUnitPopulateTipsInTemplate(data) {
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
     element.find('.content-tip').html(html);
+}
+
+// functions
+// @param object of tip section.
+// this will automatically calcuate number of wins, losses
+// by winrate and by tips number
+function calculateWinLoss(elem) {
+    var values = getWinLossDrawTotalWinrate(elem);
+
+    if (isNaN(values.tipsTotal) || isNaN(values.winrate) || isNaN(values.draw)) {
+        // alert('You need Tips Number (or TipsPerDay) and Winrate');
+        console.log('You need Tips Number (or TipsPerDay), Winrate and Draws number');
+        return;
+    }
+
+    if (values.draw > values.tipsTotal) {
+        // alert('Draws can not be greather than tips number');
+        console.log('Draws can not be greather than tips number');
+        return;
+    }
+
+    var total = values.tipsTotal - values.draw;
+
+    values.win = Math.round((values.winrate / 100) * total);
+    elem.find('.win').val(values.win);
+
+    values.loss = total - values.win;
+    elem.find('.loss').val(values.loss);
+
+    manageWinLossErrors(elem);
+}
+
+// functions
+// @parma elem jquery object of tip-section
+// add errors if wins + loss + draw != tipsTotal
+// add or remeve errors;
+function manageWinLossErrors(elem) {
+
+    var action = 'remove';
+    var el = ['tips-number', 'win', 'loss', 'draw'];
+    var values = getWinLossDrawTotalWinrate(elem);
+
+    var total = values.win + values.loss + values.draw;
+    if (total != values.tipsTotal)
+        action = 'add';
+
+    $.each(el, function(i, e) {
+        var input = elem.find('.' + e);
+        if (action == 'add')
+            input.parent().addClass('has-error');
+        else
+            input.parent().removeClass('has-error');
+    });
+}
+
+// functions
+// @parma elem jquery object of tip-section
+// @return object
+function getWinLossDrawTotalWinrate(elem) {
+    return {
+        winrate: parseFloat(elem.find('.winrate').val()),
+        tipsTotal: parseInt(elem.find('.tips-total').val()),
+        win: parseInt(elem.find('.win').val()),
+        loss: parseInt(elem.find('.loss').val()),
+        draw: parseInt(elem.find('.draw').val()),
+    };
 }
 
