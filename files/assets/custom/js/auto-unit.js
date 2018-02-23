@@ -377,13 +377,13 @@ function calculateWinLoss(elem) {
 
     if (isNaN(values.tipsTotal) || isNaN(values.winrate) || isNaN(values.draw)) {
         // alert('You need Tips Number (or TipsPerDay) and Winrate');
-        console.log('You need Tips Number (or TipsPerDay), Winrate and Draws number');
+        alert('You need Tips Number (or TipsPerDay), Winrate and Draws number');
         return;
     }
 
     if (values.draw > values.tipsTotal) {
         // alert('Draws can not be greather than tips number');
-        console.log('Draws can not be greather than tips number');
+        alert('Draws can not be greather than tips number');
         return;
     }
 
