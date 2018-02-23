@@ -284,7 +284,7 @@
                             <tbody>
                                 {{#each events}}
                                     <tr {{#if isRealUser}} class="subscription-entry" {{/if}}>
-                                        <td> {{systemDate}} </td>
+                                        <td> {{systemDate}} - {{tipIdentifier}} </td>
                                         <td>{{league}}</td>
                                         <td>{{homeTeam}} vs {{awayTeam}}</td>
                                         <td>
