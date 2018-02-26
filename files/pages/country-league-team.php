@@ -29,8 +29,8 @@
                             <select class="form-control select-team select2 table_import_filter_select"></select>
                             <script class="template-select-team" type="text/template7">
                                <option value="-"> -- select -- </option>
-                               {{#each sites}}
-                               <option value="{{id}}">{{name}} </option>
+                               {{#each teams}}
+                               <option value="{{teamId}}">{{name}} </option>
                                {{/each}}
                             </script>
                         </div>
@@ -39,12 +39,15 @@
             </div>
 
             <div class="portlet-body">
-
-
                 <div class="panel panel-default">
                     <div class="row">
                         <div class="col-md-6">
+                            <label>Team Alias</label>
                             <input type="text" class="form-control team-alias"/>
+                        </div>
+                        <div class="col-md-6">
+                            <label>&nbsp;</label>
+                            <button class="btn btn-primary save">Save Alias</button>
                         </div>
                     </div>
                 </div>
