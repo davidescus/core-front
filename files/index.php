@@ -35,6 +35,7 @@
         include "pages/archive-big.php";
         include "pages/archive-home.php";
         include "pages/auto-unit.php";
+        include "pages/country-league-team.php";
 
         include "common/sidebar.php";
 

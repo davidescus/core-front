@@ -117,6 +117,8 @@
         <script src="../assets/custom/js/archive-home.js"></script>
         <!--  auto-unit.js    -->
         <script src="../assets/custom/js/auto-unit.js"></script>
+        <!-- country-league-team.js    -->
+        <script src="../assets/custom/js/country-league-team.js"></script>
         <!--  main js    -->
         <script src="../assets/custom/js/main.js"></script>
 
