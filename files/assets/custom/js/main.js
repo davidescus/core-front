@@ -124,5 +124,9 @@ $(document).ready(function() {
         if (config.activePage == 'auto-unit') {
             autoUnitShowAvailableSites();
         }
+
+        if (config.activePage == 'country-league-team') {
+            countryLeagueTeamShowAllCountries();
+        }
     }
 });

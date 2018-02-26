@@ -28,3 +28,31 @@ config.countryLeagueTeam.on('change', '.select-site', function() {
         }
     });
 });
+
+    /*
+     *  ----- FUNCTIONS -----
+    ----------------------------------------------------------------------*/
+
+// Functions
+// populate country selector with all country exist in system
+function countryLeagueTeamShowAllCountries() {
+    $.ajax({
+        url: config.coreUrl + "/country/all" + "?" + getToken(),
+        type: "get",
+        success: function (response) {
+
+            var data = {
+                countries: response,
+            }
+            var element = config.countryLeagueTeam;
+
+            var template = element.find('.template-select-country').html();
+            var compiledTemplate = Template7.compile(template);
+            var html = compiledTemplate(data);
+            element.find('.select-country').html(html).change();
+        },
+        error: function (xhr, textStatus, errorTrown) {
+            manageError(xhr, textStatus, errorTrown);
+        }
+    });
+}
