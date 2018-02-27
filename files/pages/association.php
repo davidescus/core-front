@@ -662,7 +662,7 @@
 <!-- END MODAL ASSOCIATE EVENT-PACKAGE -->
 
 <!-- START MODAL ADD EVENT -->
-<div class="modal fade" id="modal-add-manual-event" tabindex="-1" role="basic" aria-hidden="true">
+<div class="modal fade" id="modal-add-manual-event" role="basic" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
 
