@@ -74,7 +74,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Ligi</label>
-                                            <select class="mt-multiselect btn btn-default leagues" multiple="multiple" data-filter="true" data-width="100%">
+                                            <select class="mt-multiselect btn btn-default autounit leagues" multiple="multiple" data-filter="true" data-width="100%">
                                                 {{#each leagues}}
                                                 <option value="{{id}}" {{#if isAssociated}} selected="selected" {{/if}}>{{name}}</option>
                                                 {{/each}}

@@ -67,7 +67,7 @@
 }
 .bar-buttons button{
 	margin: 8px 0;
-}	
+}
 
 .website_tr{
 	background: #f6f6f6;
@@ -84,4 +84,9 @@
 }
 .subscription-entry td{
 	background: #ffe5c7;
+}
+
+.autounit.leagues + div,
+.multiselect.dropdown-toggle {
+  width: 100%;
 }

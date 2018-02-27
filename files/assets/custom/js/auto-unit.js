@@ -365,7 +365,28 @@ function autoUnitPopulateTipsInTemplate(data) {
     var template = element.find('.template-content-tip').html();
     var compiledTemplate = Template7.compile(template);
     var html = compiledTemplate(data);
+
     element.find('.content-tip').html(html);
+
+    element.find('.leagues').each(function(i, e) {
+        $(e).multiselect({
+            includeSelectAllOption: true,
+            enableFiltering: true,
+            maxHeight: 400,
+            numberDisplayed: 1,
+            onChange: function(option, checked) {
+                var values = [];
+                var optGroupLabel = $(option).parent().attr('label');
+                $('#menu optGroup[label="'+optGroupLabel+'"] option').each(function() {
+                   if ($(this).val() !== option.val()) {
+                      values.push($(this).val());
+                   }
+                });
+                // $(e).multiselect('deselect', values);
+            },
+        });
+    });
+
 }
 
 // functions
