@@ -557,7 +557,7 @@ function getEventsAssociations(argTable, date = '0') {
                     (e.status) ? e.status.name: '???',
                     e.eventDate,
                     e.systemDate,
-                    buttons + ' ' + e.distributedNumber,
+                    buttons + ' ' + e.distributedNumber + ' ' + e.provider,
                 ] ).draw(false).node();
 
                 // add data-id attribute to inserted row
