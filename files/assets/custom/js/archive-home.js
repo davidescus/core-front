@@ -62,10 +62,20 @@ config.archiveHome.on('click', '.publishInSite', function() {
 // Clickable - save configuration
 // save home archive configuration.
 config.archiveHome.on('click', '.save-configuration', function() {
+
     var param = {
         siteId: config.archiveHome.find('.select-site').val(),
         tableIdentifier: config.archiveHome.find('.select-table').val(),
+        eventsNumber: config.archiveHome.find('.events-number').val(),
+        dateStart: config.archiveHome.find('.date-start').val(),
     };
+
+    var message = "Events before: " + param.dateStart + " will be deleted\n";
+    message += "It will be keep only " + param.eventsNumber + " in descending order.\n";
+    message += "You can not undo this operation!";
+
+    if (! confirm(message))
+       return;
 
     if (param.siteId == '-' || param.tableIdentifier == '-')
         return;
@@ -74,8 +84,8 @@ config.archiveHome.on('click', '.save-configuration', function() {
         url: config.coreUrl + "/archive-home/save-configuration?" + $.param(param) + "&" + getToken(),
         type: "post",
         data: {
-            eventsNumber: config.archiveHome.find('.events-number').val(),
-            dateStart: config.archiveHome.find('.date-start').val(),
+            eventsNumber: param.eventsNumber,
+            dateStart: param.dateStart,
         },
         success: function (response) {
             config.archiveHome.find('.select-table').change();
