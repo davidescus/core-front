@@ -21,6 +21,7 @@
 
     // user was logged in , so serve dashboard
     if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn']) {
+        $config = include "config.php";
         include "common/header.php";
 
         echo '<div class="page-container">';
