@@ -145,6 +145,12 @@ config.subscription.on('click', '.new-subscription .save', function() {
     });
 });
 
+// Clickable --- save new subscription
+// show subscription according to subscription Type
+config.subscription.on('change', '.select-subscription-type', function() {
+    subscriptionShowSubscriptionsActiveInactiveAll($(this).val());
+});
+
 // Clickable --- delete an existing subscription
 // delete subscription
 config.subscription.on('click', '.table-subscription .delete', function() {
@@ -323,9 +329,27 @@ function subscriptionShowAllSubscriptions() {
             var compiledTemplate = Template7.compile(template);
             var html = compiledTemplate(data);
             element.find('.table-subscription').html(html);
+
+            subscriptionShowSubscriptionsActiveInactiveAll(
+                config.subscription.find('.select-subscription-type').val()
+            );
         },
         error: function (xhr, textStatus, errorTrown) {
             manageError(xhr, textStatus, errorTrown);
         }
     });
+}
+
+// Functions
+// Show subscriptions active | incative | all
+function subscriptionShowSubscriptionsActiveInactiveAll(type = 'all') {
+    var table = config.subscription.find('.table-subscription');
+
+    table.find('tr').removeClass('hidden');
+
+    if (type == 'active')
+        table.find('tr[status="archived"]').addClass('hidden');
+
+    if (type == 'inactive')
+        table.find('tr[status="active"]').addClass('hidden');
 }

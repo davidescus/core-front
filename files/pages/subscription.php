@@ -51,6 +51,16 @@
                         <li class="li-create-customer hidden">
                             <button type="button" class="btn green create-customer">Create Customer</button>
                         </li>
+                        <li>
+                            <div class="form-group">
+                                <label class="control-label">Subscription Type</label>
+                                <select class="form-control select-subscription-type select2 table_import_filter_select">
+                                   <option value="all" selected="selected">All</option>
+                                   <option value="active">Active</option>
+                                   <option value="inactive">Inactive</option>
+                                </select>
+                            </div>
+                        </li>
                     </ul>
 
                     <div class="subscription-values"></div>
@@ -143,7 +153,7 @@
                             </thead>
                             <tbody>
                                 {{#each subscriptions}}
-                                <tr data-id="{{id}}">
+                                <tr data-id="{{id}}" status="{{status}}">
                                     <td>{{id}}</td>
                                     <td>{{name}}</td>
                                     <td>{{customerEmail}}</td>
