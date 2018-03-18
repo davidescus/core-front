@@ -155,6 +155,24 @@ config.distribution.on('click', '.actions .subscription-restricted-tips', functi
     });
 });
 
+// Actions
+// Select all sites where email was not sent
+config.distribution.on('click', '.actions .select-unsent', function() {
+    config.distribution.find('.table-content .use[email-sent="not-sent"]').prop('checked', true);
+});
+
+// Actions
+// Select all sites where event was not published
+config.distribution.on('click', '.actions .select-unpublish', function() {
+    config.distribution.find('.table-content .use[event-publish="not-publish"]').prop('checked', true);
+});
+
+// Actions
+// clear all selection
+config.distribution.on('click', '.actions .clear-selection', function() {
+    config.distribution.find('.table-content .use').prop('checked', false);
+});
+
     /*
      *  ----- Modals -----
     ----------------------------------------------------------------------*/

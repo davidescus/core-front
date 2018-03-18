@@ -49,6 +49,9 @@
                         <li><a class="publish"> Publish </a></li>
                         <li><a class="delete"> Delete </a></li>
                         <li><a class="subscription-restricted-tips"> Manage Users </a></li>
+                        <li><button class="btn btn-primary select-unsent"> Select all unsent </button></li>
+                        <li><button class="btn btn-primary select-unpublish"> Select all unpublish </button></li>
+                        <li><button class="btn btn-primary clear-selection"> Clear all </button></li>
                     </ul>
                 </div>
             </div>
@@ -109,7 +112,12 @@
                                         {{#each events}}
                                             <tr>
                                                 <td>
-                                                    <input class="use" type="checkbox" data-site-id="{{siteId}}" data-event-id="{{id}}"/>
+                                                    <input class="use"
+                                                    email-sent=
+                                                    "{{#if isEmailSend}}sent{{else}}not-sent{{/if}}"
+                                                    event-publish=
+                                                    "{{#if isPublish}}publish{{else}}not-publish{{/if}}"
+                                                    type="checkbox" data-site-id="{{siteId}}" data-event-id="{{id}}"/>
                                                 </td>
                                                 {{#if isNoTip}}
                                                     <td colspan="7">NO TIP</td>
