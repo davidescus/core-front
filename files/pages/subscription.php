@@ -172,7 +172,7 @@
                                 </tr>
                                     {{#if childrens}}
                                         {{#each childrens}}
-                                        <tr data-id="{{id}}">
+                                        <tr data-id="{{id}}" status="{{status}}">
                                             <td>{{id}}</td>
                                             <td>ParentId: {{parentId}}<br/>{{name}}</td>
                                             <td>{{customerEmail}}</td>
