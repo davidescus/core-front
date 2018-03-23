@@ -155,7 +155,7 @@
                                 {{#each subscriptions}}
                                 <tr data-id="{{id}}" status="{{status}}">
                                     <td>{{id}}</td>
-                                    <td>{{name}}</td>
+                                    <td>{{#if parentId}} ParentId: {{parentId}} <br/> {{/if}}{{name}}</td>
                                     <td>{{customerEmail}}</td>
                                     <td>{{siteName}}</td>
                                     <td>{{type}}</td>
